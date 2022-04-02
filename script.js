@@ -30,4 +30,3 @@ else if(localStorage.getItem("theme") == "light"){
 else{
     localStorage.setItem("theme", "dark");
 }
-
