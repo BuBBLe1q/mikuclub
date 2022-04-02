@@ -503,3 +503,71 @@ nav{
     transition: 0.3s;
     color: #fff;
 }
+.settings-menu a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 5px ;
+}
+.settings-menu{
+    position: absolute;
+    width: 90%;
+    max-width: 350px;
+    height: 400px;
+    background:  #2c2c2c;
+    box-shadow:  0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
+    overflow: hidden;
+    top: 115%;
+    right: 5%;
+    color: white;
+   
+}
+.settings-menu p{
+    padding: 5px;
+}
+
+.user-profile i{
+font-size: 20px;
+margin-right: 10px;
+}
+.user-profile a{
+    color: #fe54fe;
+}
+.user-profile  .bx-caret-down{
+    font-size: 15px;
+}
+.settings-menu-inner{
+    padding: 20px;
+    
+}
+.settings-menu hr{
+    border: 0;
+    height: 1px;
+    background: #757575;
+    margin: 15px 0;
+}
+.setting-links{
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+
+}
+
+.setting-links .bx{
+    font-size: 20px;
+    position: relative;
+    margin: 0px 0px 3px;
+}
+.settings-menu .settings-menu-inner .user-profile{
+    transition: 0.3s;
+}
+.settings-menu .settings-menu-inner .user-profile:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.bxs-chevron-right:before{
+    content: "\ed3b";
+    position: absolute;
+    margin: -11px 0px;
+}
