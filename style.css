@@ -514,16 +514,15 @@ nav{
 }
 .footer{
     text-align: center;
-    
-    padding: 10px 0 20px;
+    width: 65%;
+    align-items: center;
+    margin: 0px 19% 0px;
     font-size: 13px;
-}
-.footer a{
     text-decoration: none;
     color: rgb(65, 65, 65);
     transition: 0.3s;
 }
-.footer a:hover{
+.footer:hover{
     transition: 0.3s;
     color: var(--text-color);
 }
@@ -637,4 +636,42 @@ margin-right: 10px;
     position:absolute;
     padding-top: 0px;
     padding-left:   190px;
+} 
+/* Profile Page */
+
+.profile-container{
+    padding: 20px 15%;
+    color: #626262;
+}
+.cover-img{
+    margin-left: 10%;
+    width: 80%;
+    border-radius: 6px;
+    margin-bottom: 14px;
+}
+.profile-details{
+    background: var(--bg-color);
+    padding: 20px;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.pd-row{
+    display: flex;
+    align-items: flex-start;
+}
+.pd-image{
+    width: 100px;
+    margin-right: 20px;
+    border-radius: 6px;
+}
+.pd-row div h3{
+    font-size: 25px;
+    font-weight: 600;
+}
+.pd-row div p{
+    font-size: 13px;
 }

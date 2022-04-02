@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+        <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+</head>
+<body>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');</style>
+   
+    <nav>
+        <div class="nav-left" >
+            <a href="/index.html"> <img src="images/logo-1.png" class="logo"></a>
+            <a href="/index.html"><img src="images/logo-2.png" class="logo-2"></a>
+            <ul>
+                <li>
+                    <span class="material-icons-outlined">
+                        notifications
+                        </span>
+                                                    
+                </li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <span class="material-icons-outlined">
+                    search
+                    </span>
+                <input type="text" placeholder="Поиск...">
+            </div>
+            <div class="nav-user-icon online" onclick="settingsMenuToggle()"> 
+                <img src="images/profile-11.png">
+            </div>
+        </div>
+<!-- Settings menu -->
+<div class="settings-menu">
+
+<div id="dark-btn">
+    <span></span>
+            </div>
+            <div class="dark-btn-text">
+                <span id="switch-text">Сменить тему</span>
+            </div>    
+
+    <div class="settings-menu-inner">
+        <div class="user-profile">
+            <img src="images/profile-11.png" >
+            <div>
+                <p>VIZXRD</p>
+                <a href="#">Профиль</a>
+            </div>
+            </div>
+            <hr>
+            <div class="user-profile">
+                <i class='bx bxs-megaphone' ></i>
+                <div>
+                    <p>Feedback</p>
+                    <a href="#">Помочь проекту</a>
+                </div>
+        </div>
+        <hr>
+
+        <div class="setting-links">
+            <i class='bx bx-cog' ></i>
+            <a href="#">Настройки и приватность <i class='bx bxs-chevron-right'></i></a>
+        </div>
+        <hr>
+        <div class="setting-links">
+            <i class='bx bx-help-circle' ></i>
+            <a href="#">Помощь <i class='bx bxs-chevron-right'></i></a>
+        </div>
+        <hr>
+        <div class="setting-links">
+            <i class='bx bx-desktop' ></i>
+            <a href="#">Настройки отображения <i class='bx bxs-chevron-right'></i></a>
+        </div>
+        <hr>
+        <div class="setting-links">
+            <i class='bx bxs-log-out' ></i>
+            <a href="#">Выйти </a>
+        </div>
+    </div>
+        </nav>
+
+    <!-- Profile Page -->
+
+
+        <div class="profile-container">
+            <img src="images/cover1.png" class="cover-img">
+            <div class="profile-details">
+                <div class="pd-left">
+                    <div class="pd-row">
+                        <img src="images/profile-1.png" class="pd-image">
+                        <div>
+                            <h3>VIZXRD</h3>
+                                <p>120 Friends - 20 Mutual</p>
+                            </div>
+                            </div>
+                    </div>
+                <div class="pd-right"></div>
+            </div>
+        </div>
+
+
+
+<div class="footer">
+    <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
+    <br/>
+    <a href="/index.html"> <img src="images/logo-1.png" class="logo"></a>
+    <a href="/index.html"><img src="images/logo-2.png" class="logo-2"></a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
