@@ -521,7 +521,12 @@ nav{
     top: 115%;
     right: 5%;
     color: white;
+    max-height: 0;
+    transition: max-height 0.3s;
    
+}
+.settings-menu-height{
+    max-height: 400px;
 }
 .settings-menu p{
     padding: 5px;
@@ -569,5 +574,13 @@ margin-right: 10px;
 .bxs-chevron-right:before{
     content: "\ed3b";
     position: absolute;
-    margin: -11px 0px;
+    margin: -8px -10px;
+}
+.setting-links a{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    padding-left: 15px ;
 }
