@@ -4,14 +4,34 @@
     font-family: 'Comfortaa', sans-serif;
     box-sizing: border-box;
 }
+
+:root{
+    --body-color: #0a0a0a;
+    --nav-color:  #19191a;
+    --bg-color: #19191a;
+    --icon-color: #fe54fe;
+    --side-color: #6dcfd6;
+    --text-color: #fff
+}
+/* Light Theme */
+ .light-theme{
+    --body-color: #d6d6d6;
+    --nav-color:  #efefef;
+    --bg-color: #efefef;
+    --icon-color: #3454d1;
+    --side-color: #6dcfd6;
+    --text-color: #000
+} 
+
 body{
-    background: #0a0a0a;
+    background: var(--body-color);
+    transition: background 0.3s;
 }
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #19191a;
+    background: var(--nav-color);
     padding: 5px 5%;
     position: sticky;
     top: 0;
@@ -46,7 +66,7 @@ nav{
     margin: 0 30px;
 }
 .nav-left .material-icons-outlined{
-    color: #fe54fe;
+    color: var(--icon-color);
     cursor: pointer;
     padding-top: 3px;
     zoom: 0%;
@@ -54,7 +74,7 @@ nav{
 }
 
 .material-icons-outlined{
-    color: #fe54fe;
+    color: var(--icon-color);
     cursor: pointer;
     align-items: center;
 }
@@ -77,11 +97,13 @@ nav{
     align-items: center;
     padding: 0 15px;
     transition: 0.3s;
+    transition-delay: 3s;
+    border: 1px solid var(--icon-color);
 }
 .search-box:hover{
     width: 400px;
     transition: 0.3s;
-    background: #2d2d2e;
+    background: var(--nav-color);
 }
 .search-box img{
     width: 18px;
@@ -92,7 +114,7 @@ nav{
     padding: 10px;
     outline: none;
     border: 0;
-    color: #fff;
+    color: var(--text-color);
     padding-top: 14px;
 }
 
@@ -127,7 +149,7 @@ nav{
     position: sticky;
     top: 70px;
     align-self: flex-start;
-    background: #19191a;
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 4px;
 
@@ -139,9 +161,9 @@ nav{
 .imp-links a {
     padding: 21px;
     text-decoration: none;
-    background: #19191a;
+    background: var(--bg-color);
     font-weight: 600;
-    color: #fff;
+    color: var(--text-color);
     display: flex;
     border-radius: 50px;
     align-items: center;
@@ -151,7 +173,7 @@ nav{
 }
 .imp-links a:hover{
     transition: 0.3s;
-    background: #2d2d2e;
+    background: var(--bg-color);
     width: 220px;
 }
 .imp-links a span{
@@ -160,7 +182,7 @@ nav{
     margin-right: 15px;
 }
 .imp-links a:last-child{
-    color: #fe54fe;
+    color: var(--icon-color);
     background: none;
 }
 
@@ -169,7 +191,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 18px;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .sidebar-title h4{
@@ -177,7 +199,7 @@ nav{
     font-size: 16px;
 }
 .sidebar-title a{
-    color: #fe54fe;
+    color: var(--icon-color);
     text-decoration: none;
     font-size: 12px;
 }
@@ -191,8 +213,8 @@ nav{
 
 }
 .left-event{
-    background: #2d2d2e;
-    color: #fff;
+    background: var(--body-color);
+    color: var(--text-color);
     border-radius: 10px;
     height: 65px;
     width: 65px;
@@ -201,7 +223,8 @@ nav{
     text-align:center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(90, 90, 90, 0.1);
+    cursor: pointer;
+    /* box-shadow: 0 0 10px rgba(90, 90, 90, 0.1); */
 }
 .event p{
     font-size: 12px;
@@ -209,7 +232,7 @@ nav{
 .event a{
     font-size: 12px;
     text-decoration: none;
-    color: #fe54fe;
+    color: var(--icon-color);
 }
 .left-event span{
     position: absolute;
@@ -217,7 +240,7 @@ nav{
     left: 0;
     width: 100%;
     background: #34d1bf;
-    color: #000;
+    color: var(--text-color);
     font-size: 10px;
     padding: 4px 0;
     
@@ -231,7 +254,7 @@ nav{
     position: relative;
     left: 10px;
     top: 10px;
-    color: #fff;
+    color: var(--text-color);
 }
 .story-gallery{
     display: flex;
@@ -253,19 +276,18 @@ nav{
     border-radius: 50%;
     top: 10px;
     left: 10px;
-    border: 10px solid #ffffff;
 }
 .story span{
     position: relative;
-    background-color: #000000;
+    background-color: var(--body-color);
     border-radius: 50%;
     top: 10px;
-    border: 2px solid #fe54fe;
+    border: 2px solid var(--icon-color);
     
 }
 .story img{
     position: relative;
-    border: 2px solid #fe54fe;
+    border: 2px solid var(--icon-color);
     width: 35px;
     height: 35px;
     top: -120px;
@@ -309,11 +331,11 @@ nav{
 
 .write-post-container{
     width: 100%;
-    background: #19191a;
+    background: var(--bg-color);
     border-radius: 6px;
     padding: 20px;
-    columns: #626262;
-    color: white;
+    /* columns: #797979; */
+    color: var(--text-color);
 }
 .user-profile{
     display: flex;
@@ -338,26 +360,28 @@ nav{
     cursor: pointer;
 }
 .bx{
-    color: #fe54fe;
+    color: var(--icon-color);
 }
 .post-input-container{
     padding-left: 55px;
     padding-top: 20px;
+    
 }
 .post-input-container textarea{
     padding: 5px 5px;
-    width: 30%;
+    width: 50%;
     border: 0;
     outline: 0;
-    border-bottom: 1px solid rgb(133, 133, 133);
+    border-bottom: 1px solid var(--icon-color);
     background: transparent;
     resize: none;
-    color: white;
+    color: var(--text-color);
     transition: 0.3s;
     transition-delay: 3s;
+    
 }
 .post-input-container textarea:hover{
-    background: #0a0a0a;
+    background: var(--body-color);
     transition: 0.5s;
     overflow: hidden;
     width: 100%;
@@ -370,13 +394,13 @@ nav{
 .add-post-links a:hover{
     transform: scale(1.1);
     transition: 0.3s;
-    text-shadow: 0px 6px 5px #000000;
+
 }
 .add-post-links a{
     text-decoration: none;
     display: flex ;
     align-items: center;
-    color: white;
+    color: var(--text-color);
     margin-right: 30px;
     font-size: 13px;
     transition: 0.3s;
@@ -403,10 +427,10 @@ nav{
 }
 .post-container{
     width: 100%;
-    background: #19191a;
+    background: var(--bg-color);
     border-radius: 6px;
     padding: 20px;
-    color: white;
+    color: var(--text-color);
     margin: 20px 0;
 }
 .user-profile span{
@@ -414,17 +438,17 @@ nav{
     color: #757575;
 }
 .post-text{
-    color: white;
+    color: var(--text-color);
     margin: 15px 0;
     font-size: 15px;
 }
 .post-text a{
-    color: #fe54fe;
+    color: var(--icon-color);
     text-decoration: none;
     transition: 0.5s;
 }
 .post-text a:hover{
-    text-shadow: 0px 0px 3px #fe54fe;
+    text-shadow: 0px 0px 3px var(--icon-color);
     transition: 0.5s;
 }
 .post-img{
@@ -446,7 +470,7 @@ nav{
     transition: 0.3s;
 }
 .activity-icons div i:hover{
-    text-shadow: 0px 0px 1px #fe54fe;
+    text-shadow: 0px 0px 1px var(--icon-color);
     transition: 0.3s;
     transform: scale(1.1);
 }
@@ -476,16 +500,16 @@ nav{
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #2c2c2c;
-    color:  white;
+    color:  var(--text-color);
     background: transparent;
     border-radius: 20px;
     transition: 0.5s;
 }
 .load-more-btn:hover{
-    background: #fe54fe;
-    color: #000;
+    background: var(--icon-color);
+    color: var(--text-color);
     transition: 0.5s;
-    border: 1px solid #fe54fe;
+    border: 1px solid var(--icon-color);
     font-weight: 700;
 }
 .footer{
@@ -501,11 +525,11 @@ nav{
 }
 .footer a:hover{
     transition: 0.3s;
-    color: #fff;
+    color: var(--text-color);
 }
 .settings-menu a{
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 12px;
     padding: 5px ;
 }
@@ -514,13 +538,13 @@ nav{
     width: 90%;
     max-width: 350px;
     height: 400px;
-    background:  #2c2c2c;
-    box-shadow:  0 0 10px rgba(0,0,0,0.4);
+    background:  var(--body-color);
+    box-shadow:  0 10px 20px rgba(0,0,0,0.4);
     border-radius: 4px;
     overflow: hidden;
     top: 115%;
     right: 5%;
-    color: white;
+    color: var(--text-color);
     max-height: 0;
     transition: max-height 0.3s; 
    
@@ -566,10 +590,8 @@ margin-right: 10px;
 }
 .settings-menu .settings-menu-inner .user-profile{
     transition: 0.3s;
-}
-.settings-menu .settings-menu-inner .user-profile:hover{
-    transform: scale(1.05);
-    transition: 0.3s;
+    width: 180px;
+    cursor: pointer;
 }
 .bxs-chevron-right:before{
     content: "\ed3b";
@@ -583,4 +605,36 @@ margin-right: 10px;
     justify-content: space-between;
     text-decoration: none;
     padding-left: 15px ;
+    cursor: pointer;
+}
+/* Light Theme */
+#dark-btn{
+    position: absolute;
+    top: 27px;
+    right: 20px;
+    background: #fe54fe;
+    width: 45px;
+    border-radius: 15px;
+    padding: 2px 3px;
+    cursor: pointer;
+    display: flex;
+    transition: padding-left 0.5s, background 0.5s;
+}
+#dark-btn span{
+    width: 18px;
+    height: 18px;
+    background: var(--body-color);
+    border-radius: 50px;
+    display: inline-block;
+}
+#dark-btn.dark-btn-on{
+    padding-left: 23px;
+    background: #ffffff;
+
+} 
+.dark-btn-text{
+    display:block;
+    position:absolute;
+    padding-top: 0px;
+    padding-left:   190px;
 }
