@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<h2>Sign Up</h2>
+<form method="post">
+  {% csrf_token %}
+<!--  {{ form.as_p }}-->
+
+  <input type="text" name="username" maxlength="150" required="">
+  <input type="email" name="email" maxlength="254" required id="id_email">
+  <input type="password" name="password1" autocomplete="new-password" required id="id_password1">
+  <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+
+  {{ form.errors }}
+  <button type="submit">Sign Up</button>
+</form>
+{% endblock %}
