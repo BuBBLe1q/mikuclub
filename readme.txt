@@ -7,3 +7,5 @@ venv\Scripts\Activate.ps1
 source ./venv/bin/activate
 pip install -r requirements.txt
 python manage.py runserver
+
+python gen_preview.py
