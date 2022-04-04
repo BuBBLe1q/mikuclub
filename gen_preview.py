@@ -58,7 +58,7 @@ for file in req_dic:
     resp = resp.replace("/profile\"", "profile.html\"")
     resp = resp.replace("\"/static", "\"static")
     resp = resp.replace("\"/\"", "\"index.html\"")
-    with open("preview/" + file, "w") as f:
+    with open("docs/" + file, "w") as f:
         f.write(resp)
     print(file + " dowlanded")
 
