@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="F:\MIKUCLUB-SITE-ALPHA\mikuclub\venv"
+VIRTUAL_ENV="F:\MIKUCLUB-SITE-ALPHA\mikuclub-murloc_branch\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

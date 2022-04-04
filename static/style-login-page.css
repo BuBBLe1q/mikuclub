@@ -40,7 +40,6 @@ place-items: center;
   
   
   nav {
-    margin-top: -5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1049,58 +1048,33 @@ place-items: center;
     transition: 0.3s;
     transform: scale(1.1);
     background: var(--icon-color);
-    cursor: pointer;
 
   }
-.container-login .option{
+.container .option{
     font-size: 14px;
     text-align: center;
-    color: var(--text-color);
   }
-.container-login .twitter a,
-.container-login .vk a,
-.container-login .apple a{
+.container .twitter a,
+.container .vk a{
     display:block;
     width: 100%;
     height:45px;
     font-size:15px;
     text-decoration:none;
     color: var(--text-color);
-    line-height:45px;
+    line-high:45px;
     border-radius: 5px;
   }
-.container-login .twitter i,
-.container-login .vk i,
-.container-login .apple i{
-  margin-top: 10px;
+.container .twitter i,
+.container .vk i{
     padding-right:12px;
     font-size:20px;
-    color: var(--text-color);
 }
-
-.container-login .twitter a,
-.container-login .apple a,
-.container-login .vk a{
-  transition: 0.3s;
-  padding: 0px 8%;
+.container .twitter a{
     margin: 20px 0 15px 0;
-background: var(--body-color);
+background: linear-gradient(to left, #00acee 0%, #1abeff 100%);
 }
-.container-login .twitter a:hover{
-  transition: 0.3s;
-  padding: 0px 8%;
-    margin: 20px 0 15px 0;
-box-shadow: 0 0px 50px inset #1abeff;
-}
-.container-login .vk a:hover{
-  transition: 0.3s;
-  padding: 0px 8%;
+.container .vk a{
      margin: 20px 0 15px 0;
-box-shadow: 0 0 50px inset #1443aa ;
-}
-.container-login .apple a:hover{
-  transition: 0.3s;
-  padding: 0px 8%;
-     margin: 20px 0 15px 0;
-box-shadow: 0 0 50px inset #858585 ;
+background: linear-gradient(to left, #3b5998 0%, #476bb8 100%);
 }
