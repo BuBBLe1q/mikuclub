@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Р РµРіРёСЃС‚СЂР°С†РёСЏ</title>
-    <link rel="shortcut icon" type="image/jpg" href="static/images/favicon.ico"/>
-        <link rel="stylesheet" href="static/style-signup-page.css">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" type="image/jpg" href="  /static/images/favicon.ico"/>
+        <link rel="stylesheet" href="  /static/style-signup-page.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 </head>
@@ -15,8 +15,8 @@
    <!-- Nav Bar -->
     <nav>
         <div class="nav-left" >
-            <a href="index.html"> <img src="static/images/logo-1.png" class="logo"></a>
-            <a href="index.html"><img src="static/images/logo-2.png" class="logo-2"></a>
+            <a href="  /templates/index.html"> <img src="  /static/images/logo-1.png" class="logo"></a>
+            <a href="  /templates/index.html"><img src="  /static/images/logo-2.png" class="logo-2"></a>
             <ul>
                 <li>
                     <span class="material-icons-outlined">
@@ -31,10 +31,10 @@
                 <span class="material-icons-outlined">
                     search
                     </span>
-                <input type="text" placeholder="РџРѕРёСЃРє...">
+                <input type="text" placeholder="Поиск...">
             </div>
             <div class="nav-user-icon online" onclick="settingsMenuToggle()"> 
-                <img src="static/images/profile-11.png">
+                <img src="  /static/images/profile-11.png">
             </div>
         </div>
 
@@ -45,15 +45,15 @@
     <span></span>
             </div>
             <div class="dark-btn-text">
-                <span id="switch-text">РЎРјРµРЅРёС‚СЊ С‚РµРјСѓ</span>
+                <span id="switch-text">Сменить тему</span>
             </div>    
 
     <div class="settings-menu-inner">
         <div class="user-profile">
-            <img src="static/images/profile-11.png" >
+            <img src="  /static/images/profile-11.png" >
             <div>
                 <!-- <p></p> -->
-                <a href="/templates/profile.html">РџСЂРѕС„РёР»СЊ</a>
+                <a href="  /templates/profile.html">Профиль</a>
             </div>
             </div>
             <hr>
@@ -61,69 +61,67 @@
                 <i class='bx bxs-megaphone' ></i>
                 <div>
                     <p>Feedback</p>
-                    <a href="https://discord.gg/CT28eSAKGQ">РџРѕРјРѕС‡СЊ РїСЂРѕРµРєС‚Сѓ</a>
+                    <a href="https://discord.gg/CT28eSAKGQ">Помочь проекту</a>
                 </div>
         </div>
         <hr>
 
         <div class="setting-links">
             <i class='bx bx-cog' ></i>
-            <a href="#">РќР°СЃС‚СЂРѕР№РєРё Рё РїСЂРёРІР°С‚РЅРѕСЃС‚СЊ <i class='bx bxs-chevron-right'></i></a>
+            <a href="#">Настройки и приватность <i class='bx bxs-chevron-right'></i></a>
         </div>
         <hr>
         <div class="setting-links">
             <i class='bx bx-help-circle' ></i>
-            <a href="#">РџРѕРјРѕС‰СЊ <i class='bx bxs-chevron-right'></i></a>
+            <a href="#">Помощь <i class='bx bxs-chevron-right'></i></a>
         </div>
         <hr>
         <div class="setting-links">
             <i class='bx bx-desktop' ></i>
-            <a href="#">РќР°СЃС‚СЂРѕР№РєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ <i class='bx bxs-chevron-right'></i></a>
+            <a href="#">Настройки отображения <i class='bx bxs-chevron-right'></i></a>
         </div>
         <hr>
         <div class="setting-links">
             <i class='bx bxs-log-out' ></i>
-            <a href="#">Р’С‹Р№С‚Рё </a>
+            <a href="#">Выйти </a>
         </div>
-        <a href="/templates/registration/login.html">
-          <button class="login-button">Р’РѕР№С‚Рё</button>
+        <a href="  /templates/registration/login.html">
+          <button class="login-button">Войти</button>
       </a>
-      <a href="/templates/registration/signup.html">
-          <button class="register-button">Р РµРіРёСЃС‚СЂР°С†РёСЏ</button>
+      <a href="  templates/registration/signup.html">
+          <button class="register-button">Регистрация</button>
       </a>
     </div>
         </nav>
 
 <!-- Reg Form -->
 <div class="container-signup">
-  <div class="title">Р РµРіРёСЃС‚СЂР°С†РёСЏ</div>
-  <form method="post">
-      <input type="hidden" name="csrfmiddlewaretoken" value="9V5l6U9ote0nRckn7E55smhB3LMRTZqM3s4LtiFKT9ftDU0EqexDKWmuO8bE4xMi">
+  <div class="title">Регистрация</div>
+  <form action="#">
     <div class="user-details">
       <div class="input-box">
-        <span class="details">Р’Р°С€Рµ РёРјСЏ</span>
-<!--          TODO СЃРґРµР»Р°С‚СЊ РёРјСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рј-->
-        <input type="text" placeholder="Р’РІРµРґРёС‚Рµ РёРјСЏ">
+        <span class="details">Ваше имя</span>
+        <input type="text" placeholder="Введите имя" required>
       </div>
       <div class="input-box">
-        <span class="details">РќРёРєРЅРµР№Рј</span>
-        <input type="text" placeholder="РџСЂРёРґСѓРјР°Р№С‚Рµ РЅРёРєРЅРµР№Рј" name="username" required>
+        <span class="details">Никнейм</span>
+        <input type="text" placeholder="Придумайте никнейм" required>
       </div>
       <div class="input-box">
         <span class="details">E-mail</span>
-        <input type="text" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€ E-mail" name="email" required>
+        <input type="text" placeholder="Введите ваш E-mail" required>
       </div>
       <div class="input-box">
-        <span class="details">РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°</span>
-        <input type="text" placeholder="+79123456789">
+        <span class="details">Номер телефона</span>
+        <input type="text" placeholder="+79123456789" required>
       </div>
       <div class="input-box">
-        <span class="details">РџР°СЂРѕР»СЊ</span>
-        <input type="password" placeholder="РџСЂРёРґСѓРјР°Р№С‚Рµ РїР°СЂРѕР»СЊ" name="password1" required>
+        <span class="details">Пароль</span>
+        <input type="password" placeholder="Придумайте пароль" required>
       </div>
       <div class="input-box">
-        <span class="details">РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РїР°СЂРѕР»СЏ</span>
-        <input type="password" placeholder="РџРѕРІС‚РѕСЂРёС‚Рµ РїР°СЂРѕР»СЊ" name="password2" required>
+        <span class="details">Подтверждение пароля</span>
+        <input type="password" placeholder="Повторите пароль" required>
       </div>
     </div>
 
@@ -131,26 +129,25 @@
       <input type="radio" name="gender" id="dot-1">
       <input type="radio" name="gender" id="dot-2">
       <input type="radio" name="gender" id="dot-3">
-      <span class="gender-title">РЈРєР°Р¶РёС‚Рµ РІР°С€ РїРѕР»</span>
+      <span class="gender-title">Укажите ваш пол</span>
       <div class="category">
         <label for="dot-1">
           <span class="dot one"></span>
-          <span class="gender">РњСѓР¶СЃРєРѕР№</span>
+          <span class="gender">Мужской</span>
         </label>
         <label for="dot-2">
           <span class="dot two"></span>
-          <span class="gender">Р–РµРЅСЃРєРёР№</span>
+          <span class="gender">Женский</span>
         </label>
         <label for="dot-3">
           <span class="dot three"></span>
-          <span class="gender">РџСЂРµРґРїРѕС‡РёС‚Р°СЋ РЅРµ СѓРєР°Р·С‹РІР°С‚СЊ</span>
+          <span class="gender">Предпочитаю не указывать</span>
         </label>
       </div>
     </div>
     <div class="button">
-      <input type="submit" value="Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ">
+      <input type="submit" value="Зарегистрироваться">
     </div>
-      
   </form>
 
 </div>
@@ -158,11 +155,11 @@
 
 <!-- FOOTER -->
 <div class="footer">
-  <p>В©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
+  <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
   <br/>
-  <a href="/index.html"> <img src="static/images/logo-1.png" class="logo"></a>
-  <a href="/index.html"><img src="static/images/logo-2.png" class="logo-2"></a>
+  <a href="  /index.html"> <img src="  /static/images/logo-1.png" class="logo"></a>
+  <a href="  /index.html"><img src="  /static/images/logo-2.png" class="logo-2"></a>
 </div>
-<script src="static/script.js"></script>
+<script src="  /static/script.js"></script>
 </body>
 </html>
