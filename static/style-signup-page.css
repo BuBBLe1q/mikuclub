@@ -940,7 +940,11 @@ form .button input:hover {
   transform: scale(1.1);
 }
 @media (max-width: 584px) {
+  .search-box{
+    display: none!important;
+  }
   .container-signup {
+    margin-left: 0%!important;
     max-width: 100%;
   }
   form .user-details .input-box {
@@ -954,6 +958,6 @@ form .button input:hover {
     overflow-y: scroll;
   }
   .user-details::-webkit-scrollbar {
-    width: 0;
+    width: 3px;
   }
 }

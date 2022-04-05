@@ -140,7 +140,7 @@ nav .nav-right .search-box {
   border-radius: 50%;
   background: #41db51;
   position: absolute;
-  top: 30px;
+  top: 0px;
   right: 0;
 }
 
@@ -1089,4 +1089,41 @@ form .button input:hover {
   padding: 0px 8%;
   margin: 20px 0 15px 0;
   box-shadow: 0 0 50px inset #858585;
+}
+@media (max-width: 900px) {
+  .search-box {
+    display: none;
+  }
+  html, body{
+    display: block;
+  }
+  .container-login{
+    max-width: 300px;
+    width: 100%;
+    padding: 30px;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+.logo{
+    padding: 5px 0;
+  margin-left: 50%;
+  margin-right: 0px;
+}
+.logo-2{
+  margin-left: 30%;
+}
+.nav-left ul li{
+  display: none;
+}
+.nav-user-icon img{
+  display: none;
+}
+.online::after{
+  display: none;
+  }
+  nav{
+    width: 82%;
+  }
+  
 }
