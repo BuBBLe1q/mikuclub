@@ -1099,9 +1099,9 @@ form .button input:hover {
   }
   .container-login{
     max-width: 350px;
-    width: 100%;
+    width: 84%;
     padding: 15px;
-    margin-left: 16%;
+    margin-left: 6%;
     margin-top: 10px;
     margin-bottom: 5px;
   }
@@ -1110,11 +1110,11 @@ form .button input:hover {
   }
 .logo{
     padding: 0;
-  margin-left: 105%;
+  margin-left: 5%;
   margin-right: 0px;
 }
 .logo-2{
-  margin-left: 70%;
+  margin-left: 30%;
 }
 .nav-left ul li{
   display: none;
