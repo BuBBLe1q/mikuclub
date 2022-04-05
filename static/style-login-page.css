@@ -1098,20 +1098,23 @@ form .button input:hover {
     display: block;
   }
   .container-login{
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
-    padding: 30px;
-    margin-left: 5%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-left: 16%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .container-login form .title{
+    margin-left: 35%;
   }
 .logo{
-    padding: 5px 0;
-  margin-left: 50%;
+    padding: 0;
+  margin-left: 105%;
   margin-right: 0px;
 }
 .logo-2{
-  margin-left: 30%;
+  margin-left: 70%;
 }
 .nav-left ul li{
   display: none;
@@ -1123,7 +1126,13 @@ form .button input:hover {
   display: none;
   }
   nav{
-    width: 82%;
+    margin-top: 0;
+    width: 100%;
   }
-  
+  .footer a img {
+    display: none;
+  }
+  .footer{
+    margin-bottom: 0;
+  }
 }
