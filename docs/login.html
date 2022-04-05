@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Логин</title>
-    <link rel="shortcut icon" type="image/jpg" href="/static/images/favicon.ico"/>
-        <link rel="stylesheet" href="/static/style-login-page.css">
+    <link rel="shortcut icon" type="image/jpg" href="static/images/favicon.ico"/>
+        <link rel="stylesheet" href="static/style-login-page.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 </head>
@@ -15,8 +15,8 @@
    
     <nav>
         <div class="nav-left" >
-            <a href="/index.html"> <img src="/static/images/logo-1.png" class="logo"></a>
-            <a href="/index.html"><img src="/static/images/logo-2.png" class="logo-2"></a>
+            <a href="index.html"> <img src="static/images/logo-1.png" class="logo"></a>
+            <a href="index.html"><img src="static/images/logo-2.png" class="logo-2"></a>
             <ul>
                 <li>
                     <span class="material-icons-outlined">
@@ -34,7 +34,7 @@
                 <input type="text" placeholder="Поиск...">
             </div>
             <div class="nav-user-icon online" onclick="settingsMenuToggle()"> 
-                <img src="/static/images/profile-11.png">
+                <img src="static/images/profile-11.png">
             </div>
         </div>
 <!-- Settings menu -->
@@ -49,9 +49,9 @@
 
     <div class="settings-menu-inner">
         <div class="user-profile">
-            <img src="/static/images/profile-11.png" >
+            <img src="static/images/profile-11.png" >
             <div>
-                <!-- <p>{{ user.username }}</p> -->
+                <!-- <p></p> -->
                 <a href="/templates/profile.html">Профиль</a>
             </div>
             </div>
@@ -94,20 +94,23 @@
         </nav>
       
       <div class="container-login">
-        <form action="#">
+        <form method="post">
+            <input type="hidden" name="csrfmiddlewaretoken" value="ncaLbxjoYsq5O5TFRkG2SH8Hd72ZKlSbAmgo9qZicjhjiXvgpcum6jkvGBuCaHoa">
           <div class="title">Логин</div>
           <div class="input-box">
-            <input type="text" placeholder="Логин / E-mail" required>
+            <input type="text" placeholder="E-mail" name="username" required>
             <div class="underline"></div>
           </div>
           <div class="input-box">
-            <input type="password" placeholder="Пароль" required>
+            <input type="password" placeholder="Пароль" name="password" required>
             <div class="underline"></div>
           </div>
           <div class="input-box button">
             <input type="submit" value="Войти">
             <div class="underline"></div>
           </div>
+            
+
         </form>
         <div class="option">или войти с помощью социальной сети</div>
         <div class="twitter">
@@ -127,9 +130,9 @@
       <div class="footer">
     <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
     <br/>
-    <a href="/index.html"> <img src="/static/images/logo-1.png" class="logo"></a>
-    <a href="/index.html"><img src="/static/images/logo-2.png" class="logo-2"></a>
+    <a href="index.html"> <img src="static/images/logo-1.png" class="logo"></a>
+    <a href="index.html"><img src="static/images/logo-2.png" class="logo-2"></a>
 </div>
-<script src="/static/script.js"></script>
+<script src="static/script.js"></script>
 </body>
 </html>
