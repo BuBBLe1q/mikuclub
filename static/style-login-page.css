@@ -89,11 +89,13 @@ nav {
   padding-top: 8px;
 }
 .nav-user-icon img {
+  display:none;
   width: 40px;
   border-radius: 50%;
   cursor: pointer;
 }
 .nav-user-icon {
+  display:none;
   margin-left: 15px;
 }
 .search-box {
@@ -133,6 +135,7 @@ nav .nav-right .search-box {
   position: relative;
 }
 .online::after {
+  display:none;
   content: "";
   width: 7px;
   height: 7px;
