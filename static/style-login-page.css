@@ -937,7 +937,7 @@ form .button input:hover {
   box-shadow: 0 0px 30px var(--icon-color);
   transform: scale(1.1);
 }
-@media (max-width: 584px) {
+@media (max-width: 1500px) {
   .container-signup {
     max-width: 100%;
   }
@@ -1090,7 +1090,7 @@ form .button input:hover {
   margin: 20px 0 15px 0;
   box-shadow: 0 0 50px inset #858585;
 }
-@media (max-width: 900px) {
+@media (max-width: 1500px) {
   .search-box {
     display: none;
   }
@@ -1126,7 +1126,7 @@ form .button input:hover {
   display: none;
   }
   nav{
-    margin-top: 0;
+    margin-top: 0px;
     width: 100%;
   }
   .footer a img {
