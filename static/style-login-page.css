@@ -33,7 +33,7 @@ body {
 }
 
 nav {
-  margin-top: -5px;
+  margin-top: -16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,6 +65,7 @@ nav {
   align-items: center;
 }
 .nav-left ul li {
+  display:none;
   list-style: none;
   display: inline-block;
 }
@@ -1137,5 +1138,11 @@ form .button input:hover {
   }
   .footer{
     margin-bottom: 0;
+  }
+}
+@media (max-width: 1024px) {
+nav{
+    margin-top: -16px;
+    width: 100%;
   }
 }
