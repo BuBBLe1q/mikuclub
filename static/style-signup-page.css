@@ -1083,19 +1083,39 @@ form .button input:hover {
     transform: scale(1.1);
 }
 
-@media (max-width: 584px) {
+@media (max-width: 540px) {
     .search-box {
         display: none !important;
     }
     .container-signup {
-        margin-left: 0% !important;
-        max-width: 100%;
+        margin-left: 5% !important;
+        max-width: 90%;
+    }
+    .container-signup .title {
+        font-size: 25px;
+        font-weight: 500;
+        text-align: center;
+        position: relative;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .container-signup .title::before {
+        content: "";
+        position: absolute;
+        left: 44px;
+        bottom: 0;
+        height: 3px;
+        width: 183px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
     }
     form .user-details .input-box {
         width: 100%;
     }
     form .gender-details .category {
         width: 100%;
+        font-size: 8px;
+        margin-top: 25px;
+        margin-left: -31px;
     }
     .container-signup form .user-details {
         max-height: 300px;
@@ -1103,5 +1123,21 @@ form .button input:hover {
     }
     .user-details::-webkit-scrollbar {
         width: 3px;
+    }
+    .gender-details .category label {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+    .logo-2 {
+        width: 150px;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+    .logo {
+        width: 50px;
+        margin-left: 0px;
+        cursor: pointer;
+        transition: 0.9s;
     }
 }

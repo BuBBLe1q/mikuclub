@@ -1250,7 +1250,7 @@ form .button input:hover {
     box-shadow: 0 0 50px inset #858585;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 540px) {
     .search-box {
         display: none;
     }
@@ -1263,7 +1263,7 @@ form .button input:hover {
         width: 87%;
         padding: 15px;
         margin-left: 7%;
-        margin-top: 10px;
+        margin-top: 45px;
         margin-bottom: 5px;
     }
     .container-login form .title {
@@ -1271,11 +1271,11 @@ form .button input:hover {
     }
     .logo {
         padding: 0;
-        margin-left: 5%;
+        margin-left: 10%;
         margin-right: 0px;
     }
     .logo-2 {
-        margin-left: 30%;
+        margin-left: 35%;
     }
     .nav-left ul li {
         display: none;
@@ -1298,10 +1298,10 @@ form .button input:hover {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 540px) {
     nav {
         margin-top: -30px;
-        max-width: 370px;
+        max-width: 100%;
         width: 100%;
     }
 }
