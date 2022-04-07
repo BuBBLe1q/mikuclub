@@ -961,7 +961,7 @@ nav .nav-right .search-box {
     grid-gap: 50px;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 0vh;
     margin-top: 0%;
     margin-left: 19%;
     position: absolute;
