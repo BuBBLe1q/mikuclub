@@ -1013,8 +1013,9 @@ nav .nav-right .search-box {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  font-size: 1.2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 19px;
+    text-align: center;
+    font-size: 18px;
 }
