@@ -517,6 +517,7 @@ nav .nav-right .search-box {
   width: 65%;
   align-items: center;
   margin: 0px 19% 0px;
+  margin-top: 24%;
   font-size: 13px;
   text-decoration: none;
   color: rgb(65, 65, 65);
@@ -813,7 +814,7 @@ nav .nav-right .search-box {
   border-radius: 50px;
 }
 /* Media query for index */
-@media (max-width: 1500px) {
+@media (max-width: 540px) {
   .right-sidebar {
     display: none;
   }
@@ -825,8 +826,25 @@ nav .nav-right .search-box {
     flex-wrap: wrap;
   }
   .search-box {
-    display: none;
+    background: transparent;
+    width: 37px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0px 7px;
+    transition: 0.3s;
+    transition-delay: 1.5s;
+    border: 1px solid var(--icon-color);
   }
+  .search-box input {
+    width: 100%;
+    background: transparent;
+    padding: 7px;
+    outline: none;
+    border: 0;
+    color: var(--text-color);
+    padding-top: 10px;
+}
   .logo {
     margin-top: 5px;
     width: 50px;
@@ -879,7 +897,7 @@ nav .nav-right .search-box {
   }
 }
 /* Media query profile */
-@media (max-width: 1500px) {
+@media (max-width: 540px) {
   .profile-container {
     padding: 20px 5%;
   }
@@ -931,6 +949,9 @@ nav .nav-right .search-box {
   .post-col .post-container {
     width: 100%;
   }
+  .container-friends{
+  margin-left: 11%;
+  }
 }
 
 /* Friend List */
@@ -941,6 +962,7 @@ nav .nav-right .search-box {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: 3%;
   background-color: var(--body-color);
 }
 
