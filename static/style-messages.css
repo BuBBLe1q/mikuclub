@@ -1128,7 +1128,7 @@
         margin-left: 34%;
         border: 1px solid var(--border-main-content-messages);
         width: 57%;
-        padding-bottom: 100vh;
+        padding-bottom: 0vh;
         border-radius: 5px;
     }
     
@@ -1138,18 +1138,19 @@
         border-radius: 50px;
         margin-left: 1%;
         margin-top: 0%;
+        position: sticky;
     }
     
     .mainsection-img {
         padding: 10px;
     }
     
-    .main-section-messages .main-section-title {
+    .main-section-messages .mainsection-img h3 {
         cursor: pointer;
-        margin-left: 4%;
-        margin-top: -2.6%;
+        margin-left: 6%;
+        margin-top: -3.5%;
         color: var(--text-color);
-        position: fixed;
+        position: sticky;
     }
     
     .mainsection-img a i.bx.bx-cog {
