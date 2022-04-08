@@ -252,9 +252,11 @@ nav .nav-right .search-box {
     background: var(--body-color);
     color: var(--text-color);
     border-radius: 10px;
-    height: 65px;
-    width: 65px;
+    height: 80px;
+    width: 80px;
     margin-right: 15x;
+    margin-right: 5px;
+    margin-left: -20px;
     padding-top: 10px;
     text-align: center;
     position: relative;
