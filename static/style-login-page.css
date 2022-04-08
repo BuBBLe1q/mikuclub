@@ -1102,6 +1102,7 @@ form .button input:hover {
 }
 
 .container-login {
+    margin-top: 35px;
     background: var(--bg-color);
     max-width: 355px;
     width: 100%;
