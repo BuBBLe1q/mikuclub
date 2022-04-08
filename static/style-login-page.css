@@ -36,13 +36,13 @@ body {
 }
 
 nav {
-    margin-top: -16px;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: var(--nav-color);
     padding: 5px 5%;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -1082,7 +1082,7 @@ form .button input:hover {
     transform: scale(1.1);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 540px) {
     .container-signup {
         max-width: 100%;
     }
@@ -1103,7 +1103,7 @@ form .button input:hover {
 
 .container-login {
     background: var(--bg-color);
-    max-width: 350px;
+    max-width: 355px;
     width: 100%;
     padding: 25px 30px;
     border-radius: 5px;
@@ -1114,9 +1114,9 @@ form .button input:hover {
     color: var(--text-color);
     font-size: 30px;
     font-weight: 600;
-    margin: 20px 0 10px 0;
+    margin: 20px 0px 20px 0;
     position: relative;
-    margin-left: 90px;
+    margin-left: 110px;
 }
 
 .container-login form .title::before {
@@ -1263,7 +1263,7 @@ form .button input:hover {
         width: 87%;
         padding: 15px;
         margin-left: 7%;
-        margin-top: 45px;
+        margin-top: 75px;
         margin-bottom: 5px;
     }
     .container-login form .title {
@@ -1287,7 +1287,7 @@ form .button input:hover {
         display: none;
     }
     nav {
-        margin-top: 0px;
+        margin-top: 0;
         width: 100%;
     }
     .footer a img {
@@ -1295,13 +1295,5 @@ form .button input:hover {
     }
     .footer {
         margin-bottom: 0;
-    }
-}
-
-@media (max-width: 540px) {
-    nav {
-        margin-top: -30px;
-        max-width: 100%;
-        width: 100%;
     }
 }
