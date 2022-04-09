@@ -36,6 +36,7 @@ body {
 }
 
 nav {
+    box-shadow: 0 5px 5px #0a0a0a;
     top: 0;
     display: flex;
     align-items: center;
@@ -1275,7 +1276,7 @@ form .button input:hover {
         padding: 15px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 75px;
+        margin-top: 54px;
         margin-bottom: 5px;
     }
     .container-login form .title {

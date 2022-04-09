@@ -32,6 +32,7 @@ body {
 }
 
 nav {
+    box-shadow: 0 5px 5px #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1012,6 +1013,7 @@ nav .nav-right .search-box {
         flex-wrap: wrap;
     }
     .main-content {
+        margin-left: 80px;
         padding-right: 5px;
         margin-top: 25px;
         flex-basis: 100%;
@@ -1132,5 +1134,15 @@ nav .nav-right .search-box {
         margin-left: -120px;
         transition: 0.3s;
         background: var(--nav-color);
+    }
+    .settings-menu {
+        width: 291px;
+    }
+    .dark-btn-text {
+        font-size: 10px;
+        margin-left: -43px;
+    }
+    .register-button {
+        margin-left: 137px;
     }
 }

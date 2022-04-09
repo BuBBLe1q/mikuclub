@@ -32,6 +32,7 @@ body {
 }
 
 nav {
+    box-shadow: 0 5px 5px #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1134,6 +1135,42 @@ nav .nav-right .search-box {
         margin-left: -120px;
         transition: 0.3s;
         background: var(--nav-color);
+    }
+    .left-menu-messages {
+        margin-left: 2px!important;
+        width: 125px;
+    }
+    .friend-image {
+        margin-left: 0px;
+        width: 110px;
+    }
+    .messages-list {
+        margin-top: -95px!important;
+        width: 118px!important;
+        margin-left: -11px!important;
+    }
+    .messages-list h4 {
+        margin-bottom: 3px;
+        margin-top: -40px;
+        display: flex;
+        margin-left: 45px;
+    }
+    .messages-list p {
+        color: #626262;
+        color: #626262;
+        white-space: nowrap;
+        max-width: 72%;
+        text-overflow: ellipsis;
+        margin-left: 46px;
+        overflow: hidden;
+        font-size: 10px;
+    }
+    .messages-list .friend {
+        margin-top: -104px;
+        width: 117px;
+    }
+    .left-sidebar {
+        display: none;
     }
 }
 
