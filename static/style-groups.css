@@ -1147,14 +1147,42 @@ nav .nav-right .search-box {
     .register-button {
         margin-left: 137px;
     }
-}
-
-.groups-grid {
+    .create-group {
+    margin-left: 129px;
+    background-color: #757575;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 142px;
+    border-radius: 10px;
+    color: var(--text-color);
+    }
+    .create-group i.group-number {
+    margin-left: -130px;
+    display: flex;
+    flex-wrap: wrap;
+    font-style: normal;
+    }
+    .groups-grid {
     background-color: var(--bg-color);
     margin-left: -180px;
     margin-right: auto;
     align-items: center;
-    width: 400px;
+    width: 290px;
+    height: 76vh;
+    color: var(--text-color);
+    border-radius: 15px;
+    overflow: scroll;
+    }
+}
+
+.groups-grid {
+    background-color: var(--bg-color);
+    margin-left: -29px;
+    margin-right: auto;
+    align-items: center;
+    width: 290px;
     height: 76vh;
     color: var(--text-color);
     border-radius: 15px;
