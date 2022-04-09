@@ -1182,7 +1182,7 @@ nav .nav-right .search-box {
     margin-left: -29px;
     margin-right: auto;
     align-items: center;
-    width: 290px;
+    width: 400px;
     height: 76vh;
     color: var(--text-color);
     border-radius: 15px;
@@ -1195,7 +1195,7 @@ nav .nav-right .search-box {
 
 .container .all {
     margin-top: 13px;
-    margin-left: 30%;
+    margin-left: 19%;
 }
 
 .groups-grid .group-img img {
