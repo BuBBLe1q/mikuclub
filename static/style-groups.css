@@ -1148,7 +1148,7 @@ nav .nav-right .search-box {
         margin-left: 137px;
     }
     .create-group {
-    margin-left: 129px;
+    margin-left: 129px!important;
     background-color: #757575;
     padding: 5px;
     display: flex;
@@ -1159,7 +1159,7 @@ nav .nav-right .search-box {
     color: var(--text-color);
     }
     .create-group i.group-number {
-    margin-left: -130px;
+    margin-left: -130px!important;
     display: flex;
     flex-wrap: wrap;
     font-style: normal;
