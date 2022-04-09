@@ -102,14 +102,12 @@ nav {
 }
 
 .nav-user-icon img {
-    display: none;
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
 }
 
 .nav-user-icon {
-    display: none;
     margin-left: 15px;
 }
 
@@ -989,6 +987,15 @@ form .user-details .input-box {
     width: calc(100% / 2 - 20px);
 }
 
+.input-box :is(label, i) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--icon-color);
+    left: 86%;
+    cursor: pointer;
+}
+
 .user-details .input-box .details {
     display: block;
     font-weight: 500;
@@ -1102,7 +1109,7 @@ form .button input:hover {
 }
 
 .container-login {
-    margin-top: 35px;
+    margin-top: 60px;
     background: var(--bg-color);
     max-width: 365px;
     width: 100%;
@@ -1188,6 +1195,7 @@ form .button input:hover {
 
 .container-login form .input-box input[type="submit"]:hover {
     transition: 0.3s;
+    color: white;
     transform: scale(1.1);
     background: var(--icon-color);
     cursor: pointer;
@@ -1202,6 +1210,8 @@ form .button input:hover {
 .container-login .twitter a,
 .container-login .vk a,
 .container-login .apple a {
+    text-overflow: ellipsis;
+    overflow: hidden;
     display: block;
     width: 100%;
     height: 45px;
@@ -1263,7 +1273,8 @@ form .button input:hover {
         max-width: 350px;
         width: 87%;
         padding: 15px;
-        margin-left: 7%;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 75px;
         margin-bottom: 5px;
     }

@@ -945,11 +945,13 @@ nav .nav-right .search-box {
 }
 
 .container-signup {
+    display: flex;
+    flex-wrap: wrap;
     max-width: 700px;
     width: 100%;
     background: var(--bg-color);
-    margin-left: 29%;
-    margin-right: 29%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
     color: var(--text-color);
     margin-bottom: 40px;
@@ -1096,13 +1098,13 @@ form .button input:hover {
         font-weight: 500;
         text-align: center;
         position: relative;
-        margin-left: 0;
+        margin-left: 70px;
         margin-top: 20px;
     }
     .container-signup .title::before {
         content: "";
         position: absolute;
-        left: 44px;
+        left: auto;
         bottom: 0;
         height: 3px;
         width: 183px;
@@ -1115,7 +1117,7 @@ form .button input:hover {
         width: 100%;
         font-size: 8px;
         margin-top: 25px;
-        margin-left: -31px;
+        margin-left: auto;
     }
     .container-signup form .user-details {
         max-height: 300px;
