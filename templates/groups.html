@@ -26,8 +26,25 @@
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
     <nav>
+        <script>
+            $(document).ready(function() {
+                $('#nav-icon4').click(function() {
+                    $(this).toggleClass('open');
+                });
+            });
+            $(document).ready(function() {
+                $('#nav-icon4').click(function() {
+                    $("#leftsidebar").toggleClass('active');
+                });
+            });
+        </script>
         <div class="nav-left">
-            <a href="/mikuclub"><img src="../static/images/logo-1.png" class="logo"></a>
+            <div id="nav-icon4">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a><img src="../static/images/logo-1.png" class="logo"></a>
             <a href="/mikuclub"><img src="../static/images/logo-2.png" class="logo-2"></a>
         </div>
         <div class="nav-right">
@@ -110,7 +127,7 @@
         <div class="dropdown">
             <div class="notify_item">
                 <div class="notify_img">
-                    <img src="./static/images/story1.jpg">
+                    <img src="../static/images/story1.jpg">
                 </div>
                 <div class="notify_info">
                     <p>Alex оставил комментарий под<span>записью</span></p>
@@ -119,7 +136,7 @@
             </div>
             <div class="notify_item">
                 <div class="notify_img">
-                    <img src="./static/images/story2.jpg">
+                    <img src="../static/images/story2.jpg">
                 </div>
                 <div class="notify_info">
                     <p>Ben оставил комментарий под<span>записью</span></p>
@@ -128,7 +145,7 @@
             </div>
             <div class="notify_item">
                 <div class="notify_img">
-                    <img src="./static/images/story3.jpg">
+                    <img src="../static/images/story3.jpg">
                 </div>
                 <div class="notify_info">
                     <p>Meryn лайкнул<span>изображение профиля</span></p>
@@ -137,7 +154,7 @@
             </div>
             <div class="notify_item">
                 <div class="notify_img">
-                    <img src="./static/images/story4.jpg">
+                    <img src="../static/images/story4.jpg">
                 </div>
                 <div class="notify_info">
                     <p>John оставил комментарий под<span>изображение профиля</span></p>
@@ -146,7 +163,7 @@
             </div>
         </div>
         <!--Left sidebar-->
-        <div class="left-sidebar">
+        <div class="left-sidebar" id="leftsidebar">
             <div class="imp-links">
                 <a href="/mikuclub"><span class="material-icons-outlined">newspaper</span><i>Новости</i></a>
                 <a href="../templates/friends.html"><span class="material-icons-outlined">people</span><i>Друзья</i></a>

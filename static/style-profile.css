@@ -43,7 +43,7 @@ nav {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 99;
 }
 
 .logo {
@@ -589,7 +589,8 @@ nav .nav-right .search-box {
 
 .load-more-btn {
     display: block;
-    margin: auto;
+    margin: 0 53% 15px;
+    width: 150px;
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #2c2c2c;
@@ -1075,16 +1076,6 @@ nav .nav-right .search-box {
     border-radius: 50px;
 }
 
-.right-sidebar .discord-title span h3 {
-    margin-bottom: 10px;
-    color: var(--text-color);
-    text-align: center;
-}
-
-.right-sidebar .discord {
-    margin-left: 10px;
-}
-
 
 /* Media query for index */
 
@@ -1144,23 +1135,6 @@ nav .nav-right .search-box {
         padding-right: 5px;
         margin-top: 11px;
         flex-basis: 100%;
-    }
-    .story img {
-        width: 25px;
-        border-width: 3px;
-        height: 25px;
-        left: 0;
-        top: -60px;
-    }
-    .container .main-content .story-gallery .story1 .material-icons-outlined {
-        font-size: 17px;
-    }
-    .story1 p,
-    .story2 p,
-    .story3 p,
-    .story4 p,
-    .story5 p {
-        font-size: 10px !important;
     }
     .add-post-links a {
         margin-right: 12px;
