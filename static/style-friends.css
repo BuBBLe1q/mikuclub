@@ -232,10 +232,10 @@ nav .nav-right .search-box {
 .footer {
     margin-left: auto;
     margin-right: auto;
-    position: static;
+    position: fixed;
     bottom: 0;
     text-align: center;
-    width: 95%;
+    width: 100%;
     align-items: center;
     font-size: 13px;
     text-decoration: none;
