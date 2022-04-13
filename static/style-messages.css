@@ -1399,8 +1399,7 @@ nav .nav-right .search-box {
     .main-section-messages .mainsection-img h3 {
     cursor: pointer;
     margin-left: 18%;
-    width: -1%;
-    margin-top: -13.5%;
+    margin-top: -26.5%;
     color: var(--text-color);
     position: sticky;
 }
