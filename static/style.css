@@ -40,7 +40,7 @@ nav {
     justify-content: space-between;
     background: var(--nav-color);
     padding: 5px 5%;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -1431,4 +1431,12 @@ nav .nav-right .search-box {
         opacity: 0;
         transition: visibility 0.2s, opacity 0.2s;
     }
+}
+@media (max-width: 1440px) {
+        .main-content {
+        margin-left: 19%;
+        margin-right: -2%;
+        margin-top: 15px;
+        flex-basis: 47%;
+}
 }
