@@ -1173,7 +1173,17 @@ nav .nav-right .search-box {
         display: none;
     }
 }
-
+@media (max-width: 1440px){
+    .main-section-messages {
+    background: var(--bg-color);
+    margin-left: 41%;
+    border: 1px solid var(--border-main-content-messages);
+    width: 57%;
+    padding-bottom: 0vh;
+    border-radius: 5px;
+    margin-top: 26px;
+}
+}
 
 /* MESSAGES PAGE */
 
