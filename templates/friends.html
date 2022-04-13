@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="../static/style-friends.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".notification_icon .fa-bell").click(function() {
+                $(".dropdown").toggleClass("active");
+            })
+        });
+    </script>
 </head>
 
 <body>
@@ -17,17 +26,26 @@
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
     <nav>
+        <script>
+            $(document).ready(function() {
+                $('#nav-icon4').click(function() {
+                    $(this).toggleClass('open');
+                });
+            });
+            $(document).ready(function() {
+                $('#nav-icon4').click(function() {
+                    $("#leftsidebar").toggleClass('active');
+                });
+            });
+        </script>
         <div class="nav-left">
-            <a href="/mikuclub"><img src="../static/images/logo-1.png" class="logo"></a>
+            <div id="nav-icon4">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a><img src="../static/images/logo-1.png" class="logo"></a>
             <a href="/mikuclub"><img src="../static/images/logo-2.png" class="logo-2"></a>
-            <ul>
-                <li>
-                    <span class="material-icons-outlined">
-                        notifications
-                        </span>
-
-                </li>
-            </ul>
         </div>
         <div class="nav-right">
             <div class="search-box">
@@ -99,8 +117,53 @@
     </nav>
 
     <div class="container">
+        <div class="wrapper">
+            <div class="notification_wrap">
+                <div class="notification_icon">
+                    <i class='fa-regular fa-bell'></i>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="./static/images/story1.jpg">
+                </div>
+                <div class="notify_info">
+                    <p>Alex оставил комментарий под<span>записью</span></p>
+                    <span class="notify_time">10 минут назад</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="./static/images/story2.jpg">
+                </div>
+                <div class="notify_info">
+                    <p>Ben оставил комментарий под<span>записью</span></p>
+                    <span class="notify_time">55 минут назад</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="./static/images/story3.jpg">
+                </div>
+                <div class="notify_info">
+                    <p>Meryn лайкнул<span>изображение профиля</span></p>
+                    <span class="notify_time">2 часа назад</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="./static/images/story4.jpg">
+                </div>
+                <div class="notify_info">
+                    <p>John оставил комментарий под<span>изображение профиля</span></p>
+                    <span class="notify_time">6 часов назад</span>
+                </div>
+            </div>
+        </div>
         <!--Left sidebar-->
-        <div class="left-sidebar">
+        <div class="left-sidebar" id="leftsidebar">
             <div class="imp-links">
                 <a href="/mikuclub"><span class="material-icons-outlined">newspaper</span><i>Новости</i></a>
                 <a href="../templates/friends.html"><span class="material-icons-outlined">people</span><i>Друзья</i></a>
@@ -108,7 +171,7 @@
                 <a href="../templates/groups.html"><span class="material-icons-outlined">groups</span><i>Группы</i></a>
                 <a href="../templates/music.html"><span class="material-icons-outlined">headphones</span><i>Музыка</i></a>
                 <a href="#"><span class="material-icons-outlined">theaters</span><i>Видео</i></a>
-                <a href="#">Ещё</a>
+                <a href="#"></a>
             </div>
         </div>
 
@@ -223,17 +286,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
     <div class="footer">
         <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
         <br/>
