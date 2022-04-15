@@ -34,11 +34,12 @@ body {
 }
 
 nav {
-    box-shadow: 0 -3px 10px #0a0a0a;
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: -0.25rem -0.25rem 0.5rem rgba(255, 255, 255, 0.07), 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.12), -0.75rem -0.75rem 1.75rem rgba(255, 255, 255, 0.07), 0.75rem 0.75rem 1.75rem rgba(0, 0, 0, 0.12), inset 8rem 8rem 8rem rgba(0, 0, 0, 0.05), inset -8rem -8rem 8rem rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--nav-color);
     padding: 5px 5%;
     position: fixed;
     top: 0;
@@ -109,7 +110,8 @@ nav {
 }
 
 .search-box {
-    background: transparent;
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     width: 250px;
     border-radius: 20px;
     display: flex;
@@ -121,9 +123,10 @@ nav {
 }
 
 .search-box:hover {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     width: 400px;
     transition: 0.3s;
-    background: var(--nav-color);
 }
 
 .search-box img {
@@ -195,6 +198,8 @@ nav .nav-right .search-box {
 }
 
 .imp-links a {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     padding: 21px;
     text-decoration: none;
     background: var(--bg-color);
@@ -638,13 +643,13 @@ nav .nav-right .search-box {
 }
 
 .settings-menu {
-    position: absolute;
+    position: fixed;
     width: 90%;
     max-width: 350px;
-    height: 480px;
+    height: 380px;
     background: var(--body-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+    border-radius: 10px;
     overflow: hidden;
     top: 115%;
     right: 5%;
@@ -653,8 +658,19 @@ nav .nav-right .search-box {
     transition: max-height 0.3s;
 }
 
+.settings-menu .user-profile {
+    height: 56px;
+    width: 261px!important;
+}
+
+.settings-menu .user-profile div {
+    transform: translateX(0px) translateY(0px);
+    font-weight: 700;
+    width: 210px;
+}
+
 .settings-menu-height {
-    max-height: 500px;
+    max-height: 380px;
 }
 
 .settings-menu p {
@@ -701,6 +717,10 @@ nav .nav-right .search-box {
     transition: 0.3s;
     width: 180px;
     cursor: pointer;
+}
+
+.settings-menu .settings-menu-inner .user-profile img {
+    border-radius: 50px;
 }
 
 .bxs-chevron-right:before {
@@ -969,7 +989,7 @@ nav .nav-right .search-box {
 
 .container .wrapper {
     margin-left: 404px;
-    margin-top: -55px;
+    margin-top: 0px;
     z-index: 100;
     position: fixed;
 }
@@ -989,15 +1009,18 @@ nav .nav-right .search-box {
 }
 
 .container .dropdown {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     box-shadow: 0 0 20px #000;
+    margin-top: 57px;
     border-radius: 20px;
     padding: 20px;
+    display: block;
     position: fixed;
     width: 400px;
     z-index: 100;
     margin-left: 230px;
     color: var(--text-color);
-    background: var(--bg-color);
     height: 360px;
     visibility: hidden;
     opacity: 0;
@@ -1031,7 +1054,7 @@ nav .nav-right .search-box {
 }
 
 .container .dropdown .notify_item .notify_info .notify_time {
-    color: var(--dimm-text-color);
+    color: #999999;
     font-size: 12px;
     cursor: pointer;
 }
@@ -1047,7 +1070,10 @@ nav .nav-right .search-box {
 }
 
 .container .dropdown.active {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     box-shadow: 0 0 20px #000;
+    margin-top: 57px;
     border-radius: 20px;
     padding: 20px;
     display: block;
@@ -1056,7 +1082,6 @@ nav .nav-right .search-box {
     z-index: 100;
     margin-left: 230px;
     color: var(--text-color);
-    background: var(--bg-color);
     height: 360px;
     visibility: visible;
     opacity: 1;
@@ -1399,6 +1424,8 @@ nav .nav-right .search-box {
         left: 76.7%!important;
     }
     .container .dropdown.active {
+        -webkit-backdrop-filter: blur(1.5rem);
+        backdrop-filter: blur(1.5rem);
         box-shadow: 0 0 20px #000;
         border-radius: 20px;
         padding: 20px;
@@ -1409,13 +1436,14 @@ nav .nav-right .search-box {
         z-index: 100;
         margin-left: 78px!important;
         color: var(--text-color);
-        background: var(--bg-color);
         height: 460px!important;
         visibility: visible;
         opacity: 1;
         transition: visibility 0.2s, opacity 0.2s;
     }
     .container .dropdown {
+        -webkit-backdrop-filter: blur(1.5rem);
+        backdrop-filter: blur(1.5rem);
         box-shadow: 0 0 20px #000;
         border-radius: 20px;
         padding: 20px;
@@ -1426,7 +1454,6 @@ nav .nav-right .search-box {
         z-index: 100;
         margin-left: 78px!important;
         color: var(--text-color);
-        background: var(--bg-color);
         height: 460px!important;
         visibility: hidden;
         opacity: 0;

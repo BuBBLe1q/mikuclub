@@ -34,13 +34,14 @@ body {
 }
 
 nav {
-    box-shadow: 0 -3px 10px #0a0a0a;
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: -0.25rem -0.25rem 0.5rem rgba(255, 255, 255, 0.07), 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.12), -0.75rem -0.75rem 1.75rem rgba(255, 255, 255, 0.07), 0.75rem 0.75rem 1.75rem rgba(0, 0, 0, 0.12), inset 8rem 8rem 8rem rgba(0, 0, 0, 0.05), inset -8rem -8rem 8rem rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--nav-color);
     padding: 5px 5%;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -109,7 +110,8 @@ nav {
 }
 
 .search-box {
-    background: transparent;
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     width: 250px;
     border-radius: 20px;
     display: flex;
@@ -121,6 +123,8 @@ nav {
 }
 
 .search-box:hover {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     width: 400px;
     transition: 0.3s;
     background: var(--nav-color);
@@ -260,13 +264,13 @@ nav .nav-right .search-box {
 }
 
 .settings-menu {
-    position: absolute;
+    position: fixed;
     width: 90%;
     max-width: 350px;
-    height: 480px;
+    height: 380px;
     background: var(--body-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+    border-radius: 10px;
     overflow: hidden;
     top: 115%;
     right: 5%;
@@ -275,8 +279,19 @@ nav .nav-right .search-box {
     transition: max-height 0.3s;
 }
 
+.settings-menu .user-profile {
+    height: 56px;
+    width: 261px!important;
+}
+
+.settings-menu .user-profile div {
+    transform: translateX(60px) translateY(-50px);
+    font-weight: 700;
+    width: 210px;
+}
+
 .settings-menu-height {
-    max-height: 500px;
+    max-height: 380px;
 }
 
 .settings-menu p {
@@ -325,6 +340,11 @@ nav .nav-right .search-box {
     cursor: pointer;
 }
 
+.settings-menu .settings-menu-inner .user-profile img {
+    transform: translateY(3px);
+    border-radius: 50px;
+}
+
 .bxs-chevron-right:before {
     content: "\ed3b";
     position: absolute;
@@ -339,6 +359,10 @@ nav .nav-right .search-box {
     text-decoration: none;
     padding-left: 15px;
     cursor: pointer;
+}
+
+.setting-links .bx {
+    color: var(--icon-color);
 }
 
 .login-button {
@@ -428,16 +452,43 @@ nav .nav-right .search-box {
     cursor: pointer;
 }
 
+
+/*notifications*/
+
+.container .wrapper {
+    margin-left: 404px;
+    margin-top: -55px;
+    z-index: 100;
+    position: fixed;
+}
+
+.container .notification_icon {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    font-size: 27px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--icon-color);
+}
+
+.container .notification_icon .fa-bell {
+    cursor: pointer;
+}
+
 .container .dropdown {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     box-shadow: 0 0 20px #000;
+    margin-top: 2px;
     border-radius: 20px;
     padding: 20px;
+    display: block;
     position: fixed;
     width: 400px;
     z-index: 100;
     margin-left: 230px;
     color: var(--text-color);
-    background: var(--bg-color);
     height: 360px;
     visibility: hidden;
     opacity: 0;
@@ -471,7 +522,7 @@ nav .nav-right .search-box {
 }
 
 .container .dropdown .notify_item .notify_info .notify_time {
-    color: var(--dimm-text-color);
+    color: #999999;
     font-size: 12px;
     cursor: pointer;
 }
@@ -487,7 +538,10 @@ nav .nav-right .search-box {
 }
 
 .container .dropdown.active {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
     box-shadow: 0 0 20px #000;
+    margin-top: 2px;
     border-radius: 20px;
     padding: 20px;
     display: block;
@@ -496,7 +550,6 @@ nav .nav-right .search-box {
     z-index: 100;
     margin-left: 230px;
     color: var(--text-color);
-    background: var(--bg-color);
     height: 360px;
     visibility: visible;
     opacity: 1;
@@ -519,14 +572,15 @@ nav .nav-right .search-box {
 /* Friend List */
 
 .container-friends {
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: 200px 200px 200px;
     grid-gap: 50px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 0vh;
-    margin-top: 0%;
+    margin-top: 4%;
     margin-left: 20%;
     position: absolute;
     background-color: var(--body-color);
@@ -535,18 +589,21 @@ nav .nav-right .search-box {
 
 .card {
     background-color: var(--bg-color);
-    height: 14rem;
-    border-radius: 5px;
+    height: 16rem;
+    border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     box-shadow: rgba(0, 0, 0, 0.7);
     color: var(--text-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 195px;
+    align-content: center;
 }
 
 .card__name {
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 0px;
     font-size: 0.5em;
 }
 
@@ -557,6 +614,12 @@ nav .nav-right .search-box {
     border: 5px solid var(--bg-color);
     margin-top: 20px;
     box-shadow: 0 0px 15px #fe54fe;
+    transition: 0.3s;
+}
+
+img.card__image.hoverZoomLink:hover {
+    transform: scale(1.5);
+    transition: 0.3s;
 }
 
 .btn {

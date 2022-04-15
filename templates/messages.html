@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="../static/style-messages.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".notification_icon .fa-bell").click(function() {
+                $(".dropdown").toggleClass("active");
+            })
+        });
+    </script>
 </head>
 
 <body>
@@ -17,17 +26,26 @@
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
     <nav>
+        <script>
+            $(document).ready(function() {
+                $('#nav-icon4').click(function() {
+                    $(this).toggleClass('open');
+                });
+            });
+            $(document).ready(function() {
+                $('#nav-icon4').click(function() {
+                    $("#leftsidebar").toggleClass('active');
+                });
+            });
+        </script>
         <div class="nav-left">
-            <a href="/mikuclub"><img src="../static/images/logo-1.png" class="logo"></a>
+            <div id="nav-icon4">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a><img src="../static/images/logo-1.png" class="logo"></a>
             <a href="/mikuclub"><img src="../static/images/logo-2.png" class="logo-2"></a>
-            <ul>
-                <li>
-                    <span class="material-icons-outlined">
-                        notifications
-                        </span>
-
-                </li>
-            </ul>
         </div>
         <div class="nav-right">
             <div class="search-box">
@@ -61,15 +79,6 @@
                     </div>
                 </div>
                 <hr>
-                <div class="user-profile">
-                    <i class='bx bxs-megaphone'></i>
-                    <div>
-                        <p>Feedback</p>
-                        <a href="https://discord.gg/CT28eSAKGQ">Помочь проекту</a>
-                    </div>
-                </div>
-                <hr>
-
                 <div class="setting-links">
                     <i class='bx bx-cog'></i>
                     <a href="#">Настройки и приватность <i class='bx bxs-chevron-right'></i></a>
@@ -97,114 +106,170 @@
                 </a>
             </div>
     </nav>
-
-    <div class="left-sidebar">
-        <div class="imp-links">
-            <a href="/mikuclub"><span class="material-icons-outlined">newspaper</span><i>Новости</i></a>
-            <a href="../templates/friends.html"><span class="material-icons-outlined">people</span><i>Друзья</i></a>
-            <a href="../templates/messages.html"><span class="material-icons-outlined">email</span><i>Сообщения</i></a>
-            <a href="../templates/groups.html"><span class="material-icons-outlined">groups</span><i>Группы</i></a>
-            <a href="../templates/music.html"><span class="material-icons-outlined">headphones</span><i>Музыка</i></a>
-            <a href="#"><span class="material-icons-outlined">theaters</span><i>Видео</i></a>
-            <a href="#">Ещё</a>
-        </div>
-    </div>
-
-
-    <div class="left-menu-messages">
-        <div class="title-messages">
-            <h2>Сообщения</h2>
-        </div>
-        <div class="search-box-messages">
-            <div class="search-box-message">
-                <span class="material-icons-outlined">
-                    search
-                    </span>
-                <input type="text" placeholder="Найти сообщение">
+    <div class="container">
+        <!--Left sidebar-->
+        <div class="wrapper">
+            <div class="notification_wrap">
+                <div class="notification_icon">
+                    <i class='fa-regular fa-bell'></i>
+                </div>
             </div>
         </div>
-        <div class= "messages-left-list">
-        <div class="messages-list">
-            <div class="friend">
-                <div class="friend-image">
+        <div class="dropdown">
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="../static/images/story1.jpg">
+                </div>
+                <div class="notify_info">
+                    <p>Alex оставил комментарий под<span>записью</span></p>
+                    <span class="notify_time">10 минут назад</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="../static/images/story2.jpg">
+                </div>
+                <div class="notify_info">
+                    <p>Ben оставил комментарий под<span>записью</span></p>
+                    <span class="notify_time">55 минут назад</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
                     <img src="../static/images/story3.jpg">
-                    <h4 class="name">Max</h4>
-                    <p class="message">Привет</p>
+                </div>
+                <div class="notify_info">
+                    <p>Meryn лайкнул<span>изображение профиля</span></p>
+                    <span class="notify_time">2 часа назад</span>
                 </div>
             </div>
-        </div>
-        <div class="messages-list">
-            <div class="friend">
-                <div class="friend-image">
-                    <img src="../static/images/story3.jpg">
-                    <h4 class="name">Lily</h4>
-                    <p class="message">Да. Это так интересно!</p>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="../static/images/story4.jpg">
                 </div>
-            </div>
-        </div>
-        <div class="messages-list">
-            <div class="friend">
-                <div class="friend-image">
-                    <img src="../static/images/story3.jpg">
-                    <h4 class="name">Murray</h4>
-                    <p class="message">Ок.</p>
+                <div class="notify_info">
+                    <p>John оставил комментарий под<span>изображение профиля</span></p>
+                    <span class="notify_time">6 часов назад</span>
                 </div>
-            </div>
-        </div>
-        <div class="messages-list">
-            <div class="friend">
-                <div class="friend-image">
-                    <img src="../static/images/story3.jpg">
-                    <h4 class="name">Bianca</h4>
-                    <p class="message">Может быть в следующий раз...</p>
-                </div>
-            </div>
-        </div>
-        <div class="messages-list">
-            <div class="friend">
-                <div class="friend-image">
-                    <img src="../static/images/story3.jpg">
-                    <h4 class="name">Ben</h4>
-                    <p class="message">No.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-    <div class="main-section-messages">
-
-
-        <div class="mainsection-img">
-            <a href="../templates/profiles/max-test.html"><img src="../static/images/story3.jpg"></a>
-            
-            <h3>Max<a href="#"><i class='bx bx-cog'></i></a></h3>
-        </div>
-        <div class="message-content">
-            <div class="message-user">
-                <img src="../static/images/story3.jpg">
-                <div class="message-time">12:30</div>
-                <div class="message-text">xxxxxxxxxxxx
-                </div>
-            </div>
-            <div class="message-me">
-                <img src="../static/images/profile-11.png">
-                <div class="message-time">12:31</div>
-                <div class="message-text">xxxxxx</div>
-            </div>
-            <div class="message-user">
-                <img src="../static/images/story3.jpg">
-                <div class="message-time">12:35</div>
-                <div class="message-text">xxxxxxxxxx
-                </div>
-            </div>
-            <div class="message-me">
-                <img src="../static/images/profile-11.png">
-                <div class="message-time">12:39</div>
-                <div class="message-text">xxxxxxxxxxxx</div>
             </div>
         </div>
 
-    </div>
+        <div class="left-sidebar">
+            <div class="imp-links">
+                <a href="/mikuclub"><span class="material-icons-outlined">newspaper</span><i>Новости</i></a>
+                <a href="../templates/friends.html"><span class="material-icons-outlined">people</span><i>Друзья</i></a>
+                <a href="../templates/messages.html"><span class="material-icons-outlined">email</span><i>Сообщения</i></a>
+                <a href="../templates/groups.html"><span class="material-icons-outlined">groups</span><i>Группы</i></a>
+                <a href="../templates/music.html"><span class="material-icons-outlined">headphones</span><i>Музыка</i></a>
+                <a href="#"><span class="material-icons-outlined">theaters</span><i>Видео</i></a>
+                <a href="#">Ещё</a>
+            </div>
+        </div>
+
+
+        <div class="left-menu-messages">
+            <div class="title-messages">
+                <h2>Сообщения</h2>
+            </div>
+            <hr>
+
+
+            <div class="messages-left-list">
+                <div class="messages-list">
+                    <div class="friend">
+                        <div class="friend-image">
+                            <img src="../static/images/story1.jpg">
+                            <h4 class="name">Max</h4>
+                            <p class="message">Вы: Конечно!</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="messages-list">
+                    <div class="friend">
+                        <div class="friend-image">
+                            <img src="../static/images/story2.jpg">
+                            <h4 class="name">Lily</h4>
+                            <p class="message">Да. Это так интересно!</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="messages-list">
+                    <div class="friend">
+                        <div class="friend-image">
+                            <img src="../static/images/story3.jpg">
+                            <h4 class="name">Murray</h4>
+                            <p class="message">Ок.</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="messages-list">
+                    <div class="friend">
+                        <div class="friend-image">
+                            <img src="../static/images/story4.jpg">
+                            <h4 class="name">Bianca</h4>
+                            <p class="message">Может быть в следующий раз...</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="messages-list">
+                    <div class="friend">
+                        <div class="friend-image">
+                            <img src="../static/images/story5.jpg">
+                            <h4 class="name">Ben</h4>
+                            <p class="message">No.</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="main-section-messages">
+
+
+            <div class="mainsection-img">
+                <a href="../templates/profiles/max-test.html"><img src="../static/images/story3.jpg"></a>
+
+                <h3>Max</h3>
+                <div class="search-box-messages">
+                    <div class="search-box-message">
+                        <span class="material-icons-outlined">
+                        search
+                        </span>
+                        <input type="text" placeholder="Найти сообщение">
+                    </div>
+                </div>
+                <a href="#"><i class='bx bx-cog'></i></a>
+            </div>
+            <div class="message-content">
+                <div class="message-user">
+                    <img src="../static/images/story3.jpg">
+                    <div class="message-time">12:30</div>
+                    <div class="message-text">xxxxxxxxxxxx
+                    </div>
+                </div>
+                <div class="message-me">
+                    <img src="../static/images/profile-11.png">
+                    <div class="message-time">12:31</div>
+                    <div class="message-text">xxxxxx</div>
+                </div>
+                <div class="message-user">
+                    <img src="../static/images/story3.jpg">
+                    <div class="message-time">12:35</div>
+                    <div class="message-text">xxxxxxxxxx
+                    </div>
+                </div>
+                <div class="message-me">
+                    <img src="../static/images/profile-11.png">
+                    <div class="message-time">12:39</div>
+                    <div class="message-text">Конечно!</div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 

@@ -213,7 +213,7 @@ nav .nav-right .search-box {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    bottom: 0;
+    bottom: -170px;
     text-align: center;
     width: 95%;
     align-items: center;
@@ -774,11 +774,10 @@ nav .nav-right .search-box {
     margin-left: -29px;
     margin-right: auto;
     align-items: center;
-    width: 400px;
-    height: 76vh;
+    width: 310%;
+    height: 100vh;
     color: var(--text-color);
     border-radius: 15px;
-    overflow: scroll;
 }
 
 .groups-grid::-webkit-scrollbar {
@@ -830,13 +829,13 @@ nav .nav-right .search-box {
 }
 
 .create-group {
-    margin-left: 235px;
+    margin-left: 230px;
     background-color: #757575;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    width: 142px;
+    width: 150px;
     border-radius: 10px;
     color: var(--text-color);
 }
