@@ -114,8 +114,6 @@ nav {
 }
 
 .search-box {
-    -webkit-backdrop-filter: blur(1.5rem);
-    backdrop-filter: blur(1.5rem);
     width: 250px;
     border-radius: 20px;
     display: flex;
@@ -127,8 +125,6 @@ nav {
 }
 
 .search-box:hover {
-    -webkit-backdrop-filter: blur(1.5rem);
-    backdrop-filter: blur(1.5rem);
     width: 400px;
     transition: 0.3s;
     background: var(--nav-color);
