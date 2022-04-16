@@ -267,7 +267,7 @@ nav .nav-right .search-box {
     position: fixed;
     width: 90%;
     max-width: 350px;
-    height: 380px;
+    height: 420px;
     background: var(--body-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
@@ -291,7 +291,7 @@ nav .nav-right .search-box {
 }
 
 .settings-menu-height {
-    max-height: 380px;
+    max-height: 420px;
 }
 
 .settings-menu p {
@@ -433,31 +433,7 @@ nav .nav-right .search-box {
 
 .container .wrapper {
     margin-left: 404px;
-    margin-top: -55px;
-    z-index: 100;
-    position: fixed;
-}
-
-.container .notification_icon {
-    position: relative;
-    width: 50px;
-    height: 40px;
-    font-size: 27px;
-    margin: 0 auto;
-    text-align: center;
-    color: var(--icon-color);
-}
-
-.container .notification_icon .fa-bell {
-    cursor: pointer;
-}
-
-
-/*notifications*/
-
-.container .wrapper {
-    margin-left: 404px;
-    margin-top: -55px;
+    margin-top: 0px;
     z-index: 100;
     position: fixed;
 }
@@ -480,14 +456,14 @@ nav .nav-right .search-box {
     -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
     box-shadow: 0 0 20px #000;
-    margin-top: 2px;
+    margin-top: 55px;
     border-radius: 20px;
     padding: 20px;
     display: block;
     position: fixed;
     width: 400px;
     z-index: 100;
-    margin-left: 230px;
+    margin-left: 229px;
     color: var(--text-color);
     height: 360px;
     visibility: hidden;
@@ -541,14 +517,14 @@ nav .nav-right .search-box {
     -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
     box-shadow: 0 0 20px #000;
-    margin-top: 2px;
+    margin-top: 55px;
     border-radius: 20px;
     padding: 20px;
     display: block;
     position: fixed;
     width: 400px;
     z-index: 100;
-    margin-left: 230px;
+    margin-left: 229px;
     color: var(--text-color);
     height: 360px;
     visibility: visible;
@@ -717,11 +693,12 @@ img.card__image.hoverZoomLink:hover {
         font-size: 1.2em;
     }
     .card {
-        width: 90%;
+        width: 100%;
     }
     .container-friends {
         position: relative;
-        margin-left: 5%!important;
+        width: 100%;
+        margin-left: 0%!important;
         margin-top: 13%!important;
     }
     .imp-links a {
@@ -881,7 +858,8 @@ img.card__image.hoverZoomLink:hover {
         left: 76.7%!important;
     }
     .container .dropdown.active {
-        box-shadow: 0 0 20px #000;
+        -webkit-backdrop-filter: blur(1.5rem);
+        backdrop-filter: blur(1.5rem);
         border-radius: 20px;
         padding: 20px;
         display: block;
@@ -891,13 +869,14 @@ img.card__image.hoverZoomLink:hover {
         z-index: 100;
         margin-left: 61px!important;
         color: var(--text-color);
-        background: var(--bg-color);
         height: 460px!important;
         visibility: visible;
         opacity: 1;
         transition: visibility 0.2s, opacity 0.2s;
     }
     .container .dropdown {
+        -webkit-backdrop-filter: blur(1.5rem);
+        backdrop-filter: blur(1.5rem);
         box-shadow: 0 0 20px #000;
         border-radius: 20px;
         padding: 20px;
@@ -908,7 +887,6 @@ img.card__image.hoverZoomLink:hover {
         z-index: 100;
         margin-left: 61px!important;
         color: var(--text-color);
-        background: var(--bg-color);
         height: 460px!important;
         visibility: hidden;
         opacity: 0;

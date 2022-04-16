@@ -663,7 +663,7 @@ nav .nav-right .search-box {
     position: absolute;
     width: 90%;
     max-width: 350px;
-    height: 380px;
+    height: 420px;
     background: var(--body-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
@@ -676,7 +676,7 @@ nav .nav-right .search-box {
 }
 
 .settings-menu-height {
-    max-height: 380px;
+    max-height: 420px;
 }
 
 .settings-menu p {
@@ -1658,11 +1658,11 @@ img[alt="pause-icon"] {
         margin-top: 18% !important;
     }
     .imp-links a {
+        width: 40px;
         margin-left: 10px;
-        width: 65px;
     }
     .imp-links a:hover {
-        width: 65px;
+        width: 40px;
         transition: none;
     }
     .imp-links i {
@@ -1877,6 +1877,7 @@ img[alt="pause-icon"] {
         transition: transform var(--cubic-header), width var(--cubic-header);
     }
     .container .player .search-box-player {
+        margin-bottom: 15px;
         margin-left: 25px;
         background: transparent;
         width: 330px;
