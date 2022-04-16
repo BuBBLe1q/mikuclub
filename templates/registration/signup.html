@@ -10,12 +10,28 @@
     <link rel="stylesheet" href="../../static/style-signup-page.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <script src="../static/nanobar-master/nanobar.min.js"></script>
 </head>
 
 <body>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
+    <!-- NANOBAR SCRIPT-->
+    <script>
+        var options = {
+            classname: 'my-class',
+            id: 'my-id'
+        };
+        var nanobar = new Nanobar(options);
+        nanobar.go(30);
+        nanobar.go(76);
+        nanobar.go(100);
+    </script>
+
+    <div class="nanobar my-class" id="my-id" style="position: fixed;">
+        <div class="bar"></div>
+    </div>
     <!-- Nav Bar -->
     <nav>
         <div class="nav-left">

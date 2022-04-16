@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./static/nanobar-master/nanobar.min.js"></script>
+    <!-- NOTIFICATIONS SCRIPT -->
     <script>
         $(document).ready(function() {
             $(".notification_icon .fa-bell").click(function() {
@@ -19,6 +21,7 @@
             })
         });
     </script>
+
 </head>
 
 
@@ -26,6 +29,22 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
+    <!-- NANOBAR SCRIPT-->
+    <script>
+        var options = {
+            classname: 'my-class',
+            id: 'my-id'
+        };
+        var nanobar = new Nanobar(options);
+        nanobar.go(30);
+        nanobar.go(76);
+        nanobar.go(100);
+    </script>
+
+    <div class="nanobar my-class" id="my-id" style="position: fixed;">
+        <div class="bar"></div>
+    </div>
+
     <nav>
         <script>
             $(document).ready(function() {

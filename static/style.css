@@ -47,6 +47,10 @@ nav {
     z-index: 100;
 }
 
+.my-class .bar {
+    background: var(--icon-color);
+}
+
 .logo {
     width: 50px;
     margin-left: 20px;
