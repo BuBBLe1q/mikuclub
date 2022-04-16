@@ -1349,8 +1349,20 @@ nav .nav-right .search-box {
         font-size: 10px;
         margin-left: -43px;
     }
+    .login-button {
+        color: var(--icon-color);
+        display: flex;
+        flex: 1;
+        margin-top: 30px;
+        justify-content: space-between;
+        cursor: pointer;
+        align-items: baseline;
+        padding: 5px;
+        background: transparent;
+        border: none;
+    }
     .register-button {
-        margin-left: 137px;
+        margin-left: 187px;
     }
     /* Icon 4 */
     #nav-icon4 {
@@ -1513,5 +1525,43 @@ nav .nav-right .search-box {
         visibility: hidden;
         opacity: 0;
         transition: visibility 0.2s, opacity 0.2s;
+    }
+    .container-video {
+        margin-left: 1%;
+        margin-top: 6%;
+        width: 98%;
+        display: flexbox;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .container-video .video-grid {
+        background: var(--bg-color);
+        padding: 25px;
+        border-radius: 20px;
+        display: flex;
+        margin-top: 20px;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .settings-menu {
+        position: fixed;
+        width: 90%;
+        max-width: 350px;
+        height: 420px;
+        background: var(--body-color);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        overflow: hidden;
+        top: 115%;
+        right: 5%;
+        color: var(--text-color);
+        max-height: 0;
+        transition: max-height 0.3s;
+    }
+    .settings-menu-height {
+        max-height: 420px;
     }
 }
