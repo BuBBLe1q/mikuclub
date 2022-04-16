@@ -338,7 +338,7 @@ nav .nav-right .search-box {
     width: 45px;
     border-radius: 50%;
     top: 10px;
-    left: 10px;
+    left: 5px;
 }
 
 .story span {
@@ -354,7 +354,7 @@ nav .nav-right .search-box {
     border: 2px solid var(--icon-color);
     width: 35px;
     height: 35px;
-    top: -120px;
+    top: -138px;
 }
 
 .story p {
