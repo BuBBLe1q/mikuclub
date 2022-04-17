@@ -1095,6 +1095,23 @@ form .button input:hover {
     transform: scale(1.1);
 }
 
+.container-login .errorlist {
+    background: #99000e;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    list-style: none;
+    margin-top: 20px;
+    padding: 5px;
+    color: white;
+    height: 110px;
+    flex-direction: column-reverse;
+}
+
+.container-login li#text {
+    display: none;
+}
+
 @media (max-width: 540px) {
     .container-signup {
         max-width: 100%;

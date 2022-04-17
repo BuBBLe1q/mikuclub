@@ -180,8 +180,8 @@ nav .nav-right .search-box {
 
 .right-sidebar {
     flex-basis: 25%;
-    position: sticky;
-    top: 70px;
+    position: relative;
+    top: 41px;
     align-self: flex-start;
     background: var(--bg-color);
     padding: 20px;
@@ -338,7 +338,7 @@ nav .nav-right .search-box {
     width: 45px;
     border-radius: 50%;
     top: 10px;
-    left: 5px;
+    left: 10px;
 }
 
 .story span {
@@ -354,7 +354,7 @@ nav .nav-right .search-box {
     border: 2px solid var(--icon-color);
     width: 35px;
     height: 35px;
-    top: -138px;
+    top: -120px;
 }
 
 .story p {
@@ -1108,6 +1108,26 @@ nav .nav-right .search-box {
 
 .right-sidebar .discord {
     margin-left: 10px;
+}
+
+#post-submit {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #fe54fe;
+    padding: 8px;
+    color: var(--text-color);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+#post-submit:hover {
+    cursor: pointer;
+    background: #fe54fe;
+    border: 1px solid #fe54fe;
+    padding: 8px;
+    color: var(--text-color);
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
 
