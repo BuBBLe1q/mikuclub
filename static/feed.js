@@ -10,7 +10,15 @@ xhr.onreadystatechange = function () {
             posts = JSON.parse(xhr.responseText);
             console.log(posts);
             posts.forEach(function (post, i, arr) {
-               postHTML = template.format(post.user.name, post.user.avatar_url, post.post_time,post.text, post.user.profile_url);
+               postHTML = template.format(
+                   post.user.name, //0
+                   post.user.avatar_url, //1
+                   post.post_time, //2
+                   post.text, //3
+                   post.user.profile_url, //4
+                   post.like_count, //5
+                   post.post_id //6
+               );
                document.getElementById("feed").innerHTML += postHTML
             });
         }
@@ -34,7 +42,7 @@ let template = "<div class=\"post-container\">\n" +
     "\n" +
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"activity-icons\">\n" +
-    "                            <div><i class='bx bx-heart' ></i>120</div>\n" +
+    "                            <div><i class='bx bx-heart' onclick=make_like({6})></i><span id='post{6}'>{5}</span></div>\n"  +
     "                            <div><i class='bx bx-comment-detail'></i>45</div>\n" +
     "                            <div><i class='bx bx-share' ></i>20</div>\n" +
     "                    </div>\n" +
@@ -45,9 +53,22 @@ let template = "<div class=\"post-container\">\n" +
     "           \n" +
     "            </div>";
 
-// (function () {
-//
-// })();
+function make_like(post_id){
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4){
+            if (xhr.status === 200){
+                document.getElementById("post" + post_id).innerText = xhr.responseText;
+            }
+        }
+    };
+    xhr.open("POST", "/feed/make_like",true);
+    let data = new FormData();
+    data.append("post_id", post_id);
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);
+    xhr.send(data);
+}
+
 
 xhr.open("GET", "/feed/get_posts?time=now",true);
 xhr.setRequestHeader("X-CSRFToken", csrfToken);
