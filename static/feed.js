@@ -42,7 +42,7 @@ let template = "<div class=\"post-container\">\n" +
     "\n" +
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"activity-icons\">\n" +
-    "                            <div><i class='bx bx-heart' onclick=make_like({6})></i><span id='post{6}'>{5}</span></div>\n"  +
+    "                            <div id='post{6}'><i class='bx bx-heart' onclick=make_like({6})></i><span >{5}</span></div>\n"  +
     "                            <div><i class='bx bx-comment-detail'></i>45</div>\n" +
     "                            <div><i class='bx bx-share' ></i>20</div>\n" +
     "                    </div>\n" +
@@ -58,7 +58,14 @@ function make_like(post_id){
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4){
             if (xhr.status === 200){
-                document.getElementById("post" + post_id).innerText = xhr.responseText;
+                let post_like = document.getElementById("post" + post_id);
+                console.log(post_like.childNodes[0].className);
+                if (post_like.childNodes[0].className === "bx bx-heart"){
+                    post_like.childNodes[0].className = 'bx bxs-heart';
+                }else{
+                    post_like.childNodes[0].className = "bx bx-heart";
+                }
+                post_like.childNodes[1].innerText = xhr.responseText;
             }
         }
     };
