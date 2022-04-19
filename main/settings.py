@@ -141,7 +141,7 @@ LOGOUT_REDIRECT_URL = "/accounts/login"
 AUTH_PASSWORD_VALIDATORS = []
 AUTHENTICATION_BACKENDS = ['accounts.EmailBackend.EmailBackend']
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

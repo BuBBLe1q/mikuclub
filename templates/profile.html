@@ -274,16 +274,21 @@
                 </div>
 
                 <div class="post-input-container">
-                    <textarea rows="3" placeholder="Что нового?"></textarea>
+                    <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
+                    <form id="postForm" method="post" action="/profile/make_post">
+                        {% csrf_token %}
 
-                    <div class="add-post-links">
-                        <a href="#"><i class='bx bx-video-plus' ></i>Видео</a>
-                        <a href="#"><i class='bx bx-image-add' ></i>Фото</a>
-                        <a href="#"><i class='bx bxs-file-plus' ></i>Файл</a>
-                        <a href="#"><i class='bx bx-music' ></i>Аудио</a>
-                        <a href="#"><i class='bx bx-map' ></i>Карта</a>
-                        <input type="submit" id="post-submit">
-                    </div>
+
+
+                        <div class="add-post-links">
+                            <a href="#"><i class='bx bx-video-plus' ></i>Видео</a>
+                            <a href="#"><i class='bx bx-image-add' ></i>Фото</a>
+                            <a href="#"><i class='bx bxs-file-plus' ></i>Файл</a>
+                            <a href="#"><i class='bx bx-music' ></i>Аудио</a>
+                            <a href="#"><i class='bx bx-map' ></i>Карта</a>
+                            <input type="submit" id="post-submit">
+                        </div>
+                    </form>
 
                 </div>
 
