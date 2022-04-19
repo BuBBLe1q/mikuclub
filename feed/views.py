@@ -2,12 +2,9 @@ import json
 
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
-
-# Create your views here.
 from accounts.models import CustomUser
 from feed.Forms import PostForm
-from feed.models import Post
+from feed.models import Post, Likes
 
 
 def make_post(request):
@@ -26,21 +23,20 @@ def make_post(request):
 
 def get_post(request):
     current_user = request.user
-    print(current_user)
     if request.method == "GET" and current_user.is_authenticated:
-        print(request.GET.get("time"))
-        # posts_raw =
-
+    
         posts = []
         for post_raw in Post.objects.order_by("-post_time")[:10].values():
-            # print()
             user = CustomUser.objects.get(pk=post_raw["user_id"])
             ava = None
             if not user.avatar:
                 ava = ""
             else:
                 ava = user.avatar.url
+
+            is_liked = Likes.objects.filter(user_id=current_user, post_id=post_raw['id']).exists()
             post = {
+                "post_id": post_raw['id'],
                 "user": {
                     "name": user.username,
                     "avatar_url": ava,
@@ -49,11 +45,12 @@ def get_post(request):
                 # "avatar": ava,
                 "text": post_raw['text'],
                 "post_time": post_raw['post_time'],
-
+                "like_count": post_raw['like_count'],
+                "is_liked": is_liked
             }
             posts.append(post)
 
-        print(posts)
+        # print(posts)
         return JsonResponse(posts, safe=False)
 
     return HttpResponse("", 200)
@@ -68,3 +65,30 @@ def delete_post(request,post_id=None):
             return HttpResponse(403)
     return HttpResponse(200)
 
+
+def make_like(request):
+    current_user = request.user
+    if request.method == "POST" and current_user.is_authenticated:
+        if request.POST["post_id"] is not None:
+            post_id = request.POST["post_id"]
+            like = Likes.objects.filter(user_id=current_user, post_id=post_id)
+            post = Post.objects.get(pk=post_id)
+            if like.exists():
+                print("like exist. deleting: ", post_id)
+                like.delete()
+                post.like_count -= 1
+                post.save()
+                return HttpResponse(post.like_count, content_type="text/plain")
+
+            print("like not exist. adding: ", post_id)
+
+            like = Likes()
+            like.user_id = current_user
+            like.post_id = post
+            like.save()
+
+            post.like_count += 1
+            post.save()
+            return HttpResponse(post.like_count, content_type="text/plain")
+
+    return HttpResponse(200)
