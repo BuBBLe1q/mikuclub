@@ -57,3 +57,14 @@ def get_post(request):
         return JsonResponse(posts, safe=False)
 
     return HttpResponse("", 200)
+
+def delete_post(request,post_id=None):
+    current_user = request.user
+    if request.method == "POST" and current_user.is_authenticated:
+        post_to_delete=Post.objects.get(id=post_id)
+        if post_to_delete.user_id == current_user:
+            post_to_delete.delete()
+        else:
+            return HttpResponse(403)
+    return HttpResponse(200)
+

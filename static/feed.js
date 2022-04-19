@@ -3,15 +3,15 @@ let xhr = new XMLHttpRequest();
 let cookie = document.cookie;
 let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
 
-xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4){
-        if (xhr.status === 200){
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
             // console.log(xhr.responseText);
             posts = JSON.parse(xhr.responseText);
             console.log(posts);
-            posts.forEach(function (post, i, arr) {
-               postHTML = template.format(post.user.name, post.user.avatar_url, post.post_time,post.text, post.user.profile_url);
-               document.getElementById("feed").innerHTML += postHTML
+            posts.forEach(function(post, i, arr) {
+                postHTML = template.format(post.user.name, post.user.avatar_url, post.post_time, post.text, post.user.profile_url);
+                document.getElementById("feed").innerHTML += postHTML
             });
         }
     }
@@ -49,17 +49,17 @@ let template = "<div class=\"post-container\">\n" +
 //
 // })();
 
-xhr.open("GET", "/feed/get_posts?time=now",true);
+xhr.open("GET", "/feed/get_posts?time=now", true);
 xhr.setRequestHeader("X-CSRFToken", csrfToken);
 xhr.send();
 
-String.prototype.format = function () {
+String.prototype.format = function() {
     // store arguments in an array
     let args = arguments;
     // use replace to iterate over the string
     // select the match and check if related argument is present
     // if yes, replace the match with the argument
-    return this.replace(/{([0-9]+)}/g, function (match, index) {
+    return this.replace(/{([0-9]+)}/g, function(match, index) {
         // check if the argument is present
         return typeof args[index] == 'undefined' ? match : args[index];
     });
