@@ -9,6 +9,8 @@ class Post(models.Model):
     text = models.TextField(max_length=200)
     post_time = models.DateTimeField(auto_now=True)
 
+    like_count = models.IntegerField(default=0)
+
     class Meta:
         indexes = [
             models.Index(fields=["post_time"])
@@ -17,3 +19,13 @@ class Post(models.Model):
     # TODO image
 
     pass
+
+
+class Likes(models.Model):
+    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["user_id", "post_id"])
+        ]

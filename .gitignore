@@ -1,4 +1,7 @@
 /.venv/
 /.venv/*
+/venv/
+/venv/*
 /.idea/
 /db.sqlite3
+*.pyc
