@@ -6,7 +6,6 @@ let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
 xhr.onreadystatechange = function () {
     if (xhr.readyState === 4){
         if (xhr.status === 200){
-            // console.log(xhr.responseText);
             posts = JSON.parse(xhr.responseText);
             console.log(posts);
             posts.forEach(function (post, i, arr) {
@@ -17,7 +16,8 @@ xhr.onreadystatechange = function () {
                    post.text, //3
                    post.user.profile_url, //4
                    post.like_count, //5
-                   post.post_id //6
+                   post.post_id, //6
+                   post.is_liked ? "bx bxs-heart" : "bx bx-heart" //7
                );
                document.getElementById("feed").innerHTML += postHTML
             });
@@ -42,7 +42,7 @@ let template = "<div class=\"post-container\">\n" +
     "\n" +
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"activity-icons\">\n" +
-    "                            <div id='post{6}'><i class='bx bx-heart' onclick=make_like({6})></i><span >{5}</span></div>\n"  +
+    "                            <div id='post{6}'><i class='{7}' onclick=make_like({6})></i><span >{5}</span></div>\n"  +
     "                            <div><i class='bx bx-comment-detail'></i>45</div>\n" +
     "                            <div><i class='bx bx-share' ></i>20</div>\n" +
     "                    </div>\n" +
