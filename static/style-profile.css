@@ -465,7 +465,8 @@ nav .nav-right .search-box {
 
 .add-post-links {
     display: flex;
-    margin-top: 10px;
+    margin-left: -61px;
+    margin-top: 15px;
 }
 
 .add-post-links a:hover {
@@ -1055,7 +1056,6 @@ nav .nav-right .search-box {
 .container .dropdown.active {
     -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
-    box-shadow: -0.25rem -0.25rem 0.5rem rgba(255, 255, 255, 0.07), 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.12), -0.75rem -0.75rem 1.75rem rgba(255, 255, 255, 0.07), 0.75rem 0.75rem 1.75rem rgba(0, 0, 0, 0.12), inset 8rem 8rem 8rem rgba(0, 0, 0, 0.05), inset -8rem -8rem 8rem rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     padding: 20px;
     display: block;
@@ -1080,6 +1080,26 @@ nav .nav-right .search-box {
     height: 50px;
     width: 50px;
     border-radius: 50px;
+}
+
+#post-submit {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #fe54fe;
+    padding: 8px;
+    color: var(--text-color);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+#post-submit:hover {
+    cursor: pointer;
+    background: #fe54fe;
+    border: 1px solid #fe54fe;
+    padding: 8px;
+    color: var(--text-color);
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
 
