@@ -584,8 +584,9 @@ nav .nav-right .search-box {
     margin-right: 5px;
 }
 
-.bx-dots-vertical-rounded {
+.post-row i.bx.bx-trash {
     font-size: 30px;
+    cursor: pointer;
 }
 
 .post-profile-icon {

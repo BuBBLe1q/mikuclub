@@ -25,7 +25,7 @@ xhr.onreadystatechange = function() {
     }
 };
 
-let template = "<div class=\"post-container\">\n" +
+let template = "<div id=\"post_container{6}\" class=\"post-container\">\n" +
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"user-profile\">\n" +
     "                        <a href=\"{4}\">  " +
@@ -36,7 +36,7 @@ let template = "<div class=\"post-container\">\n" +
     "                            <span>{2}</span>\n" +
     "                        </div>\n" +
     "                </div>\n" +
-    "                <a href=\"#\"><i class='bx bx-dots-vertical-rounded' ></i></a>\n" +
+    "                <i class='bx bx-trash' style=\"cursor:pointer\" onclick=remove_post({6})></i>\n" +
     "                </div>\n" +
     "                <p class=\"post-text\">{3}</p>\n" +
     "\n" +
@@ -92,3 +92,28 @@ String.prototype.format = function() {
         return typeof args[index] == 'undefined' ? match : args[index];
     });
 };
+
+function remove_post(post_id) {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) { document.getElementById("post_container" + post_id).remove(); }
+        }
+    };
+    xhr.open("POST", "/feed/remove_post", true);
+    let data = new FormData();
+    data.append("post_id", post_id);
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);
+    xhr.send(data);
+}
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for (var i = this.length - 1; i >= 0; i--) {
+        if (this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}
