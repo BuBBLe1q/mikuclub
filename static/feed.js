@@ -64,7 +64,7 @@ let comment_template = `<div class="post-comment-form">
     <div class="user-profile">
         <img src="/static/images/profile-11.png">
         <div>
-            <p>{0}</p>
+            <p>admin</p>
             <span>2 апреля 2022, 10:00</span>
         </div>
     </div>
