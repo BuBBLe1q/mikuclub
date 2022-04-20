@@ -206,9 +206,9 @@
             <div class="pd-left">
                 <div class="pd-row">
                     {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}"  class="pd-image">
+                    <img src="{{ user.avatar.url }}" class="pd-image" id="profile_avatar">
                     {% else %}
-                    <img src="/static/images/user.png"  class="pd-image">
+                    <img src="/static/images/user.png"  class="pd-image" id="profile_avatar">
                     {% endif %}
                     <div class="user-name-container">
                         <h3>{{ user.username }}</h3>
