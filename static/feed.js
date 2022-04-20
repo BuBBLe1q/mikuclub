@@ -21,11 +21,12 @@ xhr.onreadystatechange = function() {
                 );
                 document.getElementById("feed").innerHTML += postHTML
             });
+            add_comments()
         }
     }
 };
 
-let template = "<div id=\"post_container{6}\" class=\"post-container\">\n" +
+let template = "<div id=\"post_container{6}\"><div  class=\"post-container\">\n" +
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"user-profile\">\n" +
     "                        <a href=\"{4}\">  " +
@@ -51,7 +52,32 @@ let template = "<div id=\"post_container{6}\" class=\"post-container\">\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "           \n" +
-    "            </div>";
+    "            </div></div>";
+
+let comment_template = `<div class="post-comment-form">
+<input type="text" placeholder="Оставить комментарий"><i class='bx bxs-send'></i>
+
+</div>
+<!-- POST COMMENT -->
+<div class="post-comment">
+<div class="post-row">
+    <div class="user-profile">
+        <img src="/static/images/profile-11.png">
+        <div>
+            <p>{0}</p>
+            <span>2 апреля 2022, 10:00</span>
+        </div>
+    </div>
+    <a href="#"><i class='bx bx-trash' ></i></a>
+</div>
+<p class="post-text">Тестовый комментарий. Можете идти дальше. <a href="#">#Test</a></p>
+
+</div>`
+
+function add_comments() {
+    document.getElementById("post_container26").innerHTML += comment_template
+}
+
 
 function make_like(post_id) {
     let xhr = new XMLHttpRequest();
