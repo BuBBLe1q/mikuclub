@@ -415,6 +415,22 @@ nav .nav-right .search-box {
     align-items: center;
 }
 
+.profile-intro .edit_intro {
+    display: flex;
+    cursor: pointer;
+    flex-wrap: wrap;
+    margin-left: 130px;
+    margin-top: -17px;
+}
+
+.profile-intro .confirm_edit {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 130px;
+    cursor: pointer;
+    margin-top: -17px;
+}
+
 .user-profile img {
     width: 50px;
     border-radius: 50px;
@@ -445,22 +461,17 @@ nav .nav-right .search-box {
 
 .post-input-container textarea {
     padding: 5px 5px;
-    width: 50%;
+    width: 100%;
     border: 0;
     outline: 0;
     border-bottom: 1px solid var(--icon-color);
     background: transparent;
-    resize: none;
+    resize: vertical;
     color: var(--text-color);
-    transition: 0.3s;
-    transition-delay: 1.5s;
 }
 
-.post-input-container textarea:hover {
+.post-input-container textarea:focus {
     background: var(--body-color);
-    transition: 0.5s;
-    overflow: hidden;
-    width: 100%;
 }
 
 .add-post-links {
@@ -1085,7 +1096,7 @@ nav .nav-right .search-box {
 #post-submit {
     cursor: pointer;
     background: transparent;
-    border: 1px solid #fe54fe;
+    border: 1px solid var(--icon-color);
     padding: 8px;
     color: var(--text-color);
     border-radius: 20px;
@@ -1094,10 +1105,10 @@ nav .nav-right .search-box {
 
 #post-submit:hover {
     cursor: pointer;
-    background: #fe54fe;
-    border: 1px solid #fe54fe;
+    background: var(--icon-color);
+    border: 1px solid var(--icon-color);
     padding: 8px;
-    color: var(--text-color);
+    color: #fff;
     border-radius: 20px;
     transition: 0.3s;
 }
