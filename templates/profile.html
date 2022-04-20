@@ -260,7 +260,7 @@
                 </div> -->
             </div>
         </div>
-        <div class="post-col">
+        <div class="post-col" id="feed">
             {% if user == current_user %}
             <div class="write-post-container">
                 <div class="user-profile">
@@ -275,7 +275,7 @@
 
                 <div class="post-input-container">
                     <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
-                    <form id="postForm" method="post" action="/profile/make_post">
+                    <form id="postForm" method="post" action="/feed/make_post">
                         {% csrf_token %}
 
 
@@ -308,7 +308,11 @@
         <a href="/"><img src="/static/images/logo-2.png" class="logo-2"></a>
     </div> -->
     <script src="/static/script.js"></script>
-    <script src="/static/upload_avatar.js"></script>
+    {% comment %} <script src="/static/upload_avatar.js"></script> {% endcomment %}
+    <script type="text/javascript"> 
+        var user_id = "{{ user.id }}";
+     </script>
+     <script src="/static/feed_profile.js"> </script>
 </body>
 
 </html>
