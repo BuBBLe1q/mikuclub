@@ -415,6 +415,22 @@ nav .nav-right .search-box {
     align-items: center;
 }
 
+.profile-intro .edit_intro {
+    display: flex;
+    cursor: pointer;
+    flex-wrap: wrap;
+    margin-left: 130px;
+    margin-top: -17px;
+}
+
+.profile-intro .confirm_edit {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 130px;
+    cursor: pointer;
+    margin-top: -17px;
+}
+
 .user-profile img {
     width: 50px;
     border-radius: 50px;
@@ -445,27 +461,23 @@ nav .nav-right .search-box {
 
 .post-input-container textarea {
     padding: 5px 5px;
-    width: 50%;
+    width: 100%;
     border: 0;
     outline: 0;
     border-bottom: 1px solid var(--icon-color);
     background: transparent;
-    resize: none;
+    resize: vertical;
     color: var(--text-color);
-    transition: 0.3s;
-    transition-delay: 1.5s;
 }
 
-.post-input-container textarea:hover {
+.post-input-container textarea:focus {
     background: var(--body-color);
-    transition: 0.5s;
-    overflow: hidden;
-    width: 100%;
 }
 
 .add-post-links {
     display: flex;
-    margin-top: 10px;
+    margin-left: -61px;
+    margin-top: 15px;
 }
 
 .add-post-links a:hover {
@@ -1055,7 +1067,6 @@ nav .nav-right .search-box {
 .container .dropdown.active {
     -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
-    box-shadow: -0.25rem -0.25rem 0.5rem rgba(255, 255, 255, 0.07), 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.12), -0.75rem -0.75rem 1.75rem rgba(255, 255, 255, 0.07), 0.75rem 0.75rem 1.75rem rgba(0, 0, 0, 0.12), inset 8rem 8rem 8rem rgba(0, 0, 0, 0.05), inset -8rem -8rem 8rem rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     padding: 20px;
     display: block;
@@ -1080,6 +1091,26 @@ nav .nav-right .search-box {
     height: 50px;
     width: 50px;
     border-radius: 50px;
+}
+
+#post-submit {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--icon-color);
+    padding: 8px;
+    color: var(--text-color);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+#post-submit:hover {
+    cursor: pointer;
+    background: var(--icon-color);
+    border: 1px solid var(--icon-color);
+    padding: 8px;
+    color: #fff;
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
 

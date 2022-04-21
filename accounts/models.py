@@ -30,7 +30,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     email = models.EmailField("email address", blank=False)
 
-    avatar = models.ImageField(upload_to="avatars/", blank=True)
+    avatar = models.ImageField(default='user.png', upload_to="avatars/", blank=True)
 
     is_staff = models.BooleanField(
         default=False,

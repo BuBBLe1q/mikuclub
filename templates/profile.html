@@ -212,11 +212,11 @@
                     {% endif %}
                     <div class="user-name-container">
                         <h3>{{ user.username }}</h3>
-                        <p>120 Друзей • 20 Взаимных</p>
+                        <!-- <p>120 Друзей • 20 Взаимных</p>
                         <img src="/static/images/story1.jpg">
                         <img src="/static/images/story2.jpg">
                         <img src="/static/images/story3.jpg">
-                        <img src="/static/images/story4.jpg">
+                        <img src="/static/images/story4.jpg"> -->
                     </div>
                 </div>
             </div>
@@ -240,7 +240,35 @@
 
             <div class="profile-intro">
                 <h3>О себе</h3>
-                <p class="intro-text">Администратор и создатель сайта^_^</p>
+                <div class="edit_intro">
+                    <i class='bx bxs-pencil'></i>
+                </div>
+                <script>
+                    $(document).ready(function() {
+                        // Excempt keys(arrows, del, backspace, home, end);
+                        var excempt = [37, 38, 39, 40, 46, 8, 36, 35];
+                        // Loop through every editiable thing
+                        $("[contenteditable='true']").each(function(index, elem) {
+                            var $elem = $(elem);
+                            // Check for a property called data-input-length="value" (<div contenteditiable="true" data-input-length="100">)
+                            var length = $elem.data('input-length');
+                            // Validation of value
+                            if (!isNaN(length)) {
+                                // Register keydown handler
+                                $elem.on('keydown', function(evt) {
+                                    // If the key isn't excempt AND the text is longer than length stop the action.
+                                    if (excempt.indexOf(evt.which) === -1 && $elem.text().length > length) {
+                                        evt.preventDefault();
+                                        return false;
+                                    }
+                                });
+                            }
+                        });
+                    });
+                </script>
+                <p class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов" maxlength="55">Администратор и создатель сайта^_^</p>
+
+                <div class="confirm_edit"><i class='bx bx-check'></i></div>
                 <hr>
                 <ul>
                     <a href="https://vk.com/mikuclub">
@@ -257,124 +285,71 @@
                     <h3>Фото</h3>
                     <a href="#">Все</a>
                 </div>
-                <div class="photo-box">
+                <!-- <div class="photo-box">
                     <div><img src="/static/images/story1.jpg"></div>
                     <div><img src="/static/images/story2.jpg"></div>
                     <div><img src="/static/images/story3.jpg"></div>
                     <div><img src="/static/images/story4.jpg"></div>
                     <div><img src="/static/images/story5.jpg"></div>
                     <div><img src="/static/images/post1.jpg"></div>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="post-col">
-			{% if user == current_user %}
+        <div class="post-col" id="feed">
+            {% if user == current_user %}
             <div class="write-post-container">
                 <div class="user-profile">
-                    <!--img src="/static/images/profile-11.png"-->
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}"> {% else %}
+                    <img src="/static/images/user.png"> {% endif %}
                     <div>
-						{% if user.avatar %}
-                        <img src="{{ user.avatar.url }}"  class="pd-image">
-                        {% else %}
-                        <img src="/static/images/user.png"  class="pd-image">
-                        {% endif %}
+                        <p>{{ user.username }}</p>
                         <small>Публично<i class='bx bx-caret-down'></i></small>
                     </div>
                 </div>
 
                 <div class="post-input-container">
-                    <textarea rows="3" placeholder="Что нового?"></textarea>
+                    <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
+                    <form id="postForm" method="post" action="/feed/make_post">
+                        {% csrf_token %}
 
-                    <div class="add-post-links">
-                        <a href="#"><i class='bx bx-video-plus' ></i>Видео</a>
-                        <a href="#"><i class='bx bx-image-add' ></i>Фото</a>
-                        <a href="#"><i class='bx bxs-file-plus' ></i>Файл</a>
-                        <a href="#"><i class='bx bx-music' ></i>Аудио</a>
-                        <a href="#"><i class='bx bx-map' ></i>Карта</a>
-                    </div>
 
-                </div>
 
-            </div>
-			{% endif %}
-            <div class="post-container">
-                <div class="post-row">
-                    <div class="user-profile">
-						{% if user.avatar %}
-                        <img src="{{ user.avatar.url }}"  class="pd-image">
-                        {% else %}
-                        <img src="/static/images/user.png"  class="pd-image">
-                        {% endif %}
-                        <div>
-                            <p>{{ user.username }}</p>
-                            <span>2 апреля 2022, 10:00</span>
+                        <div class="add-post-links">
+                            <a href="#"><i class='bx bx-video-plus' ></i>Видео</a>
+                            <a href="#"><i class='bx bx-image-add' ></i>Фото</a>
+                            <a href="#"><i class='bx bxs-file-plus' ></i>Файл</a>
+                            <a href="#"><i class='bx bx-music' ></i>Аудио</a>
+                            <a href="#"><i class='bx bx-map' ></i>Карта</a>
+                            <input type="submit" id="post-submit">
                         </div>
-                    </div>
-                    <a href="#"><i class='bx bx-dots-vertical-rounded' ></i></a>
-                </div>
-                <p class="post-text">Добро пожаловать! Это тестовый пост #2. Можете идти дальше. <a href="#">#Test</a></p>
-                <img src="/static/images/post1.jpg" class="post-img">
+                    </form>
 
-                <div class="post-row">
-                    <div class="activity-icons">
-                        <div><i class='bx bx-heart'></i>20</div>
-                        <div><i class='bx bx-comment-detail'></i>5</div>
-                        <div><i class='bx bx-share'></i>2</div>
-                    </div>
-                    <div class="post-profile-icon">
-                        <img src="/static/images/profile-11.png"><i class='bx bx-caret-down'></i>
-                    </div>
                 </div>
 
             </div>
-            <div class="post-container">
-                <div class="post-row">
-                    <div class="user-profile">
-                        {% if user.avatar %}
-                        <img src="{{ user.avatar.url }}"  class="pd-image">
-                        {% else %}
-                        <img src="/static/images/user.png"  class="pd-image">
-                        {% endif %}
-                        <div>
-                            <p>{{ user.username }}</p>
-                            <span>1 апреля 2022, 22:00</span>
-                        </div>
-                    </div>
-                    <a href="#"><i class='bx bx-dots-vertical-rounded' ></i></a>
-                </div>
-                <p class="post-text">Добро пожаловать! Это тестовый пост #1. Можете идти дальше. <a href="#">#Test</a></p>
-                <img src="/static/images/post1.jpg" class="post-img">
+            {% endif %}
 
-                <div class="post-row">
-                    <div class="activity-icons">
-                        <div><i class='bx bx-heart'></i>120</div>
-                        <div><i class='bx bx-comment-detail'></i>45</div>
-                        <div><i class='bx bx-share'></i>20</div>
-                    </div>
-                    <div class="post-profile-icon">
-                        {% if user.avatar %}
-                        <img src="{{ user.avatar.url }}"  class="pd-image">
-                        {% else %}
-                        <img src="/static/images/user.png"  class="pd-image">
-                        {% endif %}
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
 
-    <button type="button" class="load-more-btn">Загрузить ещё</button>
+    <!-- <button type="button" class="load-more-btn">Загрузить ещё</button> -->
 
 
-    <div class="footer">
+    <!-- <div class="footer">
         <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
         <br/>
         <a href="/"> <img src="/static/images/logo-1.png" class="logo"></a>
         <a href="/"><img src="/static/images/logo-2.png" class="logo-2"></a>
-    </div>
+    </div> -->
     <script src="/static/script.js"></script>
-	<script src="/static/upload_avatar.js"></script>
+    {% comment %}
+    <script src="/static/upload_avatar.js"></script> {% endcomment %}
+    <script type="text/javascript">
+        var user_id = "{{ user.id }}";
+    </script>
+    <script src="/static/feed_profile.js">
+    </script>
 </body>
 
 </html>
