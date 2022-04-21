@@ -72,7 +72,7 @@ let comment_template = `<div class="post-comment-form">
 </div>
 <p class="post-text">Тестовый комментарий. Можете идти дальше. <a href="#">#Test</a></p>
 
-</div>`
+</div>`;
 
 function add_comments() {
     document.getElementById("post_container26").innerHTML += comment_template
@@ -102,10 +102,16 @@ function make_like(post_id) {
     xhr.send(data);
 }
 
+function load_posts(time, user_id) {
+    let url = "/feed/get_posts?time=" + time;
+    if (user_id !== null){
+        url += "&user_id=" + user_id
+    }
 
-xhr.open("GET", "/feed/get_posts?time=now", true);
-xhr.setRequestHeader("X-CSRFToken", csrfToken);
-xhr.send();
+    xhr.open("GET", url , true);
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);
+    xhr.send();
+}
 
 String.prototype.format = function() {
     // store arguments in an array
@@ -135,11 +141,11 @@ function remove_post(post_id) {
 
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
-}
+};
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     for (var i = this.length - 1; i >= 0; i--) {
         if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
         }
     }
-}
+};
