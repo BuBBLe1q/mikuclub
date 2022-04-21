@@ -14,6 +14,8 @@ function update_avatar(input) {
         if (xhr.readyState === 4){
             if (xhr.status === 200){
                 //TODO добавить обновление изображений
+                let url = xhr.responseText;
+                document.getElementById("profile_avatar").setAttribute("src", url)
             }else{
                 alert(xhr.responseText)
             }

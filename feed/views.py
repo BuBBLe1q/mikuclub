@@ -1,6 +1,3 @@
-import json
-
-from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden
 from accounts.models import CustomUser
 from feed.Forms import PostForm
@@ -24,7 +21,7 @@ def make_post(request):
 def get_post(request):
     current_user = request.user
     if request.method == "GET" and current_user.is_authenticated:
-    
+
         posts = []
         for post_raw in Post.objects.order_by("-post_time")[:10].values():
             user = CustomUser.objects.get(pk=post_raw["user_id"])
@@ -50,17 +47,16 @@ def get_post(request):
             }
             posts.append(post)
 
-        # print(posts)
         return JsonResponse(posts, safe=False)
 
     return HttpResponse("", 200)
 
-def delete_post(request,post_id=None):
+
+def delete_post(request, post_id=None):
     current_user = request.user
     if request.method == "POST" and current_user.is_authenticated:
         post_id = request.POST["post_id"]
-        post_to_delete=Post.objects.get(pk=post_id)
-        print(current_user, post_to_delete.user_id,request.user.id)
+        post_to_delete = Post.objects.get(pk=post_id)
         if post_to_delete.user_id == current_user.id:
             post_to_delete.delete()
         else:
