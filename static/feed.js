@@ -2,6 +2,8 @@ let xhr = new XMLHttpRequest();
 
 let cookie = document.cookie;
 let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
+let commnet_lock = false;
+let like_lock = false;
 
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -17,11 +19,24 @@ xhr.onreadystatechange = function() {
                     post.user.profile_url, //4
                     post.like_count, //5
                     post.post_id, //6
-                    post.is_liked ? "bx bxs-heart" : "bx bx-heart" //7
+                    post.is_liked ? "bx bxs-heart" : "bx bx-heart", //7
+                    post.comment_count, //8
                 );
-                document.getElementById("feed").innerHTML += postHTML
+                document.getElementById("feed").innerHTML += postHTML;
+                post_elem = document.getElementById("post_container" + post.post_id);
+                post.comments.forEach(function(comment, i, arr) {
+                        commentHTML = comment_template.format(
+                            comment.user.avatar_url, //0
+                            comment.user.profile_url, //1
+                            comment.user.name, //2
+                            comment.text, //3
+                            comment.comment_time, //4
+                        );
+                        post_elem.innerHTML += commentHTML;
+                    })
+                    // document.getElementById("post_container" + post.post_id).innerHTML +=
             });
-            add_comments()
+            // add_comments()
         }
     }
 };
@@ -52,10 +67,12 @@ let template = "<div id=\"post_container{6}\"><div  class=\"post-container\">\n"
     "                    </div>\n" +
     "                </div>\n" +
     "           \n" +
+    "<div class=\"post-comment-form\">\n" +
+    "<input type=\"text\" placeholder=\"Оставить комментарий\"><i class='bx bxs-send' onclick='make_comment(this, {6})'></i>\n" +
+    "</div>" +
     "            </div></div>";
 
 let comment_template = `
-
 <!-- POST COMMENT -->
 <div class="post-comment">
 <div class="post-row">
@@ -71,15 +88,48 @@ let comment_template = `
     </a>
 </div>
 <p class="post-text">{3}</p>
-
 </div>`;
 
 function add_comments() {
-    document.getElementById("post_container26").innerHTML += comment_template
+    // document.getElementById("post_container26").innerHTML += comment_template
 }
 
+function make_comment(elem, post_id) {
+    let xhr = new XMLHttpRequest();
+    let text = elem.previousSibling.value;
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                comment = JSON.parse(xhr.responseText);
+                commentHTML = comment_template.format(
+                    comment.user.avatar_url, //0
+                    comment.user.profile_url, //1
+                    comment.user.name, //2
+                    comment.text, //3
+                    comment.comment_time, //4
+                );
+                document.getElementById("post_container" + post_id).innerHTML += commentHTML;
+            }
+            commnet_lock = false;
+        }
+    };
+
+    xhr.open("POST", "/feed/make_comment", true);
+    let data = new FormData();
+    data.append("post_id", post_id);
+    data.append("text", text);
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);
+    xhr.send(data);
+    commnet_lock = true;
+    // data.append("text",)
+}
 
 function make_like(post_id) {
+
+    if (like_lock) {
+        return;
+    }
+
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -93,6 +143,7 @@ function make_like(post_id) {
                 }
                 post_like.childNodes[1].innerText = xhr.responseText;
             }
+            like_lock = false;
         }
     };
     xhr.open("POST", "/feed/make_like", true);
@@ -100,12 +151,19 @@ function make_like(post_id) {
     data.append("post_id", post_id);
     xhr.setRequestHeader("X-CSRFToken", csrfToken);
     xhr.send(data);
+    like_lock = true;
 }
 
+function load_posts(time, user_id) {
+    let url = "/feed/get_posts?time=" + time;
+    if (user_id !== null) {
+        url += "&user_id=" + user_id
+    }
 
-xhr.open("GET", "/feed/get_posts?time=now", true);
-xhr.setRequestHeader("X-CSRFToken", csrfToken);
-xhr.send();
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);
+    xhr.send();
+}
 
 String.prototype.format = function() {
     // store arguments in an array
@@ -135,11 +193,11 @@ function remove_post(post_id) {
 
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
-}
+};
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     for (var i = this.length - 1; i >= 0; i--) {
         if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
         }
     }
-}
+};
