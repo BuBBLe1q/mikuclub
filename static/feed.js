@@ -2,6 +2,8 @@ let xhr = new XMLHttpRequest();
 
 let cookie = document.cookie;
 let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
+let commnet_lock = false;
+let like_lock = false;
 
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -93,16 +95,38 @@ function add_comments() {
 
 function make_comment(elem, post_id) {
     let xhr = new XMLHttpRequest();
+    let text = elem.previousSibling.value;
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                comment = JSON.parse(xhr.responseText);
+                commentHTML = comment_template.format(
+                    comment.user.avatar_url, //1
+                    comment.user.name, //2
+                    comment.text, //3
+                );
+                document.getElementById("post_container" + post_id).innerHTML += commentHTML;
+            }
+            commnet_lock = false;
+        }
+    };
+
     xhr.open("POST", "/feed/make_comment", true);
     let data = new FormData();
     data.append("post_id", post_id);
-    data.append("text", elem.previousSibling.value);
+    data.append("text", text);
     xhr.setRequestHeader("X-CSRFToken", csrfToken);
     xhr.send(data);
+    commnet_lock = true;
     // data.append("text",)
 }
 
 function make_like(post_id) {
+
+    if (like_lock){
+        return;
+    }
+
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -116,6 +140,7 @@ function make_like(post_id) {
                 }
                 post_like.childNodes[1].innerText = xhr.responseText;
             }
+            like_lock = false;
         }
     };
     xhr.open("POST", "/feed/make_like", true);
@@ -123,6 +148,7 @@ function make_like(post_id) {
     data.append("post_id", post_id);
     xhr.setRequestHeader("X-CSRFToken", csrfToken);
     xhr.send(data);
+    like_lock = true;
 }
 
 function load_posts(time, user_id) {

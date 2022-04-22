@@ -118,7 +118,20 @@ def make_comment(request):
             comment.post = post
             comment.text = text
             comment.save()
-            return HttpResponse("")
+            # return HttpResponse("")
+            ava = None
+            if not current_user.avatar:
+                ava = ""
+            else:
+                ava = current_user.avatar.url
+            return JsonResponse({
+                "user": {
+                    "name": current_user.username,
+                    "avatar_url": ava,
+                    "profile_url": "/profile?id=" + str(current_user.id)
+                },
+                "text": text
+            })
     return HttpResponseBadRequest()
 
 
