@@ -514,18 +514,16 @@ nav .nav-right .search-box {
 }
 
 .post-comment {
-    overflow: hidden;
-    border-top: 1px solid var(--icon-color);
     width: 100%;
     background: var(--bg-color);
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     padding: 20px;
     color: var(--text-color);
     margin-bottom: 20px;
+    border: 1px solid var(--icon-color);
 }
 
 .post-comment-form input {
-    margin-top: -21px;
     display: flex;
     flex-wrap: wrap;
     justify-content: stretch;
@@ -1120,44 +1118,6 @@ nav .nav-right .search-box {
     margin-left: 230px;
     color: var(--text-color);
     height: 360px;
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0.2s, opacity 0.2s;
-}
-
-.comment-dd-set {
-    -webkit-backdrop-filter: blur(1.5rem);
-    backdrop-filter: blur(1.5rem);
-    box-shadow: 0 0 20px #000;
-    margin-top: -215px;
-    border-radius: 10px;
-    padding: 10px;
-    display: block;
-    position: fixed;
-    width: 210px;
-    z-index: 100;
-    margin-left: 495px;
-    color: var(--text-color);
-    height: 100px;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.2s, opacity 0.2s;
-}
-
-.comment-dd-set.active {
-    -webkit-backdrop-filter: blur(1.5rem);
-    backdrop-filter: blur(1.5rem);
-    box-shadow: 0 0 20px #000;
-    margin-top: -215px;
-    border-radius: 10px;
-    padding: 10px;
-    display: block;
-    position: fixed;
-    width: 210px;
-    z-index: 100;
-    margin-left: 495px;
-    color: var(--text-color);
-    height: 100px;
     visibility: visible;
     opacity: 1;
     transition: visibility 0.2s, opacity 0.2s;
