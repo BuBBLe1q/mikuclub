@@ -29,3 +29,14 @@ class Likes(models.Model):
         indexes = [
             models.Index(fields=["user_id", "post_id"])
         ]
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    text = models.TextField(max_length=100)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["post"])
+        ]

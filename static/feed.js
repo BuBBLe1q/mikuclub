@@ -19,9 +19,19 @@ xhr.onreadystatechange = function() {
                     post.post_id, //6
                     post.is_liked ? "bx bxs-heart" : "bx bx-heart" //7
                 );
-                document.getElementById("feed").innerHTML += postHTML
+                document.getElementById("feed").innerHTML += postHTML;
+                post_elem = document.getElementById("post_container" + post.post_id);
+                post.comments.forEach(function (comment, i, arr) {
+                    commentHTML = comment_template.format(
+                        comment.user.avatar_url, //1
+                        comment.user.name, //2
+                        comment.text, //3
+                    );
+                    post_elem.innerHTML += commentHTML;
+                })
+                // document.getElementById("post_container" + post.post_id).innerHTML +=
             });
-            add_comments()
+            // add_comments()
         }
     }
 };
@@ -52,32 +62,45 @@ let template = "<div id=\"post_container{6}\"><div  class=\"post-container\">\n"
     "                    </div>\n" +
     "                </div>\n" +
     "           \n" +
+    "<div class=\"post-comment-form\">\n" +
+    "<input type=\"text\" placeholder=\"Оставить комментарий\"><i class='bx bxs-send' onclick='make_comment(this, {6})'></i>\n" +
+    "</div>" +
     "            </div></div>";
 
-let comment_template = `<div class="post-comment-form">
-<input type="text" placeholder="Оставить комментарий"><i class='bx bxs-send'></i>
+let comment_template = `
 
-</div>
 <!-- POST COMMENT -->
 <div class="post-comment">
 <div class="post-row">
-    <div class="user-profile">
-        <img src="/static/images/profile-11.png">
-        <div>
-            <p>admin</p>
-            <span>2 апреля 2022, 10:00</span>
+    <a href="{1}">
+        <div class="user-profile">
+            <img src="{0}">
+            <div>
+                <p>{1}</p>
+                <span>2 апреля 2022, 10:00</span>
+            </div>
         </div>
-    </div>
-    <a href="#"><i class='bx bx-trash' ></i></a>
+        <a href="#"><i class='bx bx-trash' ></i></a>
+    </a>
 </div>
-<p class="post-text">Тестовый комментарий. Можете идти дальше. <a href="#">#Test</a></p>
+<p class="post-text">{2}</p>
 
 </div>`;
 
 function add_comments() {
-    document.getElementById("post_container26").innerHTML += comment_template
+    // document.getElementById("post_container26").innerHTML += comment_template
 }
 
+function make_comment(elem, post_id) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/feed/make_comment", true);
+    let data = new FormData();
+    data.append("post_id", post_id);
+    data.append("text", elem.previousSibling.value);
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);
+    xhr.send(data);
+    // data.append("text",)
+}
 
 function make_like(post_id) {
     let xhr = new XMLHttpRequest();
