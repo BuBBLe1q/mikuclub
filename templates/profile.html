@@ -72,10 +72,8 @@
             </div>
             <div class="nav-user-icon online" onclick="settingsMenuToggle()">
                 {% if current_user.avatar %}
-                <img src="{{ current_user.avatar.url }}" >
-                {% else %}
-                <img src="/static/images/user.png" >
-                {% endif %}
+                <img src="{{ current_user.avatar.url }}"> {% else %}
+                <img src="/static/images/user.png"> {% endif %}
             </div>
         </div>
         <!-- Settings menu -->
@@ -90,11 +88,9 @@
 
             <div class="settings-menu-inner">
                 <div class="user-profile">
-					{% if current_user.avatar %}
-		            <img src="{{ current_user.avatar.url }}" >
-		            {% else %}
-		            <img src="/static/images/user.png" >
-		            {% endif %}
+                    {% if current_user.avatar %}
+                    <img src="{{ current_user.avatar.url }}"> {% else %}
+                    <img src="/static/images/user.png"> {% endif %}
                     <div>
                         <p>{{ user.username }}</p>
                         <a href="/profile">Профиль</a>
@@ -136,7 +132,6 @@
                     <button class="register-button">Регистрация</button>
                 </a>
             </div>
-        </div>
     </nav>
 
 
@@ -202,15 +197,13 @@
 
     <div class="profile-container">
 
-        <img src="/static/images/cover1.png" class="cover-img">
+        <!-- <img src="/static/images/cover1.png" class="cover-img"> -->
         <div class="profile-details">
             <div class="pd-left">
                 <div class="pd-row">
                     {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}" class="pd-image" id="profile_avatar">
-                    {% else %}
-                    <img src="/static/images/user.png"  class="pd-image" id="profile_avatar">
-                    {% endif %}
+                    <img src="{{ user.avatar.url }}" class="pd-image"> {% else %}
+                    <img src="/static/images/user.png" class="pd-image"> {% endif %}
                     <div class="user-name-container">
                         <h3>{{ user.username }}</h3>
                         <!-- <p>120 Друзей • 20 Взаимных</p>
@@ -223,8 +216,7 @@
             </div>
 
             {% if user == current_user %}
-            	<input type="file" accept="image/jpeg" onchange="update_avatar(this)" alt="">
-            {% endif %}
+            <input type="file" accept="image/jpeg" onchange="update_avatar(this)" alt=""> {% endif %}
 
             <div class="pd-right">
 
@@ -344,16 +336,12 @@
         <a href="/"><img src="/static/images/logo-2.png" class="logo-2"></a>
     </div> -->
     <script src="/static/script.js"></script>
-<!--    {% comment %}-->
-    <script src="/static/upload_avatar.js"></script>
-<!--    {% endcomment %}-->
+    {% comment %}
+    <script src="/static/upload_avatar.js"></script> {% endcomment %}
     <script type="text/javascript">
         var user_id = "{{ user.id }}";
     </script>
-<!--    <script src="/static/feed_profile.js"></script>-->
-    <script src="/static/feed.js"></script>
-    <script>
-        load_posts("now", user_id);
+    <script src="/static/feed_profile.js">
     </script>
 </body>
 

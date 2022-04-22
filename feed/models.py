@@ -10,7 +10,6 @@ class Post(models.Model):
     post_time = models.DateTimeField(auto_now=True)
 
     like_count = models.IntegerField(default=0)
-    comment_count = models.IntegerField(default=0)
 
     class Meta:
         indexes = [
@@ -29,16 +28,4 @@ class Likes(models.Model):
     class Meta:
         indexes = [
             models.Index(fields=["user_id", "post_id"])
-        ]
-
-
-class Comment(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    text = models.TextField(max_length=100)
-    comment_time = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        indexes = [
-            models.Index(fields=["post"])
         ]
