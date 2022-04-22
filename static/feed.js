@@ -59,7 +59,11 @@ let template = "<div id=\"post_container{6}\"><div  class=\"post-container\">\n"
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"activity-icons\">\n" +
     "                            <div id='post{6}'><i class='{7}' onclick=make_like({6})></i><span >{5}</span></div>\n" +
+
     "                            <div><i class='bx bx-comment-detail'></i>{8}</div>\n" +
+
+    "                            <div><i class='bx bx-comment-detail'></i>1</div>\n" +
+
     "                            <div><i class='bx bx-share' ></i>20</div>\n" +
     "                    </div>\n" +
     "                    <div class=\"post-profile-icon\">\n" +
@@ -77,6 +81,7 @@ let comment_template = `
 <!-- POST COMMENT -->
 <div class="post-comment">
 <div class="post-row">
+
     <a href="{1}">
         <div class="user-profile">
             <img src="{0}">
@@ -91,6 +96,31 @@ let comment_template = `
 <p class="post-text">{3}</p>
 
 </div>`;
+
+    <div class="user-profile">
+        <img src="/static/images/profile-11.png">
+        <div class="user-info-post">
+            <p>admin</p>
+            <span>2 апреля 2022, 10:00</span>
+        </div>
+    </div>
+    <div class="options-icon-comment">
+    <i class='bx bx-dots-vertical-rounded'></i>
+    </div>
+</div>
+<p class="post-text">Тестовый комментарий. Можете идти дальше. <a href="#">#Test</a></p>
+<div class="comment-dd-set">
+    <i class='bx bx-trash' ></i>Редактировать</a>
+    <i class='bx bx-trash' ></i>Удалить</a>
+    
+</div>
+</div>
+<div class="post-comment-form">
+<input type="text" placeholder="Оставить комментарий"><i class='bx bxs-send'></i>
+
+</div>
+`
+
 
 function add_comments() {
     // document.getElementById("post_container26").innerHTML += comment_template
