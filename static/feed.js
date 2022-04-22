@@ -19,15 +19,18 @@ xhr.onreadystatechange = function() {
                     post.user.profile_url, //4
                     post.like_count, //5
                     post.post_id, //6
-                    post.is_liked ? "bx bxs-heart" : "bx bx-heart" //7
+                    post.is_liked ? "bx bxs-heart" : "bx bx-heart", //7
+                    post.comment_count, //8
                 );
                 document.getElementById("feed").innerHTML += postHTML;
                 post_elem = document.getElementById("post_container" + post.post_id);
                 post.comments.forEach(function (comment, i, arr) {
                     commentHTML = comment_template.format(
-                        comment.user.avatar_url, //1
+                        comment.user.avatar_url, //0
+                        comment.user.profile_url, //1
                         comment.user.name, //2
                         comment.text, //3
+                        comment.comment_time, //4
                     );
                     post_elem.innerHTML += commentHTML;
                 })
@@ -56,7 +59,7 @@ let template = "<div id=\"post_container{6}\"><div  class=\"post-container\">\n"
     "                <div class=\"post-row\">\n" +
     "                    <div class=\"activity-icons\">\n" +
     "                            <div id='post{6}'><i class='{7}' onclick=make_like({6})></i><span >{5}</span></div>\n" +
-    "                            <div><i class='bx bx-comment-detail'></i>45</div>\n" +
+    "                            <div><i class='bx bx-comment-detail'></i>{8}</div>\n" +
     "                            <div><i class='bx bx-share' ></i>20</div>\n" +
     "                    </div>\n" +
     "                    <div class=\"post-profile-icon\">\n" +
@@ -78,14 +81,14 @@ let comment_template = `
         <div class="user-profile">
             <img src="{0}">
             <div>
-                <p>{1}</p>
-                <span>2 апреля 2022, 10:00</span>
+                <p>{2}</p>
+                <span>{4}</span>
             </div>
         </div>
         <a href="#"><i class='bx bx-trash' ></i></a>
     </a>
 </div>
-<p class="post-text">{2}</p>
+<p class="post-text">{3}</p>
 
 </div>`;
 
@@ -101,9 +104,11 @@ function make_comment(elem, post_id) {
             if (xhr.status === 200) {
                 comment = JSON.parse(xhr.responseText);
                 commentHTML = comment_template.format(
-                    comment.user.avatar_url, //1
+                    comment.user.avatar_url, //0
+                    comment.user.profile_url, //1
                     comment.user.name, //2
                     comment.text, //3
+                    comment.comment_time, //4
                 );
                 document.getElementById("post_container" + post_id).innerHTML += commentHTML;
             }

@@ -49,6 +49,7 @@ def get_post(request):
                 "text": post_raw['text'],
                 "post_time": post_raw['post_time'],
                 "like_count": post_raw['like_count'],
+                "comment_count": post_raw['comment_count'],
                 "is_liked": is_liked,
                 "comments": query_comments(post_raw['id'])
             }
@@ -113,12 +114,14 @@ def make_comment(request):
             if text == "":
                 return HttpResponseBadRequest()
 
+            post.comment_count += 1
+            post.save()
+
             comment = Comment()
             comment.user = current_user
             comment.post = post
             comment.text = text
             comment.save()
-            # return HttpResponse("")
             ava = None
             if not current_user.avatar:
                 ava = ""
@@ -130,14 +133,15 @@ def make_comment(request):
                     "avatar_url": ava,
                     "profile_url": "/profile?id=" + str(current_user.id)
                 },
-                "text": text
+                "text": text,
+                "comment_time": comment.comment_time
             })
     return HttpResponseBadRequest()
 
 
 def query_comments(post_id):
     comments = []
-    for comment_raw in Comment.objects.filter(post=post_id).values():
+    for comment_raw in Comment.objects.filter(post=post_id).order_by("-comment_time").values():
         # print(comment_raw)
         user = CustomUser.objects.get(pk=comment_raw['user_id'])
         ava = None
@@ -151,7 +155,8 @@ def query_comments(post_id):
                 "avatar_url": ava,
                 "profile_url": "/profile?id=" + str(user.id)
             },
-            "text": comment_raw['text']
+            "text": comment_raw['text'],
+            "comment_time": comment_raw['comment_time']
         }
         comments.append(comment)
     return comments
