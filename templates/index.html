@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/jpg" href="/static/images/favicon.ico" />
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -194,6 +194,7 @@
         <!--Main-->
         <div class="main-content" id="feed">
 
+            {% comment %}
             <div class="story-gallery">
                 <div class="story story1">
                     <span class="material-icons-outlined">
@@ -221,7 +222,7 @@
 
                     <p>Name</p>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <div class="write-post-container">
                 <div class="user-profile">
                     {% if user.avatar %}
@@ -253,6 +254,54 @@
                 </div>
 
             </div>
+
+            <!-- POST HARDCODE -->
+            <!-- <div class="post-container">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="/static/images/profile-11.png">
+                        <div>
+                           <p>{{ user.username }}</p>
+                            <span>2 апреля 2022, 10:00</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class='bx bx-dots-vertical-rounded' ></i></a>
+                </div>
+                <p class="post-text">Добро пожаловать! Это тестовый пост #2. Можете идти дальше. <a href="#">#Test</a></p>
+                <img src="/static/images/post1.jpg" class="post-img">
+
+                <div class="post-row">
+                    <div class="activity-icons">
+                        <div><i class='bx bx-heart'></i>20</div>
+                        <div><i class='bx bx-comment-detail'></i>5</div>
+                        <div><i class='bx bx-share'></i>2</div>
+                    </div>
+                    <div class="post-profile-icon">
+                        <img src="/static/images/profile-11.png"><i class='bx bx-caret-down'></i>
+                    </div>
+                </div>
+
+            </div>
+            COMMENT FORM 
+            <div class="post-comment-form">
+                <input type="text" placeholder="Оставить комментарий"><i class='bx bxs-send'></i>
+
+            </div>
+             POST COMMENT
+            <div class="post-comment">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="/static/images/profile-11.png">
+                        <div>
+                            <p>{{ user.username }}</p>
+                            <span>2 апреля 2022, 10:00</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class='bx bx-trash' ></i></a>
+                </div>
+                <p class="post-text">Тестовый комментарий. Можете идти дальше. <a href="#">#Test</a></p>
+
+            </div> -->
 
 
 
@@ -309,6 +358,9 @@
     </div>
     <script src="/static/script.js"></script>
     <script src="/static/feed.js"></script>
+    <script>
+        load_posts("now",null);
+    </script>
 </body>
 
 </html>

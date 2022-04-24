@@ -1,7 +1,10 @@
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden, HttpResponseBadRequest
+from django.shortcuts import get_object_or_404
+
 from accounts.models import CustomUser
 from feed.Forms import PostForm
-from feed.models import Post, Likes
+from feed.models import Post, Likes, Comment
 
 
 def make_post(request):
@@ -15,7 +18,7 @@ def make_post(request):
             post.text = form.cleaned_data['text']
             post.save()
 
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def get_post(request):
@@ -23,7 +26,11 @@ def get_post(request):
     if request.method == "GET" and current_user.is_authenticated:
 
         posts = []
-        for post_raw in Post.objects.order_by("-post_time")[:10].values():
+        if request.GET.get('user_id') is None:
+            posts_raw = Post.objects.order_by("-post_time")[:10].values()
+        else:
+            posts_raw = Post.objects.filter(user=request.GET.get('user_id')).order_by("-post_time")[:10].values()
+        for post_raw in posts_raw:
             user = CustomUser.objects.get(pk=post_raw["user_id"])
             ava = None
             if not user.avatar:
@@ -39,11 +46,12 @@ def get_post(request):
                     "avatar_url": ava,
                     "profile_url": "/profile?id=" + str(user.id)
                 },
-                # "avatar": ava,
                 "text": post_raw['text'],
                 "post_time": post_raw['post_time'],
                 "like_count": post_raw['like_count'],
-                "is_liked": is_liked
+                "comment_count": post_raw['comment_count'],
+                "is_liked": is_liked,
+                "comments": query_comments(post_raw['id'])
             }
             posts.append(post)
 
@@ -90,3 +98,76 @@ def make_like(request):
             return HttpResponse(post.like_count, content_type="text/plain")
 
     return HttpResponse(200)
+
+
+@login_required
+def make_comment(request):
+    print("makecommnet")
+    current_user = request.user
+    if request.method == "POST":
+        if request.POST["post_id"] is not None and request.POST["text"] is not None:
+            post_id = request.POST["post_id"]
+            text = request.POST["text"]
+            print(text)
+            post = get_object_or_404(Post, pk=post_id)
+
+            if text == "":
+                return HttpResponseBadRequest()
+
+            post.comment_count += 1
+            post.save()
+
+            comment = Comment()
+            comment.user = current_user
+            comment.post = post
+            comment.text = text
+            comment.save()
+            ava = None
+            if not current_user.avatar:
+                ava = ""
+            else:
+                ava = current_user.avatar.url
+            return JsonResponse({
+                "user": {
+                    "name": current_user.username,
+                    "avatar_url": ava,
+                    "profile_url": "/profile?id=" + str(current_user.id)
+                },
+                "text": text,
+                "comment_time": comment.comment_time
+            })
+    return HttpResponseBadRequest()
+
+
+def query_comments(post_id):
+    comments = []
+    for comment_raw in Comment.objects.filter(post=post_id).order_by("-comment_time").values():
+        # print(comment_raw)
+        user = CustomUser.objects.get(pk=comment_raw['user_id'])
+        ava = None
+        if not user.avatar:
+            ava = ""
+        else:
+            ava = user.avatar.url
+        comment = {
+            "user": {
+                "name": user.username,
+                "avatar_url": ava,
+                "profile_url": "/profile?id=" + str(user.id)
+            },
+            "text": comment_raw['text'],
+            "comment_time": comment_raw['comment_time']
+        }
+        comments.append(comment)
+    return comments
+
+
+@login_required
+def get_comments(request):
+    if request.method != "GET":
+        if request.GET.get('post_id') is not None:
+            post_id = request.GET.get('post_id')
+            comments = query_comments(post_id)
+            return JsonResponse(comments)
+
+    return HttpResponseBadRequest()

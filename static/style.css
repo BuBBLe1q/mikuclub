@@ -445,22 +445,17 @@ nav .nav-right .search-box {
 
 .post-input-container textarea {
     padding: 5px 5px;
-    width: 50%;
+    width: 100%;
     border: 0;
     outline: 0;
     border-bottom: 1px solid var(--icon-color);
     background: transparent;
-    resize: none;
+    resize: vertical;
     color: var(--text-color);
-    transition: 0.3s;
-    transition-delay: 1.5s;
 }
 
-.post-input-container textarea:hover {
+.post-input-container textarea:focus {
     background: var(--body-color);
-    transition: 0.5s;
-    overflow: hidden;
-    width: 100%;
 }
 
 .add-post-links {
@@ -514,7 +509,46 @@ nav .nav-right .search-box {
     border-radius: 6px;
     padding: 20px;
     color: var(--text-color);
-    margin: 20px 0;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.post-comment {
+    width: 100%;
+    background: var(--bg-color);
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    border: 1px solid var(--icon-color);
+}
+
+.post-comment-form input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    background: transparent;
+    border-radius: 7px;
+    padding: 10px;
+    color: var(--text-color);
+    width: 100%;
+    border: 1px solid var(--icon-color);
+    transition: 0.3s;
+}
+
+.post-comment-form .bx {
+    flex-wrap: wrap;
+    z-index: 99;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: -35px;
+    margin-left: 95%;
+    width: 30px;
+    margin-bottom: 4px;
+    display: flex;
+    color: var(--icon-color);
+    font-size: 20px;
+    transition: 0.3s;
 }
 
 .user-profile span {
@@ -585,7 +619,7 @@ nav .nav-right .search-box {
 }
 
 .post-row i.bx.bx-trash {
-    font-size: 30px;
+    font-size: 10px;
     cursor: pointer;
 }
 
@@ -1114,7 +1148,7 @@ nav .nav-right .search-box {
 #post-submit {
     cursor: pointer;
     background: transparent;
-    border: 1px solid #fe54fe;
+    border: 1px solid var(--icon-color);
     padding: 8px;
     color: var(--text-color);
     border-radius: 20px;
@@ -1123,10 +1157,10 @@ nav .nav-right .search-box {
 
 #post-submit:hover {
     cursor: pointer;
-    background: #fe54fe;
-    border: 1px solid #fe54fe;
+    background: var(--icon-color);
+    border: 1px solid var(--icon-color);
     padding: 8px;
-    color: var(--text-color);
+    color: #fff;
     border-radius: 20px;
     transition: 0.3s;
 }
