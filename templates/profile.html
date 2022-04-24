@@ -341,7 +341,10 @@
     <script type="text/javascript">
         var user_id = "{{ user.id }}";
     </script>
-    <script src="/static/feed_profile.js">
+<!--    <script src="/static/feed_profile.js">-->
+    <script src="/static/feed.js"></script>
+    <script>
+        load_posts("now",user_id);
     </script>
 </body>
 
