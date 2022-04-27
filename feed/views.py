@@ -29,7 +29,8 @@ def get_post(request):
         if request.GET.get('user_id') is None:
             posts_raw = Post.objects.order_by("-post_time")[:10].values()
         else:
-            posts_raw = Post.objects.filter(user=request.GET.get('user_id')).order_by("-post_time")[:10].values()
+            posts_raw = Post.objects.filter(user=request.GET.get(
+                'user_id')).order_by("-post_time")[:10].values()
         for post_raw in posts_raw:
             user = CustomUser.objects.get(pk=post_raw["user_id"])
             ava = None
@@ -38,7 +39,8 @@ def get_post(request):
             else:
                 ava = user.avatar.url
 
-            is_liked = Likes.objects.filter(user_id=current_user, post_id=post_raw['id']).exists()
+            is_liked = Likes.objects.filter(
+                user_id=current_user, post_id=post_raw['id']).exists()
             post = {
                 "post_id": post_raw['id'],
                 "user": {
@@ -171,3 +173,15 @@ def get_comments(request):
             return JsonResponse(comments)
 
     return HttpResponseBadRequest()
+
+@login_required
+def delete_comment(request, post_id=None):
+    current_user = request.user
+    if request.method == "POST" and current_user.is_authenticated:
+        post_id = request.POST["post_id"]
+        post_to_delete = Post.objects.get(pk=post_id)
+        if post_to_delete.user_id == current_user.id:
+            post_to_delete.delete()
+        else:
+            return HttpResponseForbidden("")
+    return HttpResponse(200)
