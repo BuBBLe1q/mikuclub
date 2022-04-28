@@ -48,3 +48,5 @@ toggle.addEventListener("click", () => {
         toggle.classList.replace("uil-eye", "uil-eye-slash");
     }
 });
+
+// Events cards scroll

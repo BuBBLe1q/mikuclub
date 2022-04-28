@@ -28,12 +28,15 @@ urlpatterns = [
     path("messages", TemplateView.as_view(template_name="messages.html"), name="messages"),
     path("music", TemplateView.as_view(template_name="music.html"), name="music"),
     path("video", TemplateView.as_view(template_name="video.html"), name="video"),
+    path("events", TemplateView.as_view(template_name="events.html"), name="events"),
+    
     # path("profile", TemplateView.as_view(template_name="profile.html"), name="profile"),
     path("profile", profile, name="profile"),
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api/", include("api.urls")),
-    path("feed/", include("feed.urls"))
+    path("feed/", include("feed.urls")),
+    
 ]
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

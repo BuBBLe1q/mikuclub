@@ -417,6 +417,9 @@ nav .nav-right .search-box {
 
 .user-profile img {
     width: 50px;
+    height: 50px;
+    overflow: hidden;
+    object-fit: cover;
     border-radius: 50px;
     margin-right: 10px;
     cursor: pointer;
@@ -1231,6 +1234,26 @@ nav .nav-right .search-box {
     color: #fff;
     border-radius: 20px;
     transition: 0.3s;
+}
+
+h3.text-3xl.sm\:text-4xl.leading-normal.font-extrabold.tracking-tight.text-fuchsia-500.capitalize {
+    color: var(--icon-color);
+}
+
+h1.mr-5.text-5xl.text-indigo-600.font-bold {
+    color: var(--icon-color);
+}
+
+span.text-indigo-600.font-bold.text-2xl.mt-3 {
+    color: var(--icon-color);
+}
+
+p.text-gray-900.font-semibold {
+    color: white;
+}
+
+a.text-gray-100.text-sm {
+    color: var(--icon-color);
 }
 
 
