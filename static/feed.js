@@ -5,16 +5,34 @@ let csrfToken = cookie.substring(cookie.indexOf("=") + 1);
 let commnet_lock = false;
 let like_lock = false;
 
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
+function format_date(unix_d){
+    let date = new Date(unix_d);
+    let date_str =
+        date.getFullYear() + "." +
+        padTo2Digits((date.getMonth() + 1)) + "." +
+        padTo2Digits(date.getDate()) + " " +
+        date.toLocaleDateString(undefined, {
+            weekday: 'short',
+        }) + " " +
+        padTo2Digits(date.getHours()) + ":" + padTo2Digits(date.getMinutes());
+    return date_str;
+}
+
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
         if (xhr.status === 200) {
             posts = JSON.parse(xhr.responseText);
             console.log(posts);
             posts.forEach(function(post, i, arr) {
+
                 postHTML = template.format(
                     post.user.name, //0
                     post.user.avatar_url, //1
-                    post.post_time, //2
+                    format_date(post.post_time), //2
                     post.text, //3
                     post.user.profile_url, //4
                     post.like_count, //5
@@ -30,7 +48,7 @@ xhr.onreadystatechange = function() {
                         comment.user.profile_url, //1
                         comment.user.name, //2
                         comment.text, //3
-                        comment.comment_time //4
+                        format_date(comment.comment_time) //4
                     );
                     post_elem.innerHTML += commentHTML;
                 });
@@ -120,7 +138,7 @@ function make_comment(elem, post_id) {
                     comment.user.profile_url, //1
                     comment.user.name, //2
                     comment.text, //3
-                    comment.comment_time //4
+                    format_date(comment.comment_time) //4
                 );
                 document.getElementById("post_container" + post_id).innerHTML +=
                     commentHTML;
