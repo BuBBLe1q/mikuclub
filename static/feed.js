@@ -11,6 +11,8 @@ function padTo2Digits(num) {
 
 function format_date(unix_d){
     let date = new Date(unix_d);
+    let offset = new Date().getTimezoneOffset();
+    date.setMinutes(date.getMinutes() + offset);
     let date_str =
         date.getFullYear() + "." +
         padTo2Digits((date.getMonth() + 1)) + "." +
