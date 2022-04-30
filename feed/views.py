@@ -104,7 +104,7 @@ def make_like(request):
 
 @login_required
 def make_comment(request):
-    print("makecommnet")
+    # print("makecommnet")
     current_user = request.user
     if request.method == "POST":
         if request.POST["post_id"] is not None and request.POST["text"] is not None:

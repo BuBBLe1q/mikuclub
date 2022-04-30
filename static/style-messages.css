@@ -1263,6 +1263,19 @@ nav .nav-right .search-box {
     color: var(--icon-color);
 }
 
+.messages-input input {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    color: var(--text-color);
+    flex-wrap: wrap;
+    background: transparent;
+    border-style: none;
+    height: 40px;
+    border: 1px solid var(--icon-color);
+    overflow: hidden;
+}
+
 
 /* Media query for index */
 
