@@ -9,12 +9,10 @@ def messages(request):
 
 @login_required
 def message(request):
-    # print("makecommnet")
     current_user = request.user
     if request.method == "POST":
         if request.POST["message"] is not None and request.POST["text"] is not None:
             text = request.POST["text"]
-            # print(text)
             post = get_object_or_404(message)
 
             if text == "":

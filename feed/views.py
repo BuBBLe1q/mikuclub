@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
 
 from accounts.models import CustomUser
 from feed.Forms import PostForm
@@ -185,3 +186,4 @@ def delete_comment(request, post_id=None):
         else:
             return HttpResponseForbidden("")
     return HttpResponse(200)
+
