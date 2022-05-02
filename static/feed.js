@@ -95,11 +95,12 @@ let comment_template = `
 
 <div class="comment-dd-set">
     <div class="edit-comment">
-        <i class='bx bx-edit' ></i>Редактировать</a>
+        <i class='bx bx-edit' ></i>
+        <small>Редактировать</small>
     </div>
     <div class="delete-comment">
-        <i class='bx bx-trash' ></i>Удалить</a>
-    </div>
+        <i class='bx bx-trash' ></i>
+        <small>Удалить</small>
     </div>
 </div>
 `;
