@@ -1,6 +1,10 @@
+import datetime
+import time
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
 
 from accounts.models import CustomUser
 from feed.Forms import PostForm
@@ -29,7 +33,8 @@ def get_post(request):
         if request.GET.get('user_id') is None:
             posts_raw = Post.objects.order_by("-post_time")[:10].values()
         else:
-            posts_raw = Post.objects.filter(user=request.GET.get('user_id')).order_by("-post_time")[:10].values()
+            posts_raw = Post.objects.filter(user=request.GET.get(
+                'user_id')).order_by("-post_time")[:10].values()
         for post_raw in posts_raw:
             user = CustomUser.objects.get(pk=post_raw["user_id"])
             ava = None
@@ -38,7 +43,10 @@ def get_post(request):
             else:
                 ava = user.avatar.url
 
-            is_liked = Likes.objects.filter(user_id=current_user, post_id=post_raw['id']).exists()
+            is_liked = Likes.objects.filter(
+                user_id=current_user, post_id=post_raw['id']).exists()
+            # print(time.mktime(post_raw['post_time']))
+            # print(datetime.datetime.timestamp(post_raw['post_time'])*1000)
             post = {
                 "post_id": post_raw['id'],
                 "user": {
@@ -47,7 +55,10 @@ def get_post(request):
                     "profile_url": "/profile?id=" + str(user.id)
                 },
                 "text": post_raw['text'],
-                "post_time": post_raw['post_time'],
+                # "text": datetime.datetime.timestamp(post_raw['text'])*1000,
+                # "text": time.mktime(post_raw['text']),
+                # "post_time": post_raw['post_time'],
+                "post_time": datetime.datetime.timestamp(post_raw['post_time'])*1000,
                 "like_count": post_raw['like_count'],
                 "comment_count": post_raw['comment_count'],
                 "is_liked": is_liked,
@@ -102,7 +113,7 @@ def make_like(request):
 
 @login_required
 def make_comment(request):
-    print("makecommnet")
+    # print("makecommnet")
     current_user = request.user
     if request.method == "POST":
         if request.POST["post_id"] is not None and request.POST["text"] is not None:
@@ -134,7 +145,7 @@ def make_comment(request):
                     "profile_url": "/profile?id=" + str(current_user.id)
                 },
                 "text": text,
-                "comment_time": comment.comment_time
+                "comment_time": datetime.datetime.timestamp(comment.comment_time) * 1000
             })
     return HttpResponseBadRequest()
 
@@ -156,7 +167,7 @@ def query_comments(post_id):
                 "profile_url": "/profile?id=" + str(user.id)
             },
             "text": comment_raw['text'],
-            "comment_time": comment_raw['comment_time']
+            "comment_time": datetime.datetime.timestamp(comment_raw['comment_time']) * 1000,
         }
         comments.append(comment)
     return comments
@@ -171,3 +182,16 @@ def get_comments(request):
             return JsonResponse(comments)
 
     return HttpResponseBadRequest()
+
+@login_required
+def delete_comment(request, post_id=None):
+    current_user = request.user
+    if request.method == "POST" and current_user.is_authenticated:
+        post_id = request.POST["post_id"]
+        post_to_delete = Post.objects.get(pk=post_id)
+        if post_to_delete.user_id == current_user.id:
+            post_to_delete.delete()
+        else:
+            return HttpResponseForbidden("")
+    return HttpResponse(200)
+

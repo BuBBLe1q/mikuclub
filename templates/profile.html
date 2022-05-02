@@ -9,13 +9,15 @@
     <link rel="shortcut icon" type="image/jpg" href="/static/images/favicon.ico" />
     <link rel="stylesheet" href="../static/style-profile.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/static/nanobar-master/nanobar.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $(".notification_icon .fa-bell").click(function() {
+        $(document).ready(function () {
+            $(".notification_icon .fa-bell").click(function () {
                 $(".dropdown").toggleClass("active");
             })
         });
@@ -26,325 +28,160 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
-    <!-- NANOBAR SCRIPT-->
-    <script>
-        var options = {
-            classname: 'my-class',
-            id: 'my-id'
-        };
-        var nanobar = new Nanobar(options);
-        nanobar.go(30);
-        nanobar.go(76);
-        nanobar.go(100);
-    </script>
-
-    <div class="nanobar my-class" id="my-id" style="position: fixed;">
-        <div class="bar"></div>
-    </div>
-    <nav>
-        <script>
-            $(document).ready(function() {
-                $('#nav-icon4').click(function() {
-                    $(this).toggleClass('open');
-                });
-            });
-            $(document).ready(function() {
-                $('#nav-icon4').click(function() {
-                    $("#leftsidebar").toggleClass('active');
-                });
-            });
-        </script>
-        <div class="nav-left">
-            <div id="nav-icon4">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <a> <img src="/static/images/logo-1.png" class="logo"></a>
-            <a href="/"><img src="/static/images/logo-2.png" class="logo-2"></a>
-        </div>
-        <div class="nav-right">
-            <div class="search-box">
-                <span class="material-icons-outlined">
-                    search
-                    </span>
-                <input type="text" placeholder="Поиск...">
-            </div>
-            <div class="nav-user-icon online" onclick="settingsMenuToggle()">
-                {% if current_user.avatar %}
-                <img src="{{ current_user.avatar.url }}"> {% else %}
-                <img src="/static/images/user.png"> {% endif %}
-            </div>
-        </div>
-        <!-- Settings menu -->
-        <div class="settings-menu">
-
-            <div id="dark-btn">
-                <span></span>
-            </div>
-            <div class="dark-btn-text">
-                <span id="switch-text">Сменить тему</span>
-            </div>
-
-            <div class="settings-menu-inner">
-                <div class="user-profile">
-                    {% if current_user.avatar %}
-                    <img src="{{ current_user.avatar.url }}"> {% else %}
-                    <img src="/static/images/user.png"> {% endif %}
-                    <div>
-                        <p>{{ user.username }}</p>
-                        <a href="/profile">Профиль</a>
-                    </div>
-                </div>
-                <hr>
-                <div class="user-profile">
-                    <i class='bx bxs-megaphone'></i>
-                    <div>
-                        <p>Feedback</p>
-                        <a href="https://discord.gg/CT28eSAKGQ">Помочь проекту</a>
-                    </div>
-                </div>
-                <hr>
-
-                <div class="setting-links">
-                    <i class='bx bx-cog'></i>
-                    <a href="#">Настройки и приватность <i class='bx bxs-chevron-right'></i></a>
-                </div>
-                <hr>
-                <div class="setting-links">
-                    <i class='bx bx-help-circle'></i>
-                    <a href="#">Помощь <i class='bx bxs-chevron-right'></i></a>
-                </div>
-                <hr>
-                <div class="setting-links">
-                    <i class='bx bx-desktop'></i>
-                    <a href="#">Настройки отображения <i class='bx bxs-chevron-right'></i></a>
-                </div>
-                <hr>
-                <div class="setting-links">
-                    <i class='bx bxs-log-out'></i>
-                    <a href="#">Выйти </a>
-                </div>
-                <a href="/accounts/login">
-                    <button class="login-button">Войти</button>
-                </a>
-                <a href="/accounts/signup">
-                    <button class="register-button">Регистрация</button>
-                </a>
-            </div>
-    </nav>
+    {% include 'nanobar.html' %} {% include 'navbar.html' %}
 
 
     <!--Left sidebar-->
     <div class="container">
-        <div class="wrapper">
-            <div class="notification_wrap">
-                <div class="notification_icon">
-                    <i class='fa-regular fa-bell'></i>
-                </div>
-            </div>
-        </div>
-        <div class="dropdown">
-            <div class="notify_item">
-                <div class="notify_img">
-                    <img src="/static/images/story1.jpg">
-                </div>
-                <div class="notify_info">
-                    <p>Alex оставил комментарий под<span>записью</span></p>
-                    <span class="notify_time">10 минут назад</span>
-                </div>
-            </div>
-            <div class="notify_item">
-                <div class="notify_img">
-                    <img src="/static/images/story2.jpg">
-                </div>
-                <div class="notify_info">
-                    <p>Ben оставил комментарий под<span>записью</span></p>
-                    <span class="notify_time">55 минут назад</span>
-                </div>
-            </div>
-            <div class="notify_item">
-                <div class="notify_img">
-                    <img src="/static/images/story3.jpg">
-                </div>
-                <div class="notify_info">
-                    <p>Meryn лайкнул<span>изображение профиля</span></p>
-                    <span class="notify_time">2 часа назад</span>
-                </div>
-            </div>
-            <div class="notify_item">
-                <div class="notify_img">
-                    <img src="/static/images/story4.jpg">
-                </div>
-                <div class="notify_info">
-                    <p>John оставил комментарий под<span>изображение профиля</span></p>
-                    <span class="notify_time">6 часов назад</span>
-                </div>
-            </div>
-        </div>
-        <div class="left-sidebar" id="leftsidebar">
-            <div class="imp-links">
-                <a href="/"><span class="material-icons-outlined">newspaper</span><i>Новости</i></a>
-                <a href="/friends"><span class="material-icons-outlined">people</span><i>Друзья</i></a>
-                <a href="/messages"><span class="material-icons-outlined">email</span><i>Сообщения</i></a>
-                <a href="/groups"><span class="material-icons-outlined">groups</span><i>Группы</i></a>
-                <a href="/music"><span class="material-icons-outlined">headphones</span><i>Музыка</i></a>
-                <a href="/video"><span class="material-icons-outlined">theaters</span><i>Видео</i></a>
-                <a href="#">Ещё</a>
-            </div>
-        </div>
-    </div>
+        {% include 'notifications.html' %} {% include 'left_menu.html' %}
 
-    <div class="profile-container">
+        <div class="profile-container">
 
-        <!-- <img src="/static/images/cover1.png" class="cover-img"> -->
-        <div class="profile-details">
-            <div class="pd-left">
-                <div class="pd-row">
-                    {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}" class="pd-image"> {% else %}
-                    <img src="/static/images/user.png" class="pd-image"> {% endif %}
-                    <div class="user-name-container">
-                        <h3>{{ user.username }}</h3>
-                        <!-- <p>120 Друзей • 20 Взаимных</p>
+            <img src="/static/images/cover1.png" class="cover-img">
+            <div class="profile-details">
+                <div class="pd-left">
+                    <div class="pd-row">
+                        {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" class="pd-image"> {% else %}
+                        <img src="/static/images/user.png" class="pd-image"> {% endif %}
+                        <div class="user-name-container">
+                            <h3>{{ user.username }}</h3>
+                            <!-- <p>120 Друзей • 20 Взаимных</p>
                         <img src="/static/images/story1.jpg">
                         <img src="/static/images/story2.jpg">
                         <img src="/static/images/story3.jpg">
                         <img src="/static/images/story4.jpg"> -->
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {% if user == current_user %}
-            <input type="file" accept="image/jpeg" onchange="update_avatar(this)" alt=""> {% endif %}
+                {% if user == current_user %}
+                <input type="file" accept="image/jpeg" onchange="update_avatar(this)" alt=""> {% endif %}
 
-            <div class="pd-right">
+                <div class="pd-right">
 
 
-                <button type="button"><i class='bx bx-user-plus' ></i>Добавить</button>
-                <button type="button"><i class='bx bx-message-rounded-edit' ></i>Написать</button>
-                <a href="#"><i class='bx bx-dots-vertical-rounded' ></i></a>
+                    <button type="button"><i class='bx bx-user-plus'></i>Добавить</button>
+                    <button type="button"><i class='bx bx-message-rounded-edit'></i>Написать</button>
+                    <a href="#"><i class='bx bx-dots-vertical-rounded'></i></a>
 
-            </div>
-        </div>
-    </div>
-    <div class="profile-info">
-        <div class="info-col">
-
-            <div class="profile-intro">
-                <h3>О себе</h3>
-                <div class="edit_intro">
-                    <i class='bx bxs-pencil'></i>
                 </div>
-                <script>
-                    $(document).ready(function() {
-                        // Excempt keys(arrows, del, backspace, home, end);
-                        var excempt = [37, 38, 39, 40, 46, 8, 36, 35];
-                        // Loop through every editiable thing
-                        $("[contenteditable='true']").each(function(index, elem) {
-                            var $elem = $(elem);
-                            // Check for a property called data-input-length="value" (<div contenteditiable="true" data-input-length="100">)
-                            var length = $elem.data('input-length');
-                            // Validation of value
-                            if (!isNaN(length)) {
-                                // Register keydown handler
-                                $elem.on('keydown', function(evt) {
-                                    // If the key isn't excempt AND the text is longer than length stop the action.
-                                    if (excempt.indexOf(evt.which) === -1 && $elem.text().length > length) {
-                                        evt.preventDefault();
-                                        return false;
+            </div>
+
+            <div class="profile-info">
+                <div class="info-col">
+
+                    <div class="profile-intro">
+                        <h3>О себе</h3>
+                        <div class="edit_intro">
+                            <i class='bx bxs-pencil'></i>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                // Excempt keys(arrows, del, backspace, home, end);
+                                var excempt = [37, 38, 39, 40, 46, 8, 36, 35];
+                                // Loop through every editiable thing
+                                $("[contenteditable='true']").each(function (index, elem) {
+                                    var $elem = $(elem);
+                                    // Check for a property called data-input-length="value" (<div contenteditiable="true" data-input-length="100">)
+                                    var length = $elem.data('input-length');
+                                    // Validation of value
+                                    if (!isNaN(length)) {
+                                        // Register keydown handler
+                                        $elem.on('keydown', function (evt) {
+                                            // If the key isn't excempt AND the text is longer than length stop the action.
+                                            if (excempt.indexOf(evt.which) === -1 && $elem.text().length > length) {
+                                                evt.preventDefault();
+                                                return false;
+                                            }
+                                        });
                                     }
                                 });
-                            }
-                        });
-                    });
-                </script>
-                <p class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов" maxlength="55">Администратор и создатель сайта^_^</p>
+                            });
+                        </script>
+                        <p class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов"
+                            maxlength="55">Администратор и создатель сайта^_^</p>
 
-                <div class="confirm_edit"><i class='bx bx-check'></i></div>
-                <hr>
-                <ul>
-                    <a href="https://vk.com/mikuclub">
-                        <li><i class='bx bx-briefcase'></i>MIKUCLUB</li>
-                    </a>
-                    <li><i class='bx bxs-graduation'></i>МГТУ</li>
-                    <li><i class='bx bx-home-alt'></i>Sapporo</li>
-                    <li><i class='bx bx-map'></i>Tokyo</li>
+                        <div class="confirm_edit"><i class='bx bx-check'></i></div>
+                        <hr>
+                        <ul>
+                            <a href="https://vk.com/mikuclub">
+                                <li><i class='bx bx-briefcase'></i>MIKUCLUB</li>
+                            </a>
+                            <li><i class='bx bxs-graduation'></i>МГТУ</li>
+                            <li><i class='bx bx-home-alt'></i>Sapporo</li>
+                            <li><i class='bx bx-map'></i>Tokyo</li>
 
-                </ul>
-            </div>
-            <div class="profile-intro">
-                <div class="title-box">
-                    <h3>Фото</h3>
-                    <a href="#">Все</a>
-                </div>
-                <!-- <div class="photo-box">
-                    <div><img src="/static/images/story1.jpg"></div>
-                    <div><img src="/static/images/story2.jpg"></div>
-                    <div><img src="/static/images/story3.jpg"></div>
-                    <div><img src="/static/images/story4.jpg"></div>
-                    <div><img src="/static/images/story5.jpg"></div>
-                    <div><img src="/static/images/post1.jpg"></div>
-                </div> -->
-            </div>
-        </div>
-        <div class="post-col" id="feed">
-            {% if user == current_user %}
-            <div class="write-post-container">
-                <div class="user-profile">
-                    {% if user.avatar %}
-                    <img src="{{ user.avatar.url }}"> {% else %}
-                    <img src="/static/images/user.png"> {% endif %}
-                    <div>
-                        <p>{{ user.username }}</p>
-                        <small>Публично<i class='bx bx-caret-down'></i></small>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="post-input-container">
-                    <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
-                    <form id="postForm" method="post" action="/feed/make_post">
-                        {% csrf_token %}
-
-
-
-                        <div class="add-post-links">
-                            <a href="#"><i class='bx bx-video-plus' ></i>Видео</a>
-                            <a href="#"><i class='bx bx-image-add' ></i>Фото</a>
-                            <a href="#"><i class='bx bxs-file-plus' ></i>Файл</a>
-                            <a href="#"><i class='bx bx-music' ></i>Аудио</a>
-                            <a href="#"><i class='bx bx-map' ></i>Карта</a>
-                            <input type="submit" id="post-submit">
-                        </div>
-                    </form>
-
-                </div>
-
             </div>
-            {% endif %}
-
+            <div class="post-col" id="feed">
+                {% if user == current_user %}
+                <div class="write-post-container">
+                    <div class="user-profile">
+                        {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}"> {% else %}
+                        <img src="/static/images/user.png"> {% endif %}
+                        <div>
+                            <p>{{ user.username }}</p>
+                            <small>Публично<i class='bx bx-caret-down'></i></small>
+                        </div>
+                    </div>
+        
+                    <div class="post-input-container">
+                        <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
+                        <form id="postForm" method="post" action="/feed/make_post">
+                            {% csrf_token %}
+        
+        
+        
+                            <div class="add-post-links">
+                                <a href="#"><i class='bx bx-video-plus'></i>Видео</a>
+                                <a href="#"><i class='bx bx-image-add'></i>Фото</a>
+                                <a href="#"><i class='bx bxs-file-plus'></i>Файл</a>
+                                <a href="#"><i class='bx bx-music'></i>Аудио</a>
+                                <a href="#"><i class='bx bx-map'></i>Карта</a>
+                                <input type="submit" id="post-submit">
+                            </div>
+                        </form>
+        
+                    </div>
+        
+                </div>
+                {% endif %}
+        
+            </div>
         </div>
-    </div>
-
+       
+    
+        
+</div>
+</div>
+</div>
     <!-- <button type="button" class="load-more-btn">Загрузить ещё</button> -->
 
 
-    <!-- <div class="footer">
+    <div class="footer">
         <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
-        <br/>
-        <a href="/"> <img src="/static/images/logo-1.png" class="logo"></a>
-        <a href="/"><img src="/static/images/logo-2.png" class="logo-2"></a>
-    </div> -->
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".options-icon-comment").click(function () {
+                $(".comment-dd-set").toggleClass("active");
+            })
+        });
+    </script>
     <script src="/static/script.js"></script>
     {% comment %}
     <script src="/static/upload_avatar.js"></script> {% endcomment %}
     <script type="text/javascript">
         var user_id = "{{ user.id }}";
     </script>
-<!--    <script src="/static/feed_profile.js">-->
+    <!--    <script src="/static/feed_profile.js">-->
     <script src="/static/feed.js"></script>
     <script>
-        load_posts("now",user_id);
+        load_posts("now", user_id);
     </script>
 </body>
 

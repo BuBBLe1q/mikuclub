@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="/static/images/favicon.ico" />
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/static/nanobar-master/nanobar.min.js"></script>
+    <title>Главная - MIKUCLUB</title>
+    <!-- NOTIFICATIONS SCRIPT -->
+    <script>
+        $(document).ready(function() {
+            $(".notification_icon .fa-bell").click(function() {
+                $(".dropdown").toggleClass("active");
+            })
+        });
+    </script>
+
+</head>
+
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+    </style>
+    {% include 'nanobar.html' %} {% include 'navbar.html' %}
+
+    <div class="container">
+
+        <!--Left sidebar-->
+        {% include 'notifications.html' %} {% include 'left_menu.html' %}
+    </div>
+    <div class="py-24 px-10 max-w-screen-xl mx-auto ">
+        <div class="text-center mb-16">
+            <p class="mt-4 text-sm leading-7 text-gray-500 font-regular">
+                СПИСОК СОБЫТИЙ
+            </p>
+            <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-fuchsia-500 capitalize">
+                запланированные<span class="text-fuchsia-500"> события</span>
+            </h3>
+        </div>
+
+
+        <div class="mx-auto max-w-xl">
+
+            <div class="flex flex-row justify-between items-start my-8 sm:my-4">
+
+                <div class="md:flex items-center">
+                    <h1 class="mr-5 text-5xl text-indigo-600 font-bold">1. </h1>
+                    <div class="text-md">
+                        <p class="text-gray-900 font-semibold">День Рождения Мику</p>
+                        <p class="text-gray-500 text-sm">31 Августа 2022</p>
+                    </div>
+                </div>
+
+                <span class="text-indigo-600 font-bold text-2xl mt-3">
+            1:00 - 23:00
+          </span>
+
+            </div>
+            <div class="flex flex-row justify-between items-start my-8 sm:my-4">
+
+                <div class="md:flex items-center">
+                    <h1 class="mr-5 text-5xl text-indigo-600 font-bold">2. </h1>
+                    <div class="text-md">
+                        <p class="text-gray-900 font-semibold">Magical Mirai 10th Anniversary</p>
+                        <p class="text-gray-500 text-sm">Osaka - 12-14 Августа 2022 <br> Tokyo - 2-4 Сентября 2022 <br> Sapporo - 4-5 Февраля 2023</p>
+                        <a href="https://magicalmirai.com/10th/index_en.html" class="text-gray-100 text-sm">Официальный сайт</a>
+                    </div>
+                </div>
+                <span class="text-indigo-600 font-bold text-2xl mt-3">
+            
+          </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
+    </div>
+    <script src="/static/script.js"></script>
+    <script src="/static/feed.js"></script>
+    <script>
+        load_posts("now", null);
+    </script>
+</body>
+
+</html>

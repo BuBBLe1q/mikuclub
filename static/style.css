@@ -214,13 +214,13 @@ nav .nav-right .search-box {
 }
 
 .imp-links i {
-    font-style: normal!important;
+    font-style: normal !important;
 }
 
 .imp-links a:hover {
     transition: 0.3s;
     color: var(--icon-color);
-    font-style: normal!important;
+    font-style: normal !important;
 }
 
 .imp-links a:hover {
@@ -417,6 +417,9 @@ nav .nav-right .search-box {
 
 .user-profile img {
     width: 50px;
+    height: 50px;
+    overflow: hidden;
+    object-fit: cover;
     border-radius: 50px;
     margin-right: 10px;
     cursor: pointer;
@@ -514,13 +517,51 @@ nav .nav-right .search-box {
 }
 
 .post-comment {
+    margin-top: 5px;
     width: 100%;
     background: var(--bg-color);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     color: var(--text-color);
-    margin-bottom: 20px;
-    border: 1px solid var(--icon-color);
+    margin-bottom: 0px;
+}
+
+.comment-dd-set {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 0 20px #000;
+    margin-top: -60px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 210px;
+    z-index: 99;
+    margin-left: 495px;
+    color: var(--text-color);
+    height: 100px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.comment-dd-set.active {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 0 20px #000;
+    margin-top: -60px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 210px;
+    z-index: 99;
+    margin-left: 495px;
+    color: var(--text-color);
+    height: 100px;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
 }
 
 .post-comment-form input {
@@ -534,6 +575,36 @@ nav .nav-right .search-box {
     width: 100%;
     border: 1px solid var(--icon-color);
     transition: 0.3s;
+}
+
+.edit-comment {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.edit-comment:hover {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: var(--dimm-text-color);
+}
+
+.delete-comment {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.delete-comment:hover {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: var(--dimm-text-color);
 }
 
 .post-comment-form .bx {
@@ -695,7 +766,7 @@ nav .nav-right .search-box {
 
 .settings-menu .user-profile {
     height: 56px;
-    width: 261px!important;
+    width: 261px !important;
 }
 
 .settings-menu .user-profile div {
@@ -1153,6 +1224,9 @@ nav .nav-right .search-box {
     color: var(--text-color);
     border-radius: 20px;
     transition: 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 74px;
 }
 
 #post-submit:hover {
@@ -1163,6 +1237,29 @@ nav .nav-right .search-box {
     color: #fff;
     border-radius: 20px;
     transition: 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 74px;
+}
+
+h3.text-3xl.sm\:text-4xl.leading-normal.font-extrabold.tracking-tight.text-fuchsia-500.capitalize {
+    color: var(--icon-color);
+}
+
+h1.mr-5.text-5xl.text-indigo-600.font-bold {
+    color: var(--icon-color);
+}
+
+span.text-indigo-600.font-bold.text-2xl.mt-3 {
+    color: var(--icon-color);
+}
+
+p.text-gray-900.font-semibold {
+    color: white;
+}
+
+a.text-gray-100.text-sm {
+    color: var(--icon-color);
 }
 
 
@@ -1319,8 +1416,8 @@ nav .nav-right .search-box {
     }
     .container-friends {
         position: relative;
-        margin-left: 16%!important;
-        margin-top: 18%!important;
+        margin-left: 16% !important;
+        margin-top: 18% !important;
     }
     .imp-links a {
         width: 40px;
@@ -1364,10 +1461,10 @@ nav .nav-right .search-box {
         -moz-transform: rotate(0deg);
         -o-transform: rotate(0deg);
         transform: rotate(0deg);
-        -webkit-transition: .5s ease-in-out;
-        -moz-transition: .5s ease-in-out;
-        -o-transition: .5s ease-in-out;
-        transition: .5s ease-in-out;
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
         cursor: pointer;
     }
     #nav-icon4 span {
@@ -1383,10 +1480,10 @@ nav .nav-right .search-box {
         -moz-transform: rotate(0deg);
         -o-transform: rotate(0deg);
         transform: rotate(0deg);
-        -webkit-transition: .25s ease-in-out;
-        -moz-transition: .25s ease-in-out;
-        -o-transition: .25s ease-in-out;
-        transition: .25s ease-in-out;
+        -webkit-transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+        transition: 0.25s ease-in-out;
     }
     #nav-icon4 span:nth-child(1) {
         top: 11px;
@@ -1471,13 +1568,13 @@ nav .nav-right .search-box {
         transition: visibility 0.2s, opacity 0.2s;
     }
     .container .wrapper {
-        margin-left: 283px!important;
-        margin-top: -35px!important;
-        z-index: 100!important;
+        margin-left: 283px !important;
+        margin-top: -35px !important;
+        z-index: 100 !important;
         position: fixed;
     }
     .container .dropdown:before {
-        left: 76.7%!important;
+        left: 76.7% !important;
     }
     .container .dropdown.active {
         -webkit-backdrop-filter: blur(1.5rem);
@@ -1486,13 +1583,13 @@ nav .nav-right .search-box {
         border-radius: 20px;
         padding: 20px;
         display: block;
-        margin-top: 19px!important;
+        margin-top: 19px !important;
         position: fixed;
-        width: 300px!important;
+        width: 300px !important;
         z-index: 100;
-        margin-left: 78px!important;
+        margin-left: 78px !important;
         color: var(--text-color);
-        height: 460px!important;
+        height: 460px !important;
         visibility: visible;
         opacity: 1;
         transition: visibility 0.2s, opacity 0.2s;
@@ -1504,13 +1601,13 @@ nav .nav-right .search-box {
         border-radius: 20px;
         padding: 20px;
         display: block;
-        margin-top: 19px!important;
+        margin-top: 19px !important;
         position: fixed;
-        width: 300px!important;
+        width: 300px !important;
         z-index: 100;
-        margin-left: 78px!important;
+        margin-left: 78px !important;
         color: var(--text-color);
-        height: 460px!important;
+        height: 460px !important;
         visibility: hidden;
         opacity: 0;
         transition: visibility 0.2s, opacity 0.2s;

@@ -1,0 +1,70 @@
+<!--Main-->
+<div class="main-content" id="feed">
+
+    {% comment %}
+    <div class="story-gallery">
+        <div class="story story1">
+            <span class="material-icons-outlined">
+                add_circle
+            </span>
+            <p>Добавить</p>
+        </div>
+        <div class="story story2">
+            <img src="/static/images/story2.jpg">
+
+            <p>Name</p>
+        </div>
+        <div class="story story3">
+            <img src="/static/images/story3.jpg">
+
+            <p>Name</p>
+        </div>
+        <div class="story story4">
+            <img src="/static/images/story4.jpg">
+
+            <p>Name</p>
+        </div>
+        <div class="story story5">
+            <img src="/static/images/story5.jpg">
+
+            <p>Name</p>
+        </div>
+    </div> {% endcomment %}
+    <div class="write-post-container">
+        <div class="user-profile">
+            {% if user.avatar %}
+            <img src="{{ user.avatar.url }}"> {% else %}
+            <img src="/static/images/user.png"> {% endif %}
+            <div>
+                <p>{{ user.username }}</p>
+                <small>Публично<i class='bx bx-caret-down'></i></small>
+            </div>
+        </div>
+
+        <div class="post-input-container">
+            <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
+            <form id="postForm" method="post" action="/feed/make_post">
+                {% csrf_token %}
+
+
+
+                <div class="add-post-links">
+                    <a href="#"><i class='bx bx-video-plus'></i>Видео</a>
+                    <a href="#"><i class='bx bx-image-add'></i>Фото</a>
+                    <a href="#"><i class='bx bxs-file-plus'></i>Файл</a>
+                    <a href="#"><i class='bx bx-music'></i>Аудио</a>
+                    <!-- <a href="#"><i class='bx bx-map'></i>Карта</a> -->
+                    <input type="submit" id="post-submit">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>

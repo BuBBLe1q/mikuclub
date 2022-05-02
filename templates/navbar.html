@@ -1,0 +1,91 @@
+<nav>
+    <script>
+        $(document).ready(function() {
+            $('#nav-icon4').click(function() {
+                $(this).toggleClass('open');
+            });
+        });
+        $(document).ready(function() {
+            $('#nav-icon4').click(function() {
+                $("#leftsidebar").toggleClass('active');
+            });
+        });
+    </script>
+    <div class="nav-left">
+        <div id="nav-icon4">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a><img src="/static/images/logo-1.png" class="logo"></a>
+        <a href="/"><img src="/static/images/logo-2.png" class="logo-2"></a>
+    </div>
+    <div class="nav-right">
+        <div class="search-box">
+            <span class="material-icons-outlined">
+          </span>
+          <form class="header__search" method="GET" action="{% url 'home' %}">
+            <label>
+          <title> </title>
+          
+        <input name="q" placeholder="Поиск по сайту..." />
+      </label>
+        </form>
+        </div>
+        <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+            {% if user.avatar %}
+            <img src="{{ user.avatar.url }}"> {% else %}
+            <img src="/static/images/user.png"> {% endif %}
+        </div>
+    </div>
+    <!-- Settings menu -->
+    <div class="settings-menu">
+
+        <div id="dark-btn">
+            <span></span>
+        </div>
+        <div class="dark-btn-text">
+            <span id="switch-text">Сменить тему</span>
+        </div>
+
+
+        <!-- Settings menu -->
+        <div class="settings-menu-inner">
+            {% if user.is_authenticated %}
+            <div class="user-profile">
+                {% if user.avatar %}
+                <img src="{{ user.avatar.url }}"> {% else %}
+                <img src="/static/images/user.png"> {% endif %}
+                <div>
+                    <p>{{ user.username }}</p>
+                    <a href="/profile">Профиль</a>
+                </div>
+            </div>
+            <hr>
+            <!-- <div class="setting-links">
+              <i class='bx bx-cog'></i>
+              <a href="#">Настройки и приватность <i class='bx bxs-chevron-right'></i></a>
+          </div>
+          <hr>
+          <div class="setting-links">
+              <i class='bx bx-help-circle'></i>
+              <a href="#">Помощь <i class='bx bxs-chevron-right'></i></a>
+          </div>
+          <hr>
+          <div class="setting-links">
+              <i class='bx bx-desktop'></i>
+              <a href="#">Настройки отображения <i class='bx bxs-chevron-right'></i></a>
+          </div>
+          <hr> -->
+            <div class="setting-links">
+                <i class='bx bxs-log-out'></i>
+                <a href="/accounts/logout">Выйти </a>{% else %}
+            </div>
+            <a href="/accounts/login">
+                <h4 class="login-button">Войти</h4>
+            </a>
+            <a href="/accounts/signup">
+                <h4 class="register-button">Регистрация</h4>
+            </a>{% endif %}
+        </div>
+</nav>

@@ -47,4 +47,6 @@ toggle.addEventListener("click", () => {
         pass.type = "password";
         toggle.classList.replace("uil-eye", "uil-eye-slash");
     }
-})
+});
+
+// Events cards scroll

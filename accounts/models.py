@@ -28,6 +28,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
             "unique": "A user with that username already exists.",
         },
     )
+    first_name = None  # type: ignore
+    last_name = None  # type: ignore
     email = models.EmailField("email address", blank=False)
 
     avatar = models.ImageField(default='user.png', upload_to="avatars/", blank=True)

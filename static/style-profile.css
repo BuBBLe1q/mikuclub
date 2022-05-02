@@ -168,6 +168,7 @@ nav .nav-right .search-box {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 13px 5%;
 }
@@ -419,14 +420,14 @@ nav .nav-right .search-box {
     display: flex;
     cursor: pointer;
     flex-wrap: wrap;
-    margin-left: 130px;
+    margin-left: 10%;
     margin-top: -17px;
 }
 
 .profile-intro .confirm_edit {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 130px;
+    margin-left: 97%;
     cursor: pointer;
     margin-top: -17px;
 }
@@ -476,7 +477,7 @@ nav .nav-right .search-box {
 
 .add-post-links {
     display: flex;
-    margin-left: -61px;
+    margin-left: 0rem;
     margin-top: 15px;
 }
 
@@ -526,7 +527,7 @@ nav .nav-right .search-box {
     border-radius: 6px;
     padding: 20px;
     color: var(--text-color);
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .user-profile span {
@@ -811,8 +812,8 @@ nav .nav-right .search-box {
 }
 
 .cover-img {
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 5rem;
+    width: 50rem;
     border-radius: 6px;
     margin-bottom: 14px;
 }
@@ -820,8 +821,8 @@ nav .nav-right .search-box {
 .profile-details {
     background: var(--bg-color);
     padding: 20px;
-    width: 80%;
-    margin-left: 10%;
+    width: 50rem;
+    margin-left: 5rem;
     border-radius: 4px;
     display: flex;
     align-items: flex-start;
@@ -881,35 +882,42 @@ nav .nav-right .search-box {
 }
 
 .post-col .write-post-container {
-    width: 66%;
+    width: 100%;
     margin-left: 0%;
 }
 
+.profile-details input {
+    margin-top: 5%;
+    margin-left: -50%;
+}
+
 .post-col .post-container {
-    width: 66%;
+    width: 100%;
     margin-left: 0%;
 }
 
 .profile-info {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    margin-left: 5rem;
     justify-content: space-between;
     margin-top: 20px;
 }
 
 .info-col {
     flex-basis: 34%;
+    width: 50rem;
 }
 
 .post-col {
     flex-basis: 65%;
+    margin-left: 5rem;
+    width: 50rem;
 }
 
 .profile-intro {
     background: var(--bg-color);
     padding: 20px;
     margin-bottom: 20px;
-    margin-left: 64.7%;
     border-radius: 4px;
 }
 
@@ -980,6 +988,44 @@ nav .nav-right .search-box {
     height: 50px;
     cursor: pointer;
     border-radius: 50px;
+}
+
+.comment-dd-set {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 0 20px #000;
+    margin-top: -60px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 210px;
+    z-index: 99;
+    margin-left: 495px;
+    color: var(--text-color);
+    height: 100px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.comment-dd-set.active {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 0 20px #000;
+    margin-top: -60px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 210px;
+    z-index: 99;
+    margin-left: 495px;
+    color: var(--text-color);
+    height: 100px;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
 }
 
 
@@ -1095,6 +1141,7 @@ nav .nav-right .search-box {
 
 #post-submit {
     cursor: pointer;
+    margin-left: 5rem;
     background: transparent;
     border: 1px solid var(--icon-color);
     padding: 8px;
@@ -1233,7 +1280,7 @@ nav .nav-right .search-box {
         margin-left: 5%;
     }
     .profile-intro {
-        margin-left: 0;
+        margin-left: -104px;
         text-align: center;
     }
     .photo-box div img {
@@ -1443,16 +1490,58 @@ nav .nav-right .search-box {
         opacity: 0;
         transition: visibility 0.2s, opacity 0.2s;
     }
+    .profile-details input {
+        margin-top: 5%;
+        margin-left: 0%;
+    }
 }
 
 .post-comment {
+    margin-top: 5px;
     width: 100%;
     background: var(--bg-color);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     color: var(--text-color);
-    margin-bottom: 20px;
-    border: 1px solid var(--icon-color);
+    margin-bottom: 0px;
+}
+
+.comment-dd-set {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 0 20px #000;
+    margin-top: -60px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 210px;
+    z-index: 99;
+    margin-left: 495px;
+    color: var(--text-color);
+    height: 100px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.comment-dd-set.active {
+    -webkit-backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 0 20px #000;
+    margin-top: -60px;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 210px;
+    z-index: 99;
+    margin-left: 495px;
+    color: var(--text-color);
+    height: 100px;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
 }
 
 .post-comment-form input {
@@ -1466,6 +1555,36 @@ nav .nav-right .search-box {
     width: 100%;
     border: 1px solid var(--icon-color);
     transition: 0.3s;
+}
+
+.edit-comment {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.edit-comment:hover {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: var(--dimm-text-color);
+}
+
+.delete-comment {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.delete-comment:hover {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: var(--dimm-text-color);
 }
 
 .post-comment-form .bx {
