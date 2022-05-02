@@ -9,13 +9,15 @@
     <link rel="shortcut icon" type="image/jpg" href="/static/images/favicon.ico" />
     <link rel="stylesheet" href="../static/style-profile.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/static/nanobar-master/nanobar.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $(".notification_icon .fa-bell").click(function() {
+        $(document).ready(function () {
+            $(".notification_icon .fa-bell").click(function () {
                 $(".dropdown").toggleClass("active");
             })
         });
@@ -35,7 +37,7 @@
 
         <div class="profile-container">
 
-            <!-- <img src="/static/images/cover1.png" class="cover-img"> -->
+            <img src="/static/images/cover1.png" class="cover-img">
             <div class="profile-details">
                 <div class="pd-left">
                     <div class="pd-row">
@@ -59,71 +61,59 @@
                 <div class="pd-right">
 
 
-                    <button type="button"><i class='bx bx-user-plus' ></i>Добавить</button>
-                    <button type="button"><i class='bx bx-message-rounded-edit' ></i>Написать</button>
-                    <a href="#"><i class='bx bx-dots-vertical-rounded' ></i></a>
+                    <button type="button"><i class='bx bx-user-plus'></i>Добавить</button>
+                    <button type="button"><i class='bx bx-message-rounded-edit'></i>Написать</button>
+                    <a href="#"><i class='bx bx-dots-vertical-rounded'></i></a>
 
                 </div>
             </div>
-        </div>
-        <div class="profile-info">
-            <div class="info-col">
 
-                <div class="profile-intro">
-                    <h3>О себе</h3>
-                    <div class="edit_intro">
-                        <i class='bx bxs-pencil'></i>
-                    </div>
-                    <script>
-                        $(document).ready(function() {
-                            // Excempt keys(arrows, del, backspace, home, end);
-                            var excempt = [37, 38, 39, 40, 46, 8, 36, 35];
-                            // Loop through every editiable thing
-                            $("[contenteditable='true']").each(function(index, elem) {
-                                var $elem = $(elem);
-                                // Check for a property called data-input-length="value" (<div contenteditiable="true" data-input-length="100">)
-                                var length = $elem.data('input-length');
-                                // Validation of value
-                                if (!isNaN(length)) {
-                                    // Register keydown handler
-                                    $elem.on('keydown', function(evt) {
-                                        // If the key isn't excempt AND the text is longer than length stop the action.
-                                        if (excempt.indexOf(evt.which) === -1 && $elem.text().length > length) {
-                                            evt.preventDefault();
-                                            return false;
-                                        }
-                                    });
-                                }
+            <div class="profile-info">
+                <div class="info-col">
+
+                    <div class="profile-intro">
+                        <h3>О себе</h3>
+                        <div class="edit_intro">
+                            <i class='bx bxs-pencil'></i>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                // Excempt keys(arrows, del, backspace, home, end);
+                                var excempt = [37, 38, 39, 40, 46, 8, 36, 35];
+                                // Loop through every editiable thing
+                                $("[contenteditable='true']").each(function (index, elem) {
+                                    var $elem = $(elem);
+                                    // Check for a property called data-input-length="value" (<div contenteditiable="true" data-input-length="100">)
+                                    var length = $elem.data('input-length');
+                                    // Validation of value
+                                    if (!isNaN(length)) {
+                                        // Register keydown handler
+                                        $elem.on('keydown', function (evt) {
+                                            // If the key isn't excempt AND the text is longer than length stop the action.
+                                            if (excempt.indexOf(evt.which) === -1 && $elem.text().length > length) {
+                                                evt.preventDefault();
+                                                return false;
+                                            }
+                                        });
+                                    }
+                                });
                             });
-                        });
-                    </script>
-                    <p class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов" maxlength="55">Администратор и создатель сайта^_^</p>
+                        </script>
+                        <p class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов"
+                            maxlength="55">Администратор и создатель сайта^_^</p>
 
-                    <div class="confirm_edit"><i class='bx bx-check'></i></div>
-                    <hr>
-                    <ul>
-                        <a href="https://vk.com/mikuclub">
-                            <li><i class='bx bx-briefcase'></i>MIKUCLUB</li>
-                        </a>
-                        <li><i class='bx bxs-graduation'></i>МГТУ</li>
-                        <li><i class='bx bx-home-alt'></i>Sapporo</li>
-                        <li><i class='bx bx-map'></i>Tokyo</li>
+                        <div class="confirm_edit"><i class='bx bx-check'></i></div>
+                        <hr>
+                        <ul>
+                            <a href="https://vk.com/mikuclub">
+                                <li><i class='bx bx-briefcase'></i>MIKUCLUB</li>
+                            </a>
+                            <li><i class='bx bxs-graduation'></i>МГТУ</li>
+                            <li><i class='bx bx-home-alt'></i>Sapporo</li>
+                            <li><i class='bx bx-map'></i>Tokyo</li>
 
-                    </ul>
-                </div>
-                <div class="profile-intro">
-                    <div class="title-box">
-                        <h3>Фото</h3>
-                        <a href="#">Все</a>
+                        </ul>
                     </div>
-                    <!-- <div class="photo-box">
-                    <div><img src="/static/images/story1.jpg"></div>
-                    <div><img src="/static/images/story2.jpg"></div>
-                    <div><img src="/static/images/story3.jpg"></div>
-                    <div><img src="/static/images/story4.jpg"></div>
-                    <div><img src="/static/images/story5.jpg"></div>
-                    <div><img src="/static/images/post1.jpg"></div>
-                </div> -->
                 </div>
             </div>
             <div class="post-col" id="feed">
@@ -138,49 +128,61 @@
                             <small>Публично<i class='bx bx-caret-down'></i></small>
                         </div>
                     </div>
-
+        
                     <div class="post-input-container">
                         <textarea form="postForm" rows="3" placeholder="Что нового?" name="text"></textarea>
                         <form id="postForm" method="post" action="/feed/make_post">
                             {% csrf_token %}
-
-
-
+        
+        
+        
                             <div class="add-post-links">
-                                <a href="#"><i class='bx bx-video-plus' ></i>Видео</a>
-                                <a href="#"><i class='bx bx-image-add' ></i>Фото</a>
-                                <a href="#"><i class='bx bxs-file-plus' ></i>Файл</a>
-                                <a href="#"><i class='bx bx-music' ></i>Аудио</a>
-                                <a href="#"><i class='bx bx-map' ></i>Карта</a>
+                                <a href="#"><i class='bx bx-video-plus'></i>Видео</a>
+                                <a href="#"><i class='bx bx-image-add'></i>Фото</a>
+                                <a href="#"><i class='bx bxs-file-plus'></i>Файл</a>
+                                <a href="#"><i class='bx bx-music'></i>Аудио</a>
+                                <a href="#"><i class='bx bx-map'></i>Карта</a>
                                 <input type="submit" id="post-submit">
                             </div>
                         </form>
-
+        
                     </div>
-
+        
                 </div>
                 {% endif %}
-
+        
             </div>
         </div>
+       
+    
+        
+</div>
+</div>
+</div>
+    <!-- <button type="button" class="load-more-btn">Загрузить ещё</button> -->
 
-        <!-- <button type="button" class="load-more-btn">Загрузить ещё</button> -->
 
-
-        <div class="footer">
-            <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
-        </div>
-        <script src="/static/script.js"></script>
-        {% comment %}
-        <script src="/static/upload_avatar.js"></script> {% endcomment %}
-        <script type="text/javascript">
-            var user_id = "{{ user.id }}";
-        </script>
-        <!--    <script src="/static/feed_profile.js">-->
-        <script src="/static/feed.js"></script>
-        <script>
-            load_posts("now", user_id);
-        </script>
+    <div class="footer">
+        <p>©Copyright 2022 - MIKUCLUB - Mikufan's community.</p>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".options-icon-comment").click(function () {
+                $(".comment-dd-set").toggleClass("active");
+            })
+        });
+    </script>
+    <script src="/static/script.js"></script>
+    {% comment %}
+    <script src="/static/upload_avatar.js"></script> {% endcomment %}
+    <script type="text/javascript">
+        var user_id = "{{ user.id }}";
+    </script>
+    <!--    <script src="/static/feed_profile.js">-->
+    <script src="/static/feed.js"></script>
+    <script>
+        load_posts("now", user_id);
+    </script>
 </body>
 
 </html>

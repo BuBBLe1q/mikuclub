@@ -8,5 +8,5 @@ urlpatterns = [
     path("make_like", make_like),
     path("remove_post", delete_post),
     path("make_comment", make_comment),
-    path("delete_comment", delete_comment)
+    path("delete_comment", delete_comment),
 ]

@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     # 'cloudinary',
     'accounts',
     'api',
-    'feed'
+    'feed',
+    
+    
 ]
 
 MIDDLEWARE = [

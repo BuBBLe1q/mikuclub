@@ -23,9 +23,14 @@
     <div class="nav-right">
         <div class="search-box">
             <span class="material-icons-outlined">
-              search
           </span>
-            <input type="text" placeholder="Поиск...">
+          <form class="header__search" method="GET" action="{% url 'home' %}">
+            <label>
+          <title> </title>
+          
+        <input name="q" placeholder="Поиск по сайту..." />
+      </label>
+        </form>
         </div>
         <div class="nav-user-icon online" onclick="settingsMenuToggle()">
             {% if user.avatar %}

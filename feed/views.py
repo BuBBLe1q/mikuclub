@@ -4,6 +4,7 @@ import time
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
 
 from accounts.models import CustomUser
 from feed.Forms import PostForm
@@ -112,7 +113,7 @@ def make_like(request):
 
 @login_required
 def make_comment(request):
-    print("makecommnet")
+    # print("makecommnet")
     current_user = request.user
     if request.method == "POST":
         if request.POST["post_id"] is not None and request.POST["text"] is not None:
@@ -193,3 +194,4 @@ def delete_comment(request, post_id=None):
         else:
             return HttpResponseForbidden("")
     return HttpResponse(200)
+
