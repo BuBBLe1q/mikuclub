@@ -527,7 +527,7 @@ nav .nav-right .search-box {
     border-radius: 6px;
     padding: 20px;
     color: var(--text-color);
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .user-profile span {
@@ -812,8 +812,8 @@ nav .nav-right .search-box {
 }
 
 .cover-img {
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 5rem;
+    width: 50rem;
     border-radius: 6px;
     margin-bottom: 14px;
 }
@@ -821,8 +821,8 @@ nav .nav-right .search-box {
 .profile-details {
     background: var(--bg-color);
     padding: 20px;
-    width: 80%;
-    margin-left: 10%;
+    width: 50rem;
+    margin-left: 5rem;
     border-radius: 4px;
     display: flex;
     align-items: flex-start;
@@ -898,19 +898,20 @@ nav .nav-right .search-box {
 
 .profile-info {
     display: grid;
-    margin-left: 21.5%;
+    margin-left: 5rem;
     justify-content: space-between;
     margin-top: 20px;
 }
 
 .info-col {
     flex-basis: 34%;
-    width: 106.4%;
+    width: 50rem;
 }
 
 .post-col {
     flex-basis: 65%;
-    width: 106%;
+    margin-left: 22.3rem;
+    width: 50rem;
 }
 
 .profile-intro {

@@ -68,10 +68,10 @@ let template =
     "                    </div>\n" +
     "                </div>\n" +
     "           \n" +
-    '<div class="post-comment-form">\n' +
+    '</div><div class="post-comment-form">\n' +
     "<input type=\"text\" placeholder=\"Оставить комментарий\"><i class='bx bxs-send' onclick='make_comment(this, {6})'></i>\n" +
     "</div>" +
-    "            </div></div>";
+    "            </div>";
 
 let comment_template = `
 <!-- POST COMMENT -->
@@ -85,9 +85,9 @@ let comment_template = `
         <span>{4}</span>
         </div>
     </div>
-<div class="options-icon-comment">
+    <div class="options-icon-comment">
     <i class='bx bx-dots-vertical-rounded'></i>
-</div>
+    </div>
 
 </div>
 

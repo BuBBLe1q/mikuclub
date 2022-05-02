@@ -517,13 +517,13 @@ nav .nav-right .search-box {
 }
 
 .post-comment {
+    margin-top: 5px;
     width: 100%;
     background: var(--bg-color);
-    border-radius: 0px;
+    border-radius: 5px;
     padding: 20px;
     color: var(--text-color);
     margin-bottom: 0px;
-    border-top: 1px solid var(--icon-color);
 }
 
 .comment-dd-set {
@@ -1224,6 +1224,9 @@ nav .nav-right .search-box {
     color: var(--text-color);
     border-radius: 20px;
     transition: 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 74px;
 }
 
 #post-submit:hover {
@@ -1234,6 +1237,9 @@ nav .nav-right .search-box {
     color: #fff;
     border-radius: 20px;
     transition: 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 74px;
 }
 
 h3.text-3xl.sm\:text-4xl.leading-normal.font-extrabold.tracking-tight.text-fuchsia-500.capitalize {
