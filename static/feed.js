@@ -20,8 +20,7 @@ xhr.onreadystatechange = function() {
                     post.like_count, //5
                     post.post_id, //6
                     post.is_liked ? "bx bxs-heart" : "bx bx-heart", //7
-                    post.comment_count, //8
-                    post.comment.id, //9
+                    post.comment_count //8
                 );
                 document.getElementById("feed").innerHTML += postHTML;
                 post_elem = document.getElementById("post_container" + post.post_id);
@@ -93,6 +92,11 @@ let comment_template = `
 </div>
 
 <p class="post-text">{3}</p>
+
+    <form method="GET">
+        <input type="button" class="load_more_comments" value="Показать все комментарии">
+    </form>
+
 
 <div class="comment-dd-set">
     <div class="edit-comment">

@@ -7,7 +7,7 @@ from accounts.models import CustomUser
 class Post(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
     text = models.TextField(max_length=200)
-    post_time = models.DateTimeField(auto_now=True)
+    post_time = models.DateTimeField(auto_now_add=True)
     
 
     like_count = models.IntegerField(default=0)
@@ -37,7 +37,7 @@ class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField(max_length=100)
-    comment_time = models.DateTimeField(auto_now=True)
+    comment_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         indexes = [

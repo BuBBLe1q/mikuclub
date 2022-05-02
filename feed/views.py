@@ -144,7 +144,7 @@ def make_comment(request):
 
 def query_comments(post_id):
     comments = []
-    for comment_raw in Comment.objects.filter(post=post_id).order_by("-comment_time").values():
+    for comment_raw in Comment.objects.filter(post=post_id).order_by("-comment_time")[:1].values():
         # print(comment_raw)
         user = CustomUser.objects.get(pk=comment_raw['user_id'])
         ava = None

@@ -32,7 +32,11 @@ body {
     background: var(--body-color);
     transition: background 0.3s;
 }
-
+@-moz-document url-prefix() {
+    nav {
+        background: var(--nav-color);
+    }
+}
 nav {
     -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
@@ -434,8 +438,11 @@ nav .nav-right .search-box {
 
 .user-profile img {
     width: 50px;
+    height: 50px;
+    overflow: hidden;
+    object-fit: cover;
+    margin-right: 1rem;
     border-radius: 50px;
-    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -839,6 +846,14 @@ nav .nav-right .search-box {
     margin-right: 20px;
     border-radius: 6px;
 }
+img.pd-image{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 50px;
+    cursor: pointer;
+}
 
 .pd-row div h3 {
     font-size: 25px;
@@ -930,7 +945,7 @@ nav .nav-right .search-box {
 .intro-text {
     text-align: left;
     color: #757575;
-    font-size: 10px;
+    font-size: 17px;
     margin-top: 5px;
 }
 
@@ -1020,12 +1035,29 @@ nav .nav-right .search-box {
     position: absolute;
     width: 210px;
     z-index: 99;
-    margin-left: 495px;
+    margin-left: 34rem;
     color: var(--text-color);
     height: 100px;
     visibility: visible;
     opacity: 1;
     transition: visibility 0.2s, opacity 0.2s;
+}
+
+.load_more_comments{
+    height: 2rem;
+    border: 1px solid var(--icon-color);
+    border-radius: 1rem;
+    color: var(--text-color);
+    background: transparent;
+    transition: 0.3s;
+    justify-content: center;
+    margin-left: 16.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.load_more_comments:hover{
+    background: var(--icon-color);
+    transition: 0.3s;
 }
 
 

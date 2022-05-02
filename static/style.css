@@ -32,9 +32,12 @@ body {
     background: var(--body-color);
     transition: background 0.3s;
 }
-
+@-moz-document url-prefix() {
+    nav {
+        background: var(--nav-color);
+    }
+}
 nav {
-    -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
     box-shadow: -0.25rem -0.25rem 0.5rem rgba(255, 255, 255, 0.07), 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.12), -0.75rem -0.75rem 1.75rem rgba(255, 255, 255, 0.07), 0.75rem 0.75rem 1.75rem rgba(0, 0, 0, 0.12), inset 8rem 8rem 8rem rgba(0, 0, 0, 0.05), inset -8rem -8rem 8rem rgba(255, 255, 255, 0.05);
     display: flex;
@@ -1279,6 +1282,22 @@ a.text-gray-100.text-sm {
 .mx-auto.max-w-xl hr{
     border-top-width: 1px;
     border-color: var(--icon-color);
+}
+.load_more_comments{
+    height: 2rem;
+    border: 1px solid var(--icon-color);
+    border-radius: 1rem;
+    color: var(--text-color);
+    background: transparent;
+    transition: 0.3s;
+    justify-content: center;
+    margin-left: 12.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.load_more_comments:hover{
+    background: var(--icon-color);
+    transition: 0.3s;
 }
 
 
