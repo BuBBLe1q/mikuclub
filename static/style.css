@@ -1262,6 +1262,25 @@ a.text-gray-100.text-sm {
     color: var(--icon-color);
 }
 
+/* EVENTS PAGE */
+
+.py-24.px-10.max-w-screen-xl.mx-auto{
+    border-radius: 20px;
+    background: var(--bg-color);
+}
+.py-24{
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+.max-w-screen-xl{
+    max-width: 900px!important;
+}
+.mx-auto.max-w-xl hr{
+    border-top-width: 1px;
+    border-color: var(--icon-color);
+}
+
 
 /* Media query for index */
 

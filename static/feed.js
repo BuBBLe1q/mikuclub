@@ -20,7 +20,8 @@ xhr.onreadystatechange = function() {
                     post.like_count, //5
                     post.post_id, //6
                     post.is_liked ? "bx bxs-heart" : "bx bx-heart", //7
-                    post.comment_count //8
+                    post.comment_count, //8
+                    post.comment.id, //9
                 );
                 document.getElementById("feed").innerHTML += postHTML;
                 post_elem = document.getElementById("post_container" + post.post_id);
