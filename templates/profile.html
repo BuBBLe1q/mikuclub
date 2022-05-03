@@ -99,10 +99,10 @@
                                 });
                             });
                         </script>
-                        <p class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов"
-                            maxlength="55">Администратор и создатель сайта^_^</p>
+                        <p id="profile-bio-input" class="intro-text" data-input-length="55" contenteditable="true" title="Не более 55 символов"
+                            maxlength="55">{{ user.bio }}</p>
 
-                        <div class="confirm_edit"><i class='bx bx-check'></i></div>
+                        <div class="confirm_edit"><i class='bx bx-check' onclick="update_bio()"></i></div>
                         <hr>
                         <ul>
                             <a href="https://vk.com/mikuclub">
@@ -173,8 +173,8 @@
         });
     </script>
     <script src="/static/script.js"></script>
-    {% comment %}
-    <script src="/static/upload_avatar.js"></script> {% endcomment %}
+
+    <script src="/static/profile.js"></script>
     <script type="text/javascript">
         var user_id = "{{ user.id }}";
     </script>

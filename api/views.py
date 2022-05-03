@@ -1,8 +1,9 @@
 import time
 
 import django.http
+from django.contrib.auth.decorators import login_required
 from django.core.files.images import get_image_dimensions
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render
 
 
@@ -15,24 +16,14 @@ def upload_avatar(request):
     current_user = request.user
     if request.method == "POST" and current_user.is_authenticated:
         image = request.FILES["file"]
-        # print(.name)
-
-        # if request.FILES["file"].size > 204800:
-        #     return HttpResponse("image to big", 403)
-
-        # print("size", django.core.files.images.get_image_dimensions(request.FILES["file"]))
 
         if image.size > 5120000:
-            # response = HttpResponse("image to big", content_type='text/plain')
-            # response.status_code = 403
             return django.http.HttpResponseBadRequest("image to big")
 
         dim = get_image_dimensions(image)
 
         if dim[0] > 1500 or dim[1] > 1500:
-            response = HttpResponse("image to big", content_type='text/plain')
-            # response.status_code = 403
-            return django.http.HttpResponseBadRequest("image to big")
+            return HttpResponseBadRequest("image to big")
 
         image.name = str(round(time.time())) + current_user.username
 
@@ -44,3 +35,13 @@ def upload_avatar(request):
     else:
         print("error")
     return HttpResponse("", 200)
+
+
+@login_required
+def update_bio(request):
+    current_user = request.user
+    if request.method == "POST" and request.POST["text"] is not None:
+        current_user.bio = request.POST["text"]
+        current_user.save()
+        return HttpResponse()
+    return HttpResponseBadRequest()
