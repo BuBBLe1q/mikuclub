@@ -30,11 +30,17 @@ def get_post(request):
     if request.method == "GET" and current_user.is_authenticated:
 
         posts = []
-        if request.GET.get('user_id') is None:
-            posts_raw = Post.objects.order_by("-post_time")[:10].values()
-        else:
-            posts_raw = Post.objects.filter(user=request.GET.get(
-                'user_id')).order_by("-post_time")[:10].values()
+        # if request.GET.get('user_id') is None:
+        #     posts_raw = Post.objects.order_by("-post_time")[:10].values()
+        # else:
+        #     posts_raw = Post.objects.filter(user=request.GET.get(
+        #         'user_id')).order_by("-post_time")[:10].values()
+        posts_raw = Post.objects
+        if request.GET.get('user_id') is not None:
+            posts_raw = posts_raw.filter(user=request.GET.get('user_id'))
+        if request.GET.get('time') is not None and request.GET.get('time') != "now":
+            posts_raw = posts_raw.filter(post_time__lt=datetime.datetime.fromtimestamp(float(request.GET.get('time'))/1000))
+        posts_raw = posts_raw.order_by("-post_time")[:10].values()
         for post_raw in posts_raw:
             user = CustomUser.objects.get(pk=post_raw["user_id"])
             ava = None

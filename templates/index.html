@@ -48,6 +48,11 @@
     </script>
     <script src="/static/script.js"></script>
     <script src="/static/feed.js"></script>
+    <script type="text/javascript">
+        var user_id = null;
+        var cookie = document.cookie;
+        var csrfToken = cookie.substring(cookie.indexOf("=") + 1);
+    </script>
     <script>
         load_posts("now", null);
     </script>

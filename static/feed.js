@@ -1,9 +1,9 @@
 let xhr = new XMLHttpRequest();
 
-let cookie = document.cookie;
-let csrfToken = cookie.substring(cookie.indexOf("=") + 1);
+
 let commnet_lock = false;
 let like_lock = false;
+let last_post_time = null;
 
 function padTo2Digits(num) {
   return num.toString().padStart(2, '0');
@@ -28,6 +28,7 @@ xhr.onreadystatechange = function() {
         if (xhr.status === 200) {
             posts = JSON.parse(xhr.responseText);
             console.log(posts);
+            last_post_time = posts[posts.length - 1].post_time;
             posts.forEach(function(post, i, arr) {
 
                 postHTML = template.format(
@@ -55,10 +56,13 @@ xhr.onreadystatechange = function() {
                 });
                 // document.getElementById("post_container" + post.post_id).innerHTML +=
             });
-            // add_comments()
         }
     }
 };
+
+function add_posts(posts){
+
+}
 
 let template =
     '<div id="post_container{6}"><div  class="post-container">\n' +
@@ -236,4 +240,16 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
             this[i].parentElement.removeChild(this[i]);
         }
     }
+};
+
+window.onscroll = function () {
+    let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+    // console.log(windowRelativeBottom + " " + );
+    if(Math.abs(windowRelativeBottom - document.documentElement.clientHeight) <= 1){
+        // console.log(last_post_time);
+        load_posts(last_post_time,user_id);
+    }
+    // if (windowRelativeBottom === document.documentElement.clientHeight){
+    //     console.log("test");
+    // }
 };

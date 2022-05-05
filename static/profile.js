@@ -1,7 +1,7 @@
 
 
-let cookie = document.cookie;
-let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
+// let cookie = document.cookie;
+// let csrfToken = cookie.substring(cookie.indexOf('=') + 1);
 function update_avatar(input) {
     let xhr = new XMLHttpRequest();
     let formData = new FormData();
