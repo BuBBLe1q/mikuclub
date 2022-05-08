@@ -34,6 +34,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     avatar = models.ImageField(default='user.png', upload_to="avatars/", blank=True)
 
+    bio = models.TextField(max_length=55, default="kappa", blank=True)
+
     is_staff = models.BooleanField(
         default=False,
         help_text="Designates whether the user can log into this admin site.",

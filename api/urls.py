@@ -1,8 +1,8 @@
 from django.urls import path
 
-from api.views import upload_avatar
+from api.views import upload_avatar, update_bio
 
 urlpatterns = [
-    # path("signup/", SignUpView.as_view(), name="signup"),
-    path("test", upload_avatar)
+    path("upload_avatar", upload_avatar),
+    path("update_bio", update_bio)
 ]
