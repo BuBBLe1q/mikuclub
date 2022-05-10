@@ -1,20 +1,40 @@
 let xhr = new XMLHttpRequest();
 
-let cookie = document.cookie;
-let csrfToken = cookie.substring(cookie.indexOf("=") + 1);
+
 let commnet_lock = false;
 let like_lock = false;
+let last_post_time = null;
+
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
+function format_date(unix_d){
+    let date = new Date(unix_d);
+    let offset = new Date().getTimezoneOffset();
+    let date_str =
+        date.getFullYear() + "." +
+        padTo2Digits((date.getMonth() + 1)) + "." +
+        padTo2Digits(date.getDate()) + " " +
+        date.toLocaleDateString(undefined, {
+            weekday: 'short',
+        }) + " " +
+        padTo2Digits(date.getHours()) + ":" + padTo2Digits(date.getMinutes());
+    return date_str;
+}
 
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
         if (xhr.status === 200) {
             posts = JSON.parse(xhr.responseText);
             console.log(posts);
+            last_post_time = posts[posts.length - 1].post_time;
             posts.forEach(function(post, i, arr) {
+
                 postHTML = template.format(
                     post.user.name, //0
                     post.user.avatar_url, //1
-                    post.post_time, //2
+                    format_date(post.post_time), //2
                     post.text, //3
                     post.user.profile_url, //4
                     post.like_count, //5
@@ -30,16 +50,19 @@ xhr.onreadystatechange = function() {
                         comment.user.profile_url, //1
                         comment.user.name, //2
                         comment.text, //3
-                        comment.comment_time //4
+                        format_date(comment.comment_time) //4
                     );
                     post_elem.innerHTML += commentHTML;
                 });
                 // document.getElementById("post_container" + post.post_id).innerHTML +=
             });
-            // add_comments()
         }
     }
 };
+
+function add_posts(posts){
+
+}
 
 let template =
     '<div id="post_container{6}"><div  class="post-container">\n' +
@@ -126,7 +149,7 @@ function make_comment(elem, post_id) {
                     comment.user.profile_url, //1
                     comment.user.name, //2
                     comment.text, //3
-                    comment.comment_time //4
+                    format_date(comment.comment_time) //4
                 );
                 document.getElementById("post_container" + post_id).innerHTML +=
                     commentHTML;
@@ -222,4 +245,16 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
             this[i].parentElement.removeChild(this[i]);
         }
     }
+};
+
+window.onscroll = function () {
+    let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+    // console.log(windowRelativeBottom + " " + );
+    if(Math.abs(windowRelativeBottom - document.documentElement.clientHeight) <= 1){
+        // console.log(last_post_time);
+        load_posts(last_post_time,user_id);
+    }
+    // if (windowRelativeBottom === document.documentElement.clientHeight){
+    //     console.log("test");
+    // }
 };

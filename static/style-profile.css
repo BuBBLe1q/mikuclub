@@ -37,6 +37,8 @@ body {
         background: var(--nav-color);
     }
 }
+
+
 nav {
     -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
@@ -1524,7 +1526,7 @@ img.pd-image{
     }
     .profile-details input {
         margin-top: 5%;
-        margin-left: 0%;
+        margin-left: -12rem;
     }
 }
 

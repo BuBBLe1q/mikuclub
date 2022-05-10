@@ -1,3 +1,6 @@
+import datetime
+import time
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseForbidden, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
@@ -27,11 +30,17 @@ def get_post(request):
     if request.method == "GET" and current_user.is_authenticated:
 
         posts = []
-        if request.GET.get('user_id') is None:
-            posts_raw = Post.objects.order_by("-post_time")[:10].values()
-        else:
-            posts_raw = Post.objects.filter(user=request.GET.get(
-                'user_id')).order_by("-post_time")[:10].values()
+        # if request.GET.get('user_id') is None:
+        #     posts_raw = Post.objects.order_by("-post_time")[:10].values()
+        # else:
+        #     posts_raw = Post.objects.filter(user=request.GET.get(
+        #         'user_id')).order_by("-post_time")[:10].values()
+        posts_raw = Post.objects
+        if request.GET.get('user_id') is not None:
+            posts_raw = posts_raw.filter(user=request.GET.get('user_id'))
+        if request.GET.get('time') is not None and request.GET.get('time') != "now":
+            posts_raw = posts_raw.filter(post_time__lt=datetime.datetime.fromtimestamp(float(request.GET.get('time'))/1000))
+        posts_raw = posts_raw.order_by("-post_time")[:10].values()
         for post_raw in posts_raw:
             user = CustomUser.objects.get(pk=post_raw["user_id"])
             ava = None
@@ -42,6 +51,8 @@ def get_post(request):
 
             is_liked = Likes.objects.filter(
                 user_id=current_user, post_id=post_raw['id']).exists()
+            # print(time.mktime(post_raw['post_time']))
+            # print(datetime.datetime.timestamp(post_raw['post_time'])*1000)
             post = {
                 "post_id": post_raw['id'],
                 "user": {
@@ -50,7 +61,10 @@ def get_post(request):
                     "profile_url": "/profile?id=" + str(user.id)
                 },
                 "text": post_raw['text'],
-                "post_time": post_raw['post_time'],
+                # "text": datetime.datetime.timestamp(post_raw['text'])*1000,
+                # "text": time.mktime(post_raw['text']),
+                # "post_time": post_raw['post_time'],
+                "post_time": datetime.datetime.timestamp(post_raw['post_time'])*1000,
                 "like_count": post_raw['like_count'],
                 "comment_count": post_raw['comment_count'],
                 "is_liked": is_liked,
@@ -137,7 +151,7 @@ def make_comment(request):
                     "profile_url": "/profile?id=" + str(current_user.id)
                 },
                 "text": text,
-                "comment_time": comment.comment_time
+                "comment_time": datetime.datetime.timestamp(comment.comment_time) * 1000
             })
     return HttpResponseBadRequest()
 
@@ -159,7 +173,7 @@ def query_comments(post_id):
                 "profile_url": "/profile?id=" + str(user.id)
             },
             "text": comment_raw['text'],
-            "comment_time": comment_raw['comment_time']
+            "comment_time": datetime.datetime.timestamp(comment_raw['comment_time']) * 1000,
         }
         comments.append(comment)
     return comments
